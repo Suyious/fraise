@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.boxwidth {
+  width: 85%;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav__content {
+  /* margin-top: 1em; */
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__logo h1{
+  font-weight: 100;
+  font-size: 1.8rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav__logo{
+  cursor: pointer;
+}
+
+.nav__tagline h2{
+  font-weight: 100;
+  font-size: 1.5rem;
+  margin-top: 0.5em;
+  margin-left: 5em;
+}
+
+.nav__links {
+  display: flex;
+  list-style: none;
+}
+
+.nav__link {
+  font-weight: 100;
+  font-size: 1.3em;
+  padding: 1em 1em 0.5em 1em;
+  cursor: pointer;
+  border-bottom: solid 1px transparent;
+  transition: all 300ms ease;
+}
+
+.nav__link:hover{
+  border-bottom: solid 1px #ffffff;
+  background: #ffffff31;
+}
+
+.BigSearch__searchbox{
+  display: flex;
+  height: 75vh;
+  margin: auto;
+}
+
+.BigSearch__input{
+  background: transparent;
+  display: flex;
+  width: fit-content;
+  outline: none;
+  border: none;
+  font-family: Roboto, sans-serif;
+  font-weight: 200;
+  font-size: 5em;
+  margin: auto;
+  text-align: center;
+  border-bottom: solid 2px #ffffff69;
+  color: #ffffffb9;
+}
+
+.BigSearch__input::placeholder{
+  color: #ffffff69;
+}
+
+.background__card {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.background__img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.background__card::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.38);
+
 }
