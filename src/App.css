@@ -10,6 +10,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+*::selection {
+  background: #ffffff31;
+}
+
 .boxwidth {
   width: 85%;
   margin: auto;
@@ -23,16 +27,16 @@
   color: #ffffff;
 }
 
-.nav__logo h1{
+.nav__logo h1 {
   font-weight: 100;
   font-size: 1.8rem;
 }
 
-.nav__logo{
+.nav__logo {
   cursor: pointer;
 }
 
-.nav__tagline h2{
+.nav__tagline h2 {
   font-weight: 100;
   font-size: 1.5rem;
   margin-top: 0.5em;
@@ -53,18 +57,18 @@
   transition: all 300ms ease;
 }
 
-.nav__link:hover{
+.nav__link:hover {
   border-bottom: solid 1px #ffffff;
   background: #ffffff31;
 }
 
-.BigSearch__searchbox{
+.BigSearch__searchbox {
   display: flex;
   height: 75vh;
   margin: auto;
 }
 
-.BigSearch__input{
+.BigSearch__input {
   background: transparent;
   display: flex;
   width: fit-content;
@@ -79,7 +83,11 @@
   color: #ffffffb9;
 }
 
-.BigSearch__input::placeholder{
+.BigSearch__input::selection {
+  background: #ffffff31;
+}
+
+.BigSearch__input::placeholder {
   color: #ffffff69;
 }
 
@@ -98,13 +106,29 @@
   object-fit: cover;
 }
 
-.background__card::after{
+.background__card::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.38);
+  background: rgba(0, 0, 0, 0.473);
+}
 
+.background__card__blog {
+  position: absolute;
+  display: flex;
+  margin: auto;
+  bottom: 8em;
+}
+
+.background__card__blog p {
+  width: 70%;
+  margin: auto;
+  font-size: 1.3rem;
+  font-weight: 100;
+  color: #ffffffe8;
+  z-index: 1;
+  text-align: center;
 }
