@@ -64,7 +64,7 @@
 
 .BigSearch__searchbox {
   display: flex;
-  height: 75vh;
+  height: 70vh;
   margin: auto;
 }
 
@@ -72,6 +72,7 @@
   background: transparent;
   display: flex;
   width: fit-content;
+  max-width: 100%;
   outline: none;
   border: none;
   font-family: Roboto, sans-serif;
@@ -100,6 +101,8 @@
   height: 100vh;
 }
 
+
+
 .background__img {
   width: 100%;
   height: 100vh;
@@ -121,6 +124,8 @@
   display: flex;
   margin: auto;
   bottom: 8em;
+  width: 100%;
+  z-index: 2;
 }
 
 .background__card__blog p {
@@ -131,4 +136,74 @@
   color: #ffffffe8;
   z-index: 1;
   text-align: center;
+}
+
+.background__card__blog a {
+  color: #e0e0e0;
+}
+
+.background__buttons {
+  position: absolute;
+  bottom: 1em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.background__button {
+  margin-right: 1em;
+}
+
+.button_circle {
+  margin-right: 0.5em;
+}
+
+.button_circle:last-child {
+  margin-right: 0;
+}
+
+.button_circles {
+  display: flex;
+}
+
+.left_button,
+.right_button,
+.button_circle {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .BigSearch__input {
+    font-size: 4em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .BigSearch__input {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .BigSearch__input {
+    font-size: 2.5em;
+  }
+
+  .background__card__blog {
+    bottom: 4em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  :root {
+    font-size: 11px;
+  }
 }
