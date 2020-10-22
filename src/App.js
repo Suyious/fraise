@@ -9,22 +9,53 @@ function App() {
     {
       background:
         "https://images.unsplash.com/photo-1602008672365-f4c4244c8034?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80",
-      credits:
-        <span>Photo by <a href="https://unsplash.com/@jrfarren316?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jr. Farren</a> on <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>,
+      credits: (
+        <span>
+          Photo by{" "}
+          <a href="https://unsplash.com/@jrfarren316?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Jr. Farren
+          </a>{" "}
+          on{" "}
+          <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Unsplash
+          </a>
+        </span>
+      ),
     },
     {
       background:
         "https://images.unsplash.com/photo-1602066642177-83bdd34ee8f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-      credits:
-        <span>Photo by <a href="https://unsplash.com/@miguelmendes?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Miguel Mendes</a> on <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>,
+      credits: (
+        <span>
+          Photo by{" "}
+          <a href="https://unsplash.com/@miguelmendes?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Miguel Mendes
+          </a>{" "}
+          on{" "}
+          <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Unsplash
+          </a>
+        </span>
+      ),
     },
     {
       background:
         "https://images.unsplash.com/photo-1597073591683-0c4b9355d9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-      credits:
-        <span>Photo by <a href="https://unsplash.com/@__hitanshu?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Hitanshu Patel</a> on <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>,
+      credits: (
+        <span>
+          Photo by{" "}
+          <a href="https://unsplash.com/@__hitanshu?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Hitanshu Patel
+          </a>{" "}
+          on{" "}
+          <a href="https://unsplash.com/t/nature?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            Unsplash
+          </a>
+        </span>
+      ),
     },
   ]);
+
   const [background, setBackground] = useState(0);
 
   const previousSlide = () => {
@@ -34,10 +65,41 @@ function App() {
   };
 
   const nextSlide = () => {
-    if (background < backgroundArray.length-1) {
+    if (background < backgroundArray.length - 1) {
       setBackground(background + 1);
     }
   };
+
+  // useEffect(() => {
+  //   window.addEventListener(
+  //     "wheel",
+  //     (e) => {
+  //       if (
+  //         e.deltaY >= 125 &&
+  //         e.deltaY < 1000 &&
+  //         background < backgroundArray.length - 1
+  //       ) {
+  //         console.log(e.deltaY);
+  //         nextSlide();
+
+  //       } else if (e.deltaY <= -125 && e.deltaY > -1000 && background > 0) {
+  //         console.log(e.deltaY);
+  //         previousSlide();
+
+  //       }
+  //     },
+  //     { passive: false }
+  //   );
+  // return () => {
+  //   document.addEventListener("wheel", (e) => {
+  //     if (e.deltaY >= 125) {
+  //       nextSlide();
+  //     } else if (e.deltaY <= -125) {
+  //       previousSlide();
+  //     }
+  //   });
+  // };
+  // });
 
   return (
     <div className="App">
@@ -53,9 +115,7 @@ function App() {
               alt="nature"
             />
             <div className="background__card__blog">
-              <p>
-                {backgroundArray[background].credits}
-              </p>
+              <p>{backgroundArray[background].credits}</p>
             </div>
           </div>
         </div>
@@ -113,7 +173,7 @@ function App() {
               </svg>
             </div>
           </div>
-          <div onClick={nextSlide} className="background___button right_button">
+          <div onClick={nextSlide} className="background__button right_button">
             <svg
               width="7"
               height="12"
