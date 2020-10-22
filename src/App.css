@@ -14,6 +14,10 @@
   background: #ffffff31;
 }
 
+body{
+  background: rgb(19, 19, 19);
+}
+
 .boxwidth {
   width: 85%;
   margin: auto;
@@ -101,7 +105,9 @@
   height: 100vh;
 }
 
-
+*::-webkit-scrollbar {
+  display: none;
+}
 
 .background__img {
   width: 100%;
@@ -169,7 +175,6 @@
 .button_circles {
   display: flex;
 }
-
 
 .left_button,
 .right_button,

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import BigSearch from "./BigSearch";
 import Nav from "./Nav";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [backgroundArray, setBackgroundArray] = useState([
@@ -108,16 +109,23 @@ function App() {
       {/* <h1 style={{ zIndex: 2, color: "white" }}>{background}</h1> */}
       <div className="background">
         <div className="background__cards">
-          <div className="background__card">
-            <img
-              className={"background__img"}
-              src={backgroundArray[background].background}
-              alt="nature"
-            />
-            <div className="background__card__blog">
-              <p>{backgroundArray[background].credits}</p>
+          <AnimatePresence>
+            <div className="background__card">
+              <motion.img
+                key={backgroundArray[background].background}
+                className={"background__img"}
+                src={backgroundArray[background].background}
+                alt="nature"
+                initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                exitBeforeEnter
+              />
+              <div className="background__card__blog">
+                <p>{backgroundArray[background].credits}</p>
+              </div>
             </div>
-          </div>
+          </AnimatePresence>
         </div>
         <div className="background__buttons">
           <div
