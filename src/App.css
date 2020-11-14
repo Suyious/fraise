@@ -14,7 +14,7 @@
   background: #ffffff31;
 }
 
-body{
+body {
   background: rgb(19, 19, 19);
 }
 
@@ -60,6 +60,12 @@ body{
   border-bottom: solid 1px transparent;
   transition: all 300ms ease;
 }
+
+.nav a{
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .nav__link:hover {
   border-bottom: solid 1px #ffffff;
@@ -166,6 +172,7 @@ body{
 .button_circle {
   padding: 0.5em;
   margin-right: 0.2em;
+  margin-bottom: 0.35em;
 }
 
 .button_circle:last-child {
@@ -176,10 +183,20 @@ body{
   display: flex;
 }
 
+.left_button svg,
+.right_button svg {
+  width: 20px;
+  height: 20px;
+}
+
 .left_button,
 .right_button,
 .button_circle {
   cursor: pointer;
+}
+
+.Blogs h1{
+  color: #e0e0e0;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -215,3 +232,4 @@ body{
     font-size: 11px;
   }
 }
+
