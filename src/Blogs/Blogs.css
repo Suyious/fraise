@@ -1,0 +1,112 @@
+
+
+.Blogs {
+  background: #ecedf9;
+  min-height: 100vh;
+}
+
+.Blogs .nav .nav__link a,
+.Blogs .nav .nav__logo a h1 {
+  color: #000;
+}
+
+.Blogs .nav .nav__link:hover {
+  border-bottom: solid 2px #000c33;
+  background: #1e094e15;
+}
+
+.Blogs h1 {
+  font-weight: 300;
+  color: #000;
+  padding-right: 1em;
+}
+
+.Blogs_topbar,
+.Blogs_topbar_sections {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: baseline;
+}
+
+.Blogs_topbar_section {
+  list-style: none;
+  padding: 0 1.5em 0.8em 1.5em;
+  font-weight: 100;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.Blogs_topbar_section:hover {
+  border-bottom: 2px solid #000c33;
+}
+
+.Blogs_columns {
+  display: flex;
+  margin-top: 1em;
+}
+
+.Blogs_column {
+  margin-right: 1em;
+  width: 33%;
+}
+
+.Blog_Card{
+    position: relative;
+    margin-bottom: 0.8em;
+    cursor: pointer;
+    
+}
+
+.Blog_Card img {
+  object-fit: contain;
+  width: 100%;
+  display: block;
+}
+
+.Blog_Card::after {
+  /* content: ""; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: rgba(0, 0, 0, 0.397);
+  width: 100%;
+  height: 100%;
+  transition: all 100ms ease;
+}
+
+.Blog_Card:hover::after{
+    content: "";
+}
+
+.Blog_Card_description{
+    display: none;
+    position: absolute;
+    top: 1em;
+    left: 2em;
+    z-index: 1;
+    color: white;
+}
+
+.Blog_Card a{
+    display: none;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+    z-index: 2;
+    font-size: 0.9em;
+}
+
+.Blog_Card a:hover{
+    text-decoration: underline;
+}
+
+.Blog_Card:hover .Blog_Card_description{
+    display: block;
+}
+
+.Blog_Card:hover a{
+    display: block;
+}

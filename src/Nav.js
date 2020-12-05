@@ -12,8 +12,8 @@ function Nav() {
         </div>
         <ul className="nav__links">
           <li className="nav__link"><Link to="/fraise/blogs">blogs</Link></li>
-          <li className="nav__link"><Link to="/blogs">login</Link></li>
-          <li className="nav__link"><Link to="/blogs">signup</Link></li>
+          <li className="nav__link"><Link to="/fraise/login">login</Link></li>
+          <li className="nav__link"><Link to="/fraise/signup">signup</Link></li>
         </ul>
       </div>
     </div>

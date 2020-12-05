@@ -4,7 +4,7 @@ import BigSearch from "./BigSearch";
 import { motion, AnimatePresence } from "framer-motion";
 import Credits from "./Credits";
 import axios from "./axios";
-
+import Nav from "./Nav";
 
 function Home() {
   const [backgroundArray, setBackgroundArray] = useState([]);
@@ -30,7 +30,8 @@ function Home() {
   };
 
   return (
-    <div className="App">
+    <div className="Home">
+      <Nav />
       <BigSearch />
       <div className="background">
         <div className="background__cards">
@@ -40,7 +41,7 @@ function Home() {
                 key={backgroundArray[background]?.background}
                 className={"background__img"}
                 src={backgroundArray[background]?.background}
-                alt="nature"
+
                 initial={{ opacity: 0, x: 200 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0 }}
@@ -52,7 +53,6 @@ function Home() {
                   photolink={backgroundArray[background]?.photolink}
                   credit={backgroundArray[background]?.credit}
                 />
-                {/* <p>{backgroundArray[background].credits}</p> */}
               </div>
             </div>
           </AnimatePresence>
@@ -77,39 +77,45 @@ function Home() {
             </svg>
           </div>
           <div className="background__button button_circles">
-            <div className="button_circle">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6.5" cy="6.5" r="6.5" fill="#DCDCDC" />
-              </svg>
-            </div>
-            <div className="button_circle">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6.5" cy="6.5" r="6.5" fill="#DCDCDC" />
-              </svg>
-            </div>
-            <div className="button_circle">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="6.5" cy="6.5" r="6.5" fill="#DCDCDC" />
-              </svg>
-            </div>
+            {backgroundArray.map((backgr) => {
+              if (
+                backgr.background === backgroundArray[background]?.background
+              ) {
+                return (
+                  <div className="button_circle">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 13 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="6.5" cy="6.5" r="6.5" fill="#DCDCDC" />
+                    </svg>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="button_circle">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 13 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="6.5"
+                        cy="6.5"
+                        r="6.5"
+                        fill="#DCDCDC"
+                        fill-opacity="0.5"
+                      />
+                    </svg>
+                  </div>
+                );
+              }
+            })}
           </div>
           <div onClick={nextSlide} className="background__button right_button">
             <svg
