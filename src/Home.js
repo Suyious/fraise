@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import BigSearch from "./BigSearch";
-import { motion, AnimatePresence } from "framer-motion";
 import Credits from "./Credits";
 import axios from "./axios";
 import Nav from "./Nav";
@@ -35,17 +34,12 @@ function Home() {
       <BigSearch />
       <div className="background">
         <div className="background__cards">
-          <AnimatePresence>
             <div className="background__card">
-              <motion.img
+              <img
                 key={backgroundArray[background]?.background}
                 className={"background__img"}
                 src={backgroundArray[background]?.background}
-
-                initial={{ opacity: 0, x: 200 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0 }}
-                exitBeforeEnter
+                alt="background"
               />
               <div className="background__card__blog">
                 <Credits
@@ -55,7 +49,6 @@ function Home() {
                 />
               </div>
             </div>
-          </AnimatePresence>
         </div>
         <div className="background__buttons">
           <div
