@@ -1,0 +1,28 @@
+.form input,
+.form button{
+    background: none;
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.auth_input{
+    background: rgba(81, 81, 81, 0.589);
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+}
+
+.auth_input input{
+    color: white;
+}
+
+.auth_button button{
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    background: rgba(255, 255, 255, 0.882);
+}
+
+.auth_bottom{
+    text-align: center;
+    color: white;
+}

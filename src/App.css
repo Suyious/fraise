@@ -16,91 +16,22 @@
 
 body {
   background: rgb(19, 19, 19);
+  min-height: 100vh;
+  min-height: calc(var(--vh,1vh) * 100);
 }
 
 .boxwidth {
-  width: 85%;
+  width: 85vw;
   margin: auto;
 }
 
-.nav__content {
-  /* margin-top: 1em; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #ffffff;
+.main{
+  padding-top: 5em;
 }
 
-.nav__logo h1 {
-  font-weight: 100;
-  font-size: 1.8rem;
-}
-
-.nav__logo {
-  cursor: pointer;
-}
-
-.nav__tagline h2 {
-  font-weight: 100;
-  font-size: 1.5rem;
-  margin-top: 0.5em;
-  margin-left: 5em;
-}
-
-.nav__links {
-  display: flex;
-  list-style: none;
-}
-
-.nav__link {
-  font-weight: 100;
-  font-size: 1.3em;
-  padding: 1em 1em 0.5em 1em;
-  cursor: pointer;
-  border-bottom: solid 2px transparent;
-  transition: all 300ms ease;
-}
-
-.nav a{
+a {
   text-decoration: none;
   color: inherit;
-}
-
-
-.nav__link:hover {
-  border-bottom: solid 2px #ffffff;
-  background: #ffffff31;
-}
-
-
-.BigSearch__searchbox {
-  display: flex;
-  height: 70vh;
-  margin: auto;
-}
-
-.BigSearch__input {
-  background: transparent;
-  display: flex;
-  width: fit-content;
-  max-width: 100%;
-  outline: none;
-  border: none;
-  font-family: Roboto, sans-serif;
-  font-weight: 200;
-  font-size: 5em;
-  margin: auto;
-  text-align: center;
-  border-bottom: solid 2px #ffffff69;
-  color: #ffffffb9;
-}
-
-.BigSearch__input::selection {
-  background: #ffffff31;
-}
-
-.BigSearch__input::placeholder {
-  color: #ffffff69;
 }
 
 .background__card {
@@ -134,7 +65,7 @@ body {
 
 .background__card__blog {
   position: absolute;
-  background: #E7F3FF;
+  background: #e7f3ff;
   padding: 1em;
   border-radius: 10px;
   right: 8em;
@@ -142,12 +73,11 @@ body {
   z-index: 56;
 }
 
-.background__card__blog .credit{
+.background__card__blog .credit {
   display: flex;
-
 }
 
-.background__card__blog .credit_top, 
+.background__card__blog .credit_top,
 .background__card__blog .credit_bottom {
   /* width: 60%; */
   font-size: 0.8rem;
@@ -157,22 +87,21 @@ body {
   text-align: center;
 }
 
-.background__card__blog .credit_bottom{
+.background__card__blog .credit_bottom {
   font-size: 1.2rem;
   font-weight: 400;
 }
 
-.background__card__blog .credit_unsplashlogo{
+.background__card__blog .credit_unsplashlogo {
   margin: auto;
 }
-
 
 .background__card__blog a {
   color: #000;
   text-decoration: none;
 }
 
-.background__card__blog a:hover{
+.background__card__blog a:hover {
   text-decoration: underline;
 }
 
@@ -217,27 +146,11 @@ body {
   cursor: pointer;
 }
 
-.Blogs h1{
+.Blogs h1 {
   color: #e0e0e0;
 }
 
-@media only screen and (max-width: 1000px) {
-  .BigSearch__input {
-    font-size: 4em;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .BigSearch__input {
-    font-size: 3em;
-  }
-}
-
 @media only screen and (max-width: 530px) {
-  .BigSearch__input {
-    font-size: 2.5em;
-  }
-
   .background__card__blog {
     bottom: 5em;
   }
@@ -254,4 +167,3 @@ body {
     font-size: 11px;
   }
 }
-

@@ -1,0 +1,49 @@
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    color: #ffffff;
+}
+
+.nav_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_blog{
+    color: #000;
+}
+
+.nav_logo h1 {
+    font-weight: 100;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.nav_links{
+    display: flex;
+    list-style: none;
+}
+
+.nav_link {
+    font-weight: 100;
+    font-size: 1.3em;
+    padding: 1em 1em 0.5em 1em;
+    cursor: pointer;
+    border-bottom: solid 2px transparent;
+    transition: all 300ms ease;
+}
+
+.nav_link:hover {
+    border-bottom: solid 2px #ffffff;
+    background: #ffffff31;
+}
+
+.nav_blog .nav_link:hover{
+    border-bottom: solid 2px #000000;
+    background: #00000031;
+}
+  

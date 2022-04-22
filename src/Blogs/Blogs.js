@@ -1,13 +1,11 @@
 import React from "react";
-import Nav from "../Nav";
 import "./Blogs.css";
 import Blogscolumns from "./Blogscolumns";
 import BlogsArray from "./BlogArrays";
 
 const Blogs = () => {
   return (
-    <div className="Blogs">
-      <Nav />
+    <div className="Blogs main">
       <div className="Blogs_hero boxwidth">
         <div className="Blogs_topbar">
           <h1 className="Blogs_topbar_title">Blogs</h1>

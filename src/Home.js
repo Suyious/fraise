@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import BigSearch from "./BigSearch";
-import Credits from "./Credits";
+import React, { useEffect, useState } from "react";
 import axios from "./axios";
-import Nav from "./Nav";
+import Search from "./components/search";
+import Credits from "./Credits";
 
 function Home() {
   const [backgroundArray, setBackgroundArray] = useState([]);
@@ -30,8 +28,9 @@ function Home() {
 
   return (
     <div className="Home">
-      <Nav />
-      <BigSearch />
+      <div className="home_searchbox">
+        <Search />
+      </div>
       <div className="background">
         <div className="background__cards">
             <div className="background__card">
