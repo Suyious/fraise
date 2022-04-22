@@ -19,9 +19,9 @@ function App() {
     <Router>
       <div className="App">
         <Nav>
-          <li className="nav_link">
+          {/* <li className="nav_link">
             <Link to="/fraise/fraise">olds</Link>
-          </li>
+          </li> */}
           <li className="nav_link">
             <Link to="/fraise/blogs">blogs</Link>
           </li>
