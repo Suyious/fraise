@@ -8,10 +8,10 @@ function Navigation({children}) {
   const location = useLocation();
 
   return (
-    <div className={`nav ${location.pathname.includes("/fraise/blogs") ? "nav_blog" : ""}`}>
+    <div className={`nav ${location.pathname.includes("/blogs") ? "nav_blog" : ""}`}>
       <div className="nav_wrapper boxwidth">
         <div className="nav_logo">
-          <Link to="/fraise">
+          <Link to="/">
             <h1>fraise.</h1>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
 import Fraise from "./Home";
 import Blogs from "./Blogs/Blogs";
@@ -16,28 +16,28 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="">
       <div className="App">
         <Nav>
           {/* <li className="nav_link">
             <Link to="/fraise/fraise">olds</Link>
           </li> */}
           <li className="nav_link">
-            <Link to="/fraise/blogs">blogs</Link>
+            <Link to="/blogs">blogs</Link>
           </li>
           <li className="nav_link">
-            <Link to="/fraise/login">login</Link>
+            <Link to="/login">login</Link>
           </li>
           <li className="nav_link">
-            <Link to="/fraise/signup">signup</Link>
+            <Link to="/signup">signup</Link>
           </li>
         </Nav>
         <Switch>
-          <Route path="/fraise/" exact component={Home} />
-          <Route path="/fraise/fraise" exact component={Fraise} />
-          <Route path="/fraise/blogs" exact component={Blogs} />
-          <Route path="/fraise/signup" component={SignUp} />
-          <Route path="/fraise/login" component={Login} />
+          <Route path="/" exact component={Home} />
+          <Route path="/fraise" exact component={Fraise} />
+          <Route path="/blogs" exact component={Blogs} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </Router>
