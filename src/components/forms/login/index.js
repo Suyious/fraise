@@ -16,7 +16,7 @@ const Login = () => {
       </div>
       <div className="auth_bottom">
         <span>Don't have an account </span>
-        <Link to="/fraise/signup">Sign up</Link>
+        <Link to="/signup">Sign up</Link>
       </div>
     </form>
   );

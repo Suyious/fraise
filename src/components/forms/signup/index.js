@@ -22,7 +22,7 @@ const SignUp = () => {
       </div>
       <div className="auth_bottom">
         <span>Already have an account? </span>
-        <Link to="/fraise/login">Log In</Link>
+        <Link to="/login">Log In</Link>
       </div>
     </form>
   );
