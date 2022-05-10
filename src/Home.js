@@ -1,3 +1,4 @@
+// NOTE: Redundant Component
 import React, { useEffect, useState } from "react";
 import axios from "./axios";
 import Search from "./components/search";

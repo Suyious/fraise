@@ -1,3 +1,13 @@
+.slider_image_body{
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.slider_image_array{
+  display: flex;
+  transition: transform 370.039ms cubic-bezier(0.215, 0.610, 0.355, 1) 0s;
+}
+
 .slider_image_body::after {
   content: "";
   position: absolute;
@@ -10,7 +20,7 @@
 }
 
 .slider_image {
-  width: 100%;
+  min-width: 100vw;
   height: 99.5vh;
   height: calc(var(--vh,1vh) * 99.5);
   object-fit: cover;

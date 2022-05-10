@@ -25,17 +25,26 @@ const Slider = ({images}) => {
       <div className="slider_body">
         <div className="slider_image_body">
           {/* <img
-            key={images[background]?.key}
-            className={"slider_image"}
-            src={images[background]?.src}
-            alt="{images[background]?.alt}"
-          /> */}
-          <img
             key={images[background]?.background}
             className={"slider_image"}
             src={images[background]?.background}
             alt="background"
-          />
+          /> */}
+          <div 
+            className="slider_image_array"
+            style={{
+              "transform": `translateX(${-window.innerWidth*background}px)`,
+            }}
+            >
+            {images.map((image, i) => (
+              <img
+              key={image?.background}
+              className={"slider_image"}
+              src={image?.background}
+              alt="background"
+            />
+            ))}
+          </div>
         </div>
         <div className="slider_control">
           <div className="slider_button left" onClick={previousSlide}>
