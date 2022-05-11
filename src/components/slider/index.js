@@ -73,7 +73,7 @@ const Slider = ({images}) => {
           </div>
         </div>
         <div className="slider_control">
-          <div className="slider_button left" onClick={previousSlide}>
+          <div className={`slider_button left ${background!==0 ? "opaque": ""}`} onClick={previousSlide}>
             <Previous />
           </div>
           <div className="slider_position">
@@ -90,7 +90,7 @@ const Slider = ({images}) => {
               </div>
             ))}
           </div>
-          <div className="slider_button right" onClick={nextSlide}>
+          <div className={`slider_button right ${background!==images.length - 1 ? "opaque": ""}`} onClick={nextSlide}>
             <Next />
           </div>
         </div>

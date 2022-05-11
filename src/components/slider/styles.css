@@ -46,6 +46,10 @@
   height: 20px;
 }
 
+.slider_button.opaque svg path{
+	fill-opacity: 1;
+}
+
 .slider_position {
   display: flex;
 }
