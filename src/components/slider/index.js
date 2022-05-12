@@ -8,6 +8,7 @@ const Slider = ({images}) => {
 
   const [background, setBackground] = useState(0);
   const [touchX, setTouchX] = useState(0);
+  const [touched, setTouched] = useState(false);
 
   const previousSlide = () => {
     if (background > 0) {
@@ -22,15 +23,18 @@ const Slider = ({images}) => {
   };
 
   useEffect(() => {
-    let timeout = setTimeout(() => {
-      // console.log("Timed out");
-      setBackground(Math.round(background));
-    }, 200)
+    let timeout;
+    if(!touched){
+      timeout = setTimeout(() => {
+        // console.log("Timed out");
+        setBackground(Math.round(background));
+      }, 200)
+    }
 
     return () => {
       clearTimeout(timeout)
     }
-  }, [background])
+  }, [background, touched])
 
   const scrollhandler = (e) => {
     let nbackground = background - 0.001 * e.deltaX;
@@ -42,17 +46,27 @@ const Slider = ({images}) => {
   const touchhandler = (e) => {
     let touchdeltaX = e.touches[0].pageX - touchX;
     setTouchX(e.touches[0].pageX)
-    let nbackground = background - 0.005 * touchdeltaX;
+    let nbackground = background - 0.003 * touchdeltaX;
     if(nbackground >= 0 && nbackground <= images.length - 1){
       setBackground(nbackground);    
     }
+  }
+
+  const touchStartHandler = (e) => {
+    setTouchX(e.touches[0].pageX);
+    setTouched(true);
+  }
+
+  const touchEndHandler = () => {
+    setTouched(false);
   }
 
   return (
     <div className="slider">
       <div className="slider_body">
         <div
-          onTouchStart={(e) => setTouchX(e.touches[0].pageX)}
+          onTouchStart={touchStartHandler}
+          onTouchEnd={touchEndHandler}
           onTouchMove={touchhandler}
           onWheel={scrollhandler}
           className="slider_image_body">
