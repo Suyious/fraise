@@ -21,7 +21,7 @@ body {
 }
 
 .boxwidth {
-  width: 85vw;
+  max-width: 85vw;
   margin: auto;
 }
 

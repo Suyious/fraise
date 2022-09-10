@@ -27,3 +27,8 @@
     z-index: 2;
     width: 100%;
 }
+
+.login,
+.signup {
+	width: 500px;
+}
