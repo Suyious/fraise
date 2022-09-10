@@ -3,7 +3,7 @@ import "./styles.css"
 
 const Blog = () => {
   return (
-    <div className='blog main boxwidth'>
+    <div className='blog main'>
         
     </div>
   )

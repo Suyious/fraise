@@ -38,7 +38,7 @@ const Slider = ({images}) => {
 
   const scrollhandler = (e) => {
     let nbackground = background - 0.001 * e.deltaX;
-    console.log(e.deltaX);
+    // console.log(e.deltaX);
     if(nbackground > 0 && nbackground < images.length - 1)
       setBackground(nbackground);
   }

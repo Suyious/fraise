@@ -3,7 +3,8 @@ import "./App.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
 import Fraise from "./Home";
-import Blogs from "./Blogs/Blogs";
+import Blogs_old from "./Blogs/Blogs";
+import Blogs from "./pages/blogs";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import Nav from "./components/navigation";
@@ -21,12 +22,14 @@ function App() {
     <Router basename="">
       <div className="App">
         <Nav>
-          {/* <li className="nav_link">
-            <Link to="/fraise/fraise">olds</Link>
-          </li> */}
           <li className="nav_link">
             <Link to="/blogs">blogs</Link>
           </li>
+          {/*
+            <li className="nav_link">
+            <Link to="/blogs-old">blogs'</Link>
+            </li>
+            */}
           <li className="nav_link">
             <Link to="/login">login</Link>
           </li>
@@ -37,6 +40,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/fraise" exact component={Fraise} />
+          <Route path="/blogs-old" exact component={Blogs_old} />
           <Route path="/blogs" exact component={Blogs} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />

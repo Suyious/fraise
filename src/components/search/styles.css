@@ -12,17 +12,34 @@
   color: #ffffffb9;
 }
 
+.search_icon{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.search_icon svg{
+	width: 5em;
+}
+
 .search_input::selection {
   background: #ffffff31;
 }
 
 .search_input::placeholder {
-  color: #ffffff69;
+	font-weight: 100;
+	color: #ffffffcc;
 }
 
 @media only screen and (max-width: 1000px) {
   .search_input {
     font-size: 4em;
+  }
+  .search_icon svg{
+	width: 4em;
   }
 }
 
@@ -30,10 +47,16 @@
   .search_input {
     font-size: 3em;
   }
+  .search_icon svg{
+	width: 3em;
+  }
 }
 
 @media only screen and (max-width: 530px) {
   .search_input {
     font-size: 2.5em;
+  }
+  .search_icon svg{
+	width: 1.9em;
   }
 }

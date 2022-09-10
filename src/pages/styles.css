@@ -1,6 +1,15 @@
 .home{
+	position: relative;
     height: 100vh;
     height: calc(var(--vh,1vh) * 100);
+}
+
+.home_loader{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	right: 0;
+	z-index: 3;
 }
 
 .home_searchbox{
