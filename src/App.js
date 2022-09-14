@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
-import Fraise from "./Home";
 import Blogs_old from "./Blogs/Blogs";
 import Blogs from "./pages/blogs";
 import SignUp from "./pages/signup";
@@ -33,13 +32,12 @@ function App() {
           <li className="nav_link">
             <Link to="/login">login</Link>
           </li>
-          <li className="nav_link">
+          <li className="nav_link primary">
             <Link to="/signup">signup</Link>
           </li>
         </Nav>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/fraise" exact component={Fraise} />
           <Route path="/blogs-old" exact component={Blogs_old} />
           <Route path="/blogs" exact component={Blogs} />
           <Route path="/signup" component={SignUp} />

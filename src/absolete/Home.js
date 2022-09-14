@@ -1,6 +1,6 @@
 // NOTE: Redundant Component
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
+import axios from "./utils/axios";
 import Search from "./components/search";
 import Credits from "./Credits";
 

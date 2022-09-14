@@ -17,6 +17,10 @@
     color: #000;
 }
 
+.nav_logo {
+	margin-top: 1em;
+}
+
 .nav_logo h1 {
     font-weight: 100;
     font-size: 1.8rem;
@@ -26,24 +30,34 @@
 .nav_links{
     display: flex;
     list-style: none;
+	align-items: center;
+	margin-top: 1em;
+	gap: 1em;
 }
 
 .nav_link {
-    font-weight: 100;
-    font-size: 1.3em;
-    padding: 1em 1em 0.5em 1em;
+    font-weight: 300;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+	border-radius: 5px;
     cursor: pointer;
-    border-bottom: solid 2px transparent;
-    transition: all 300ms ease;
+}
+
+.nav_link.primary {
+	background: #F4F7FF;
+	color: #000;
 }
 
 .nav_link:hover {
-    border-bottom: solid 2px #ffffff;
     background: #ffffff31;
 }
 
+.nav_link.primary:hover {
+    background: #ffffff;
+	scale: 1.02;
+}
+
 .nav_blog .nav_link:hover{
-    border-bottom: solid 2px #000000;
     background: #00000031;
 }
   
