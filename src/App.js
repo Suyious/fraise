@@ -21,20 +21,21 @@ function App() {
     <Router basename="">
       <div className="App">
         <Nav>
-          <li className="nav_link">
-            <Link to="/blogs">blogs</Link>
-          </li>
-          {/*
+          <Link to="/blogs">
             <li className="nav_link">
-            <Link to="/blogs-old">blogs'</Link>
+              blogs
             </li>
-            */}
-          <li className="nav_link">
-            <Link to="/login">login</Link>
-          </li>
-          <li className="nav_link primary">
-            <Link to="/signup">signup</Link>
-          </li>
+          </Link>
+          <Link to="/login">
+            <li className="nav_link">
+              login
+            </li>
+          </Link>
+          <Link to="/signup">
+            <li className="nav_link primary">
+              signup
+            </li>
+          </Link>
         </Nav>
         <Switch>
           <Route path="/" exact component={Home} />

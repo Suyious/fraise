@@ -3,6 +3,7 @@ import "./styles.css";
 import {ReactComponent as Previous} from "../../icons/previous.svg";
 import {ReactComponent as Next} from "../../icons/next.svg";
 import {ReactComponent as Circle} from "../../icons/circle.svg";
+import Infocard from "../cards/Infocard";
 
 const Slider = ({images}) => {
 
@@ -71,18 +72,24 @@ const Slider = ({images}) => {
           onWheel={scrollhandler}
           className="slider_image_body">
           <div
-            className="slider_image_array"
+            className="slider_slide_array"
             style={{
               "transform": `translateX(${-window.innerWidth * background}px)`,
             }}
           >
             {images.map((image) => (
-              <img
-                key={image?.background}
-                className={"slider_image"}
-                src={image?.background}
-                alt="background"
-              />
+              <div key={image?.background} className="slider_slide_container">
+                <div className="slider_slide_info_card">
+                  <Infocard />
+                </div>
+                <div className="slider_image_container">
+                  <img 
+                    className={"slider_image"}
+                    src={image?.background}
+                    alt="background"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>

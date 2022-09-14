@@ -8,8 +8,9 @@
 
 .auth_input{
     background: rgba(81, 81, 81, 0.589);
-    padding: 0.5em 1em;
+    padding: 0.7em 1em 0.7em 1em;
     margin-bottom: 0.5em;
+	border-radius: 5px;
 }
 
 .auth_input input{
@@ -17,12 +18,17 @@
 }
 
 .auth_button button{
-    padding: 0.5em 1em;
+    padding: 0.7em 1em 0.7em 1em;
     margin-bottom: 0.5em;
     background: rgba(255, 255, 255, 0.882);
+	border-radius: 5px;
 }
 
 .auth_bottom{
     text-align: center;
-    color: white;
+    color: #ffffffcc;
+}
+
+.auth_bottom a {
+    color: #ffffff;
 }
