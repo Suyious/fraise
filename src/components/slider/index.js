@@ -38,16 +38,17 @@ const Slider = ({images}) => {
   }, [background, touched])
 
   const scrollhandler = (e) => {
-    let nbackground = background - 0.001 * e.deltaX;
-    // console.log(e.deltaX);
-    if(nbackground > 0 && nbackground < images.length - 1)
+    let nbackground = background + 0.00076 * e.deltaX;
+    if(nbackground > 0 && nbackground < images.length - 1){
       setBackground(nbackground);
+    }
   }
 
   const touchhandler = (e) => {
+    console.log(e);
     let touchdeltaX = e.touches[0].pageX - touchX;
     setTouchX(e.touches[0].pageX)
-    let nbackground = background - 0.003 * touchdeltaX;
+    let nbackground = background - 0.005 * touchdeltaX;
     if(nbackground >= 0 && nbackground <= images.length - 1){
       setBackground(nbackground);    
     }

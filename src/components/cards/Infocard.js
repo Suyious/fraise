@@ -3,7 +3,7 @@ import "./styles.css"
 
 const Infocard = () => {
   return (
-    <div class="infocard_main">
+    <div className="infocard_main">
       <ul className="infocard_tags">
         <li>Travel</li>
         <li>World</li>
