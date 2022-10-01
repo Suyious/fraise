@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import "./style.css"
 
 const Loader = () => {
@@ -8,21 +8,21 @@ const Loader = () => {
   const requestRef = useRef();
   const prevtimeRef = useRef();
 
-  const animate = time => {
+  const animate = useCallback(time => {
     if(prevtimeRef.current !== undefined){
       const deltaTime = time - prevtimeRef.current;
       setProgress(prevCount => (prevCount + deltaTime * 0.01) % 100);
     }
     prevtimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
-  }
+  }, [])
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => {
       cancelAnimationFrame(requestRef.current);
     }
-  },[])
+  },[animate])
 
   useEffect(() => {
     let timeout;
