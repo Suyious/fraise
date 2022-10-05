@@ -75,7 +75,7 @@ const Slider = ({images}) => {
           <div
             className="slider_slide_array"
             style={{
-              "transform": `translateX(${-window.innerWidth * background}px)`,
+              "transform": `translateX(calc(var(--vw, 1vw) * -1 * 100 * ${background}))`,
             }}
           >
             {images.map((image) => (
