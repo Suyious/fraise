@@ -3,7 +3,7 @@ import "./styles.css";
 import {ReactComponent as Previous} from "../../icons/previous.svg";
 import {ReactComponent as Next} from "../../icons/next.svg";
 import {ReactComponent as Circle} from "../../icons/circle.svg";
-import Infocard from "../cards/Infocard";
+import Infocard from "../cards/infocard/";
 
 const Slider = ({images}) => {
 

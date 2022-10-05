@@ -1,4 +1,4 @@
 .blog{
-	background: #ecedf9;
+	background: var(--white-background);
 	min-height: 100vh;
 }

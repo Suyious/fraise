@@ -7,8 +7,13 @@ function Navigation({children}) {
 
   const location = useLocation();
 
+  const variant = (path) => {
+    if(path.search(/.*\/$/)) return false;
+    return true
+  }
+
   return (
-    <div className={`nav ${location.pathname.includes("/blogs") ? "nav_blog" : ""}`}>
+    <div className={`nav ${variant(location.pathname) ? "primary" : "secondary"}`}>
       <div className="nav_wrapper boxwidth">
         <div className="nav_logo">
           <Link to="/">

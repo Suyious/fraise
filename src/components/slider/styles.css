@@ -36,6 +36,7 @@
 	left: 10vw;
 	z-index: 2;
 	width: 25em;
+	color: var(--white-primary);
 }
 
 .slider_control {

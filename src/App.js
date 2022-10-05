@@ -10,11 +10,19 @@ import Nav from "./components/navigation";
 import { Link } from "react-router-dom";
 
 function App() {
+
+  const resizeHandler = () => {
+      const vh = window.innerHeight * 0.01;
+      const vw = window.innerWidth * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty("--vw", `${vw}px`);
+  }
+
+  useEffect(resizeHandler, []);
+
   useEffect(() => {
-    const vh = window.innerHeight * 0.01;
-    const vw = window.innerWidth * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    document.documentElement.style.setProperty("--vw", `${vw}px`);
+    const listener = window.addEventListener('resize', resizeHandler);
+    return () => window.removeEventListener('resize', listener)
   }, []);
 
   return (

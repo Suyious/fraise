@@ -1,15 +1,25 @@
 .search_input {
-  background: transparent;
-  display: flex;
-  outline: none;
-  border: none;
-  font-family: Roboto, sans-serif;
-  font-weight: 200;
-  max-width: 90vw;
-  font-size: 5em;
-  text-align: center;
-  border-bottom: solid 2px #ffffff69;
-  color: #ffffffb9;
+	background: transparent;
+	display: flex;
+	outline: none;
+	border: none;
+	font-family: Roboto, sans-serif;
+	font-weight: 200;
+	max-width: 90vw;
+	font-size: 5em;
+	text-align: center;
+	border-bottom: solid 2px var(--white-accent);
+	color: var(--white-primary);
+	padding: 0 1.5em 0 0em;
+
+	background-color: var(--white-accent);
+	background: linear-gradient(270deg, #FFFFFF 87%, #FFFFFF00 100%);
+	background-size: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
 }
 
 .search_icon{
@@ -26,7 +36,7 @@
 }
 
 .search_input::selection {
-  background: #ffffff31;
+	background: #ffffff31;
 }
 
 .search_input::placeholder {
@@ -35,28 +45,28 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .search_input {
-    font-size: 4em;
-  }
-  .search_icon svg{
-	width: 4em;
-  }
+	.search_input {
+		font-size: 4em;
+	}
+	.search_icon svg{
+		width: 4em;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-  .search_input {
-    font-size: 3em;
-  }
-  .search_icon svg{
-	width: 3em;
-  }
+	.search_input {
+		font-size: 3em;
+	}
+	.search_icon svg{
+		width: 3em;
+	}
 }
 
 @media only screen and (max-width: 530px) {
-  .search_input {
-    font-size: 2.5em;
-  }
-  .search_icon svg{
-	width: 1.9em;
-  }
+	.search_input {
+		font-size: 2.5em;
+	}
+	.search_icon svg{
+		width: 1.9em;
+	}
 }

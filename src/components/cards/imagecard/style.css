@@ -1,0 +1,25 @@
+.image_card {
+	font-size: 0.8em;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}
+
+.image_card_container {
+	position: absolute;
+	top: 0em;
+	left: 0em;
+}
+
+.image_card_description {
+	position: absolute;
+	bottom: 0em;
+	left: 0em;
+	opacity: 0;
+	padding: 1em 1.5em;
+	transition: opacity 500ms ease 200ms;
+}
+
+.image_card:hover .image_card_description {
+	opacity: 1;
+}
