@@ -5,6 +5,9 @@
 
 .slider_slide_array{
 	display: flex;	
+}
+
+.slider_slide_array.transition{
 	transition: transform 370.039ms cubic-bezier(0.215, 0.610, 0.355, 1) 0s;
 }
 
@@ -92,6 +95,7 @@
 	width: 1em;
 	height: 1em;
 }
+
 .slider_position_circle.inactive svg {
 	width: 0.8em;
 	height: 0.8em;

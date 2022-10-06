@@ -17,7 +17,7 @@
 	left: 0em;
 	opacity: 0;
 	padding: 1em 1.5em;
-	transition: opacity 500ms ease 200ms;
+	transition: opacity 500ms ease 800ms;
 }
 
 .image_card:hover .image_card_description {

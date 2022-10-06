@@ -25,6 +25,7 @@
 	background: var(--green-accent);
 	color: var(--white-primary);
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .auth_bottom{
@@ -34,4 +35,5 @@
 
 .auth_bottom a {
 	font-weight: 800;
+    color: var(--green-accent);
 }

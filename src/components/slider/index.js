@@ -10,6 +10,21 @@ const Slider = ({images}) => {
   const [background, setBackground] = useState(0);
   const [touchX, setTouchX] = useState(0);
   const [touched, setTouched] = useState(false);
+  const [resizing, setResizing] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    const listener = window.addEventListener('resize', () => {
+      clearTimeout(timer);
+      setResizing(true);
+      timer = setTimeout(() => {
+        setResizing(false);
+      }, 500);
+    })
+    return () => {
+      window.removeEventListener('resize', listener);
+    }
+  })
 
   const previousSlide = () => {
     if (background > 0) {
@@ -73,7 +88,7 @@ const Slider = ({images}) => {
           onWheel={scrollhandler}
           className="slider_image_body">
           <div
-            className="slider_slide_array"
+            className={`slider_slide_array${resizing ? "" : " transition"}`}
             style={{
               "transform": `translateX(calc(var(--vw, 1vw) * -1 * 100 * ${background}))`,
             }}

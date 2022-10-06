@@ -18,7 +18,7 @@ const SignUp = () => {
         <input type="password" placeholder="Confirm Password" />
       </div>
       <div className="auth_button">
-        <button>Login</button>
+        <button>Sign Up</button>
       </div>
       <div className="auth_bottom">
         <span>Already have an account? </span>

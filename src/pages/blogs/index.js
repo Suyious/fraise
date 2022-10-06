@@ -9,7 +9,6 @@ const Blog = () => {
   return (
     <div className='blog main'>
       {/* Categories */}
-      {/* grid */}
       <Grid images={images}/>
     </div>
   )
