@@ -51,7 +51,7 @@
 .infocard_bottom_right {
 	font-size: 0.8em;
 	padding: 0.5em 2em;
-	background: #000;
+	background: var(--green-accent);
 	color: #fff;
 	border-radius: 4px;
 }

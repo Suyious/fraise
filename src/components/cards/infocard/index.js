@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./styles.css"
 
 const Infocard = () => {
@@ -16,7 +17,7 @@ const Infocard = () => {
           <div className="infocard_bottom_image"></div>
           <span>Paul Gustavo</span>
         </div>
-        <div className="infocard_bottom_right">Read Blog</div>
+        <Link to="/blogs/123"><div className="infocard_bottom_right">Read Blog</div></Link>
       </div>
     </div>
   )

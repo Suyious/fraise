@@ -9,8 +9,8 @@
 	background: var(--green-accent-alpha);
 	margin: 0.5em 0;
 	border-radius: 5px;	
+	overflow: hidden;
 	transition: height 1s ease 500ms;
-	cursor: pointer;
 }
 
 .grid_image:hover {

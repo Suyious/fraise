@@ -11,7 +11,6 @@ const Grid = ({images}) => {
     if(window.innerWidth < 750) set_num_of_columns(1);
     else if(window.innerWidth < 1050) set_num_of_columns(2);
     else set_num_of_columns(3);
-    console.log(window.innerWidth);
   }
 
   useEffect(resizeHandler, []);

@@ -8,8 +8,10 @@ function Navigation({children}) {
   const location = useLocation();
 
   const variant = (path) => {
-    if(path.search(/.*\/$/)) return false;
-    return true
+    // true: primary, false: secondary
+    if(path.search(/.*\/$/) === 0) return true;
+    if(path.search(/.*\/blogs\/.+/) === 0) return true;
+    return false;
   }
 
   return (

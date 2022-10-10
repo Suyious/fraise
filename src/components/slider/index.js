@@ -60,7 +60,7 @@ const Slider = ({images}) => {
   }
 
   const touchhandler = (e) => {
-    console.log(e);
+    // console.log(e);
     let touchdeltaX = e.touches[0].pageX - touchX;
     setTouchX(e.touches[0].pageX)
     let nbackground = background - 0.005 * touchdeltaX;

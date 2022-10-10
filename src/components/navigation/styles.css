@@ -20,11 +20,6 @@
     cursor: pointer;
 }
 
-.nav.secondary{
-	background: var(--white-background);
-	color: var(--green-accent);
-}
-
 .nav_links{
     display: flex;
     list-style: none;
@@ -43,6 +38,11 @@
 .nav_link.primary {
 	background: var(--white-primary);
 	color: #000;
+}
+
+.nav.secondary{
+	background: var(--white-background);
+	color: var(--green-accent);
 }
 
 .nav_link:hover {
