@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
-import Blogs_old from "./Blogs/Blogs";
 import Blogs from "./pages/blogs";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
@@ -35,20 +34,26 @@ function App() {
               blogs
             </li>
           </Link>
-          <Link to="/login">
-            <li className="nav_link">
-              login
-            </li>
-          </Link>
-          <Link to="/signup">
-            <li className="nav_link primary">
-              signup
-            </li>
-          </Link>
+          {false ?
+              <Link to="/blog/create">
+              <li className="nav_link primary bigger">
+                Start Writing
+              </li>
+            </Link>
+            : <>
+              <Link to="/login">
+                <li className="nav_link">
+                  login
+                </li>
+              </Link>
+              <Link to="/signup">
+                <li className="nav_link primary">
+                  signup
+                </li>
+              </Link></>}
         </Nav>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/blogs-old" exact component={Blogs_old} />
           <Route path="/blogs" exact component={Blogs} />
           <Route path="/blogs/:blog" exact component={Blog} />
           <Route path="/signup" component={SignUp} />

@@ -72,3 +72,20 @@
 	font-weight: 400;
 }
  
+.nav .nav_link.bigger {
+	padding: 0.8em 2.5em;
+	font-weight: 700;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+.nav.primary .nav_link.bigger {
+    background: var(--white-primary-alpha);
+	color: var(--white-primary);
+	transition: all 100ms ease-in;
+}
+
+.nav.primary .nav_link.bigger:hover {
+	background: var(--white-primary);
+	color: #000;
+}
