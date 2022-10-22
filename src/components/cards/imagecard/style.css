@@ -15,7 +15,7 @@
 
 .image_card_container:after {
 	content: "";
-	background: var(--dark-overlay);
+	background: var(--secondary-dark-overlay);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -29,7 +29,7 @@
 	object-fit: cover;	
 }
 
-.image_card_description {
+.image_card_description{
 	position: absolute;
 	bottom: 0em;
 	left: 0em;
@@ -39,6 +39,23 @@
 	color: var(--white-primary);
 }
 
+.image_card_title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 1em 1.5em;
+	color: var(--white-background);
+	transition: opacity 500ms ease 800ms;
+}
+
+.image_card_title h2 {
+	font-weight: 300;
+}
+
 .image_card:hover .image_card_description {
 	opacity: 1;
+}
+
+.image_card:hover .image_card_title {
+	opacity: 0;
 }

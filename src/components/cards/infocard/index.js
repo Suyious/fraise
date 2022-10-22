@@ -9,7 +9,9 @@ const Infocard = () => {
         <li>Travel</li>
         <li>World</li>
       </ul>
-      <h2 className="infocard_title">Is Switzerland the only place worth travelling right now?</h2>
+      <Link to="/blogs/123">
+        <h2 className="infocard_title">Is Switzerland the only place worth travelling right now?</h2>
+      </Link>
       <p className="infocard_description">Even though we are Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt....</p>
       <span className="infocard_timestamp">5h ago</span>
       <div className="infocard_bottom">

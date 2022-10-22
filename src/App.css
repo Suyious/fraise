@@ -14,9 +14,10 @@
   --white-accent: #FFFFFF69;
   --dark-background: #191919;
   --black-primary: #000000;
-  --dark-overlay: #00000079;
   --green-accent: #21746A;
   --green-accent-alpha: #21746A31;
+  --dark-overlay: #00000079;
+  --secondary-dark-overlay: #000000a3;
 }
 
 body {
