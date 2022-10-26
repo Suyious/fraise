@@ -1,6 +1,6 @@
 import React from 'react'
 import Grid from '../../components/layout/grid'
-import images from '../../images/backgrounds'
+import blogs from '../../assets/blogs'
 import "./styles.css"
 
 const Blogs = () => {
@@ -8,7 +8,7 @@ const Blogs = () => {
   return (
     <div className='blog main'>
       {/* Categories */}
-      <Grid images={images}/>
+      <Grid blogs={blogs}/>
     </div>
   )
 }

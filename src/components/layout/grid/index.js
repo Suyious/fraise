@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import ImageCard from '../../cards/imagecard';
 import "./style.css"
 
-const Grid = ({images}) => {
+const Grid = ({blogs}) => {
   
   const [num_of_columns, set_num_of_columns] = useState(3);
   let grid = [];
@@ -13,27 +13,28 @@ const Grid = ({images}) => {
     else set_num_of_columns(3);
   }
 
-  useEffect(resizeHandler, []);
+  useLayoutEffect(resizeHandler, []);
 
   useEffect(() => {
     const listener = window.addEventListener('resize', resizeHandler);
     return () => {
       window.removeEventListener('resize', listener)
+      set_num_of_columns(3);
     }
   },[])
 
   for(let i = 0; i < num_of_columns; i++) grid.push([]);
 
-  images.forEach(( image, index ) => {
-    grid[index % num_of_columns].push(image);
+  blogs.forEach(( blog, index ) => {
+    grid[index % num_of_columns].push(blog);
   });
 
   return (
     <div className="grid boxwidth">
       {grid.map((col, i) => (
           <div className="grid_col" style={{"width": `${ 100 / num_of_columns }%`}} key={i}>{
-            col.map((image, j) => (<div className="grid_image"key={j}>
-                  <ImageCard image={image} />
+            col.map((blog, j) => (<div className="grid_image"key={j}>
+                  <ImageCard blog={blog} />
               </div>))
           }</div>
       ))}

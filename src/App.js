@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import Nav from "./components/navigation";
 import { Link } from "react-router-dom";
 import Blog from "./pages/blogs/[blog]";
+import NotFound from "./components/errors/notfound";
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/blogs/:blog" exact component={Blog} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     </Router>

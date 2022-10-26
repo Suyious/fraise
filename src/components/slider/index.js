@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./styles.css";
-import {ReactComponent as Previous} from "../../icons/previous.svg";
-import {ReactComponent as Next} from "../../icons/next.svg";
-import {ReactComponent as Circle} from "../../icons/circle.svg";
+import {ReactComponent as Previous} from "../../assets/icons/previous.svg";
+import {ReactComponent as Next}     from "../../assets/icons/next.svg";
+import {ReactComponent as Circle}   from "../../assets/icons/circle.svg";
 import Infocard from "../cards/infocard/";
 
 const Slider = ({images}) => {
@@ -24,7 +24,7 @@ const Slider = ({images}) => {
     return () => {
       window.removeEventListener('resize', listener);
     }
-  })
+  }, [])
 
   const previousSlide = () => {
     if (background > 0) {

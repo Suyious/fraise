@@ -1,9 +1,10 @@
 import React from "react";
+import ComingSoon from "../../../components/errors/comingsoon";
 
 const Blog = (props) => {
   return (
     <div className="blog">
-      One Blog {props.match.params.blog}
+      <ComingSoon/>
     </div>
   )
 }

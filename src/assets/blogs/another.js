@@ -1,0 +1,278 @@
+const blogs = [{
+    author: "Daisy Mowke",
+    content: "Nayanthara and Vignesh Shivan, who had registered their marriage in 2016, didn't violate surrogacy laws, stated a report by the Tamil Nadu government inquiry committee. The statement mentioned that the surrogate mother is of appropriate age, is married and has a child. The couple's family doctor had provided a letter of recommendation in 2020 based on which treatment was provided.",
+    date: "26 Oct 2022,Wednesday",
+    id: "83acbbd322de425fa32c8fd1b921e078",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666800126447_422.jpg?",
+    readMoreUrl: "https://www.thenewsminute.com/article/nayanthara-and-vignesh-shivan-did-not-break-surrogacy-laws-tn-govt-panel-169265?amp=&utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:53 pm",
+    title: "Nayanthara and Vignesh Shivan did not break surrogacy laws: TN govt panel",
+    url: "https://www.inshorts.com/en/news/nayanthara-and-vignesh-shivan-did-not-break-surrogacy-laws-tn-govt-panel-1666801395081"
+  },
+  {
+    author: "Pragya Swastik",
+    content: "Russia on Wednesday launched ballistic and cruise missiles in the Far East and the Arctic as part of its first nuclear drill since the invasion of Ukraine. Russian President Vladimir Putin watched the nuclear drills via video link. This comes at a time when tensions have risen following Russia's claims that Ukraine is plotting to use a \"dirty bomb\". ",
+    date: "26 Oct 2022,Wednesday",
+    id: "ed40134a90a34e68a6165792fffcb132",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666800361843_605.jpg?",
+    readMoreUrl: "https://www.reuters.com/world/europe/russia-hits-ukraine-homes-evacuates-kherson-warns-escalation-2022-10-24/?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:50 pm",
+    title: "Russia launches ballistic and cruise missiles in nuclear drill; pics released",
+    url: "https://www.inshorts.com/en/news/russia-launches-ballistic-and-cruise-missiles-in-nuclear-drill-pics-released-1666801234706"
+  },
+  {
+    author: "Anmol Sharma",
+    content: "Talking about defeat against India in T20 World Cup 2022, Pakistan batter Iftikhar Ahmed said, \"The hurt remains after losing such a big match. We were heartbroken.\" He added, \"The way Babar and...management supported players, it was good. Babar and coaches told us that it was not our last game, everybody put in the effort. So our morale is high.\"",
+    date: "26 Oct 2022,Wednesday",
+    id: "404302e36eae4be4ad246da8665b4bf8",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666800352639_725.jpg?",
+    readMoreUrl: "https://www.crictracker.com/cricket-news/the-hurt-remains-pakistan-batter-iftikhar-ahmed-opens-up-on-heartbreaking-loss-to-india/?amp=1&utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:52 pm",
+    title: "The hurt remains: Pakistan's Iftikhar Ahmed on defeat against India",
+    url: "https://www.inshorts.com/en/news/the-hurt-remains-pakistans-iftikhar-ahmed-on-defeat-against-india-1666801335465"
+  },
+  {
+    author: "Ashley Paul",
+    content: "Kerala Labour Minister V Sivankutty said a \"serious investigation\" will be conducted into the closure of BYJU'S office in Thiruvananthapuram amid allegations that its staff is being forced to resign. \"The employees of BYJU'S app had come to meet me...The employees have many grievances including job loss,\" Sivankutty said. A welfare organisation of techies had also sought compensatory benefits.",
+    date: "26 Oct 2022,Wednesday",
+    id: "312bf3d40eab4bcf9e7a4bbc7bd0f90b",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666799691166_549.jpg?",
+    readMoreUrl: "https://www.timesnownews.com/business-economy/companies/layoffs-at-byjus-will-be-investigated-says-kerala-labour-minister-article-95104646/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:03 pm",
+    title: "Will conduct serious probe: Kerala Minister on BYJU's laying off 140 staff",
+    url: "https://www.inshorts.com/en/news/will-conduct-serious-probe-kerala-minister-on-byjus-laying-off-140-staff-1666802000255"
+  },
+  {
+    author: "Deepika Bhatt",
+    content: "Uttar Pradesh Minister Gulab Devi on Wednesday said PM Narendra Modi is an incarnation of God. \"No one can compete with him. If he wishes, he can remain the prime minister till he is alive,\" the Chandausi MLA said, adding that he makes people do whatever he wishes. She further said that PM Modi is a person of extraordinary talent.",
+    date: "26 Oct 2022,Wednesday",
+    id: "51804b4d00e745dca272b8560e159b16",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666798282639_516.jpg?",
+    readMoreUrl: "https://repository.inshorts.com/articles/en/PTI/9337ad11-8374-435a-98fa-a4980f2b410f?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:28 pm",
+    title: "Modi is like avatar of God, can remain PM till he is alive: UP minister",
+    url: "https://www.inshorts.com/en/news/modi-is-like-avatar-of-god-can-remain-pm-till-he-is-alive-up-minister-1666799886953"
+  },
+  {
+    author: "Anmol Sharma",
+    content: "An electric scooter caught fire in Noida on Wednesday, with the rider jumping out of the moving vehicle to save his life. A video has surfaced online showing the vehicle on fire. As per reports, the rider of the bike was a delivery boy. A fire brigade rushed to the spot and doused the fire.",
+    date: "26 Oct 2022,Wednesday",
+    id: "2ae94eee473544b0b01086c7b24d3472",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666799786102_220.jpg?",
+    readMoreUrl: "https://www.timesnownews.com/auto/bike-news/ev-fire-electric-scooter-catches-fire-in-noida-the-rider-jumps-out-of-moving-vehicle-to-save-his-life-article-95097312/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:48 pm",
+    title: "Electric scooter catches fire in Noida, rider jumps out of moving vehicle to save his life",
+    url: "https://www.inshorts.com/en/news/electric-scooter-catches-fire-in-noida-rider-jumps-out-of-moving-vehicle-to-save-his-life-1666801104100"
+  },
+  {
+    author: "Anmol Sharma",
+    content: "The IMD, in its latest bulletin, issued heavy to very heavy rainfall warning for several states/UTs. Heavy rainfall is likely in parts of Tamil Nadu and Puducherry on October 29 (Saturday). Further, heavy to very heavy rainfall is likely over Tamil Nadu, Puducherry, Andhra Pradesh and Kerala on October 30 (Sunday).",
+    date: "26 Oct 2022,Wednesday",
+    id: "92f202d681054765b6a5e2457bd1480d",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666798812092_385.jpg?",
+    readMoreUrl: "https://internal.imd.gov.in/section/nhac/dynamic/allindianew.pdf?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:45 pm",
+    title: "Heavy to very heavy rainfall warning issued for several states, list released",
+    url: "https://www.inshorts.com/en/news/heavy-to-very-heavy-rainfall-warning-issued-for-several-states-list-released-1666800937812"
+  },
+  {
+    author: "Swati Dubey",
+    content: "Boney Kapoor's daughter Anshula Kapoor has opened up about being diagnosed with PCOS (Polycystic Ovary Syndrome) at 14 and said, ​\"I remember...having to wax my moustache and bleaching my sidelocks every few weeks.\" \"At [that] time, it was never spoken about. I felt like I was the only one dealing with...facial hair...weight gain...painful periods, and so much more,\" she said.\n",
+    date: "26 Oct 2022,Wednesday",
+    id: "f0d3b092c7e147fcae3a78f6674d03f2",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666788496296_834.jpg?",
+    readMoreUrl: null,
+    time: "09:43 pm",
+    title: "Had to wax my moustache every few weeks: Anshula Kapoor on PCOS",
+    url: "https://www.inshorts.com/en/news/had-to-wax-my-moustache-every-few-weeks-anshula-kapoor-on-pcos-1666800797444"
+  },
+  {
+    author: "Amartya Sharma",
+    content: "Matthew Perry revealed he left 'Don't Look Up' after his heart stopped for five minutes. In his memoir, he wrote doctors advised him of surgery to relieve his stomach pain. \"The propofol had stopped my heart for five minutes. It wasn't a heart attack...I didn't flatline,\" he added. He added a Swiss guy performed CPR on him for five minutes.",
+    date: "26 Oct 2022,Wednesday",
+    id: "60650b247c1c41acb205aa086f431868",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666799686679_116.jpg?",
+    readMoreUrl: "https://www.freepressjournal.in/amp/entertainment/hollywood/matthew-perry-left-leonardo-dicaprios-dont-look-up-after-his-heart-stopped-for-5-minutes?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:57 pm",
+    title: "Heart stopped beating for 5 minutes: Matthew Perry on not doing 'Don't...'",
+    url: "https://www.inshorts.com/en/news/heart-stopped-beating-for-5-minutes-matthew-perry-on-not-doing-dont-1666801679503"
+  },
+  {
+    author: "Amartya Sharma",
+    content: "Choreographer Terence Lewis has revealed that he got abused in his direct messages over a video of him 'inappropriately' touching Nora Fatehi, which went viral on social media. Terence added that he does not even remember if his hand touched Nora. Terence added, \"Why would I want to do something like this, when there are four cameras around?\"",
+    date: "26 Oct 2022,Wednesday",
+    id: "4f2aca4d80a64c8297cb2ec172b6101e",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666801162003_990.jpg?",
+    readMoreUrl: null,
+    time: "10:09 pm",
+    title: "I got abused in my DMs: Terence on video of 'inappropriately' touching Nora",
+    url: "https://www.inshorts.com/en/news/i-got-abused-in-my-dms-terence-on-video-of-inappropriately-touching-nora-1666802353464"
+  },
+  {
+    author: "Apoorva Shankar",
+    content: "The Congress party has planned to organise two rallies in Maharashtra as part of Rahul Gandhi's 'Bharat Jodo Yatra' which is set to enter the state on November 7. The rallies will be held in Nanded and Shegaon, Congress leader Manikrao Thakare said. Rahul Gandhi will address a public meeting in Nanded on November 10, Thakare added.\n\n\n",
+    date: "26 Oct 2022,Wednesday",
+    id: "20300c2ec7074d97a949de0f25b3f21d",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666791969714_679.jpg?",
+    readMoreUrl: "https://www.mid-day.com/amp/news/india-news/article/congress-to-hold-two-rallies-in-maharashtra-as-part-of-bharat-jodo-yatra-23252349?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:52 pm",
+    title: "Cong to hold 2 rallies in Maharashtra as part of 'Bharat Jodo Yatra'",
+    url: "https://www.inshorts.com/en/news/cong-to-hold-2-rallies-in-maharashtra-as-part-of-bharat-jodo-yatra-1666801369687"
+  },
+  {
+    author: "Swati Dubey",
+    content: "After AIMIM chief Asaduddin Owaisi questioned whether a person from minority community would ever become the Prime Minister of India, BJP leader Shahnawaz Hussain accused him of creating differences between Hindus and Muslims. \"What message does he want to give?\" he asked. \"Only a person chosen by the people of the country becomes the Prime Minister,\" he said. ",
+    date: "26 Oct 2022,Wednesday",
+    id: "8fc7c553d8ba4a259a66a88de6d24e88",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666789681151_474.jpg?",
+    readMoreUrl: "https://www.aninews.in/news/national/general-news/india-safest-country-for-minorities-owaisi-wants-to-create-differences-between-hindus-muslims-says-shahnawaz-hussain20221026172655/?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:21 pm",
+    title: "Owaisi creating differences between Hindus & Muslims: BJP's Shahnawaz Hussain",
+    url: "https://www.inshorts.com/en/news/owaisi-creating-differences-between-hindus-muslims-bjps-shahnawaz-hussain-1666803080002"
+  },
+  {
+    author: "Disha Jana",
+    content: "Kerala Governor Arif Mohammed Khan has written a letter to CM Pinarayi Vijayan seeking action against minister KN Balagopal, stating that Balagopal has ceased to enjoy his \"pleasure\". Khan's action came after he apparently took exception to certain remarks made by Balagopal at a university function in Kerala, which Khan termed \"seditious\". CM Vijayan, however, has rejected Khan's demand.",
+    date: "26 Oct 2022,Wednesday",
+    id: "495cbf62c50341eabd6a0a9599d3dff0",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666797622622_629.jpg?",
+    readMoreUrl: "https://www.thequint.com/amp/story/south-india/kerala-governor-arif-mohammed-khan-pinarayi-vijayan-finance-minister-balagopal-withdrawal-of-pleasure?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:28 pm",
+    title: "Kerala Guv accuses minister KN Balagopal of sedition, seeks action; CM refuses",
+    url: "https://www.inshorts.com/en/news/kerala-guv-accuses-minister-kn-balagopal-of-sedition-seeks-action-cm-refuses-1666799905685"
+  },
+  {
+    author: "Apoorva Shankar",
+    content: "The Amritsar Police arrested three persons for allegedly smuggling heroin from across the border using drone and seized 30 grams of heroin from them. The accused were identified as Varinder Singh, Manpreet Singh and Davinder Singh of Tarn Taran. The police also recovered the drone along with its remote control and a battery, two mobile phones and a car. ",
+    date: "26 Oct 2022,Wednesday",
+    id: "183930ce7842452f8155fc70bdc272bd",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666794721245_679.jpg?",
+    readMoreUrl: "https://www.hindustantimes.com/cities/chandigarh-news/three-held-with-drone-heroin-in-amritsar-101666792817423-amp.html?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:08 pm",
+    title: "Drone used to smuggle drugs, 30 gm heroin seized in Amritsar; 3 held",
+    url: "https://www.inshorts.com/en/news/drone-used-to-smuggle-drugs-30-gm-heroin-seized-in-amritsar-3-held-1666802339358"
+  },
+  {
+    author: "Apoorva Shankar",
+    content: "Union Home Minister Amit Shah will inaugurate and lay foundation stone for four projects worth ₹6,629 crore from a programme in Haryana's Faridabad, according to a statement. The event will be held on Thursday at Faridabad's Parade Ground. The projects also include the country's first longest elevated railway track built in Rohtak at the cost of ₹315.40 crore.\n\n",
+    date: "26 Oct 2022,Wednesday",
+    id: "04023c8085964d9b935ed7d0c7a3c586",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666789881874_695.jpg?",
+    readMoreUrl: "https://theprint.in/india/amit-shah-to-inaugurate-lay-stone-of-projects-worth-rs-6629-core-in-haryana/1183102/?amp=&utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:48 pm",
+    title: "Amit Shah to inaugurate 4 projects worth ₹6,629 cr in Haryana",
+    url: "https://www.inshorts.com/en/news/amit-shah-to-inaugurate-4-projects-worth-₹6629-cr-in-haryana-1666801112125"
+  },
+  {
+    author: "Ashley Paul",
+    content: "Three men have been arrested for assaulting and looting nine people in four separate incidents during Diwali celebrations to \"establish supremacy\" in the neighbourhood, Rajkot Police said. The trio was armed with knives, pipes and sticks and attacked two migrant workers and a security personnel who tried to save them. They later stabbed two brothers who were buying firecrackers.",
+    date: "26 Oct 2022,Wednesday",
+    id: "21c2a23eb7db4450b0dfa5109636bb2c",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666796917384_428.jpg?",
+    readMoreUrl: "https://www.timesnownews.com/mirror-now/crime/gujarat-goons-stab-assault-nine-on-diwali-night-to-establish-supremacy-in-rajkot-neighborhood-article-95103133/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:34 pm",
+    title: "3 men in Guj stab, loot 9 people on Diwali night to 'establish supremacy'",
+    url: "https://www.inshorts.com/en/news/3-men-in-guj-stab-loot-9-people-on-diwali-night-to-establish-supremacy-1666800265241"
+  },
+  {
+    author: "Ashley Paul",
+    content: "Rajesh Kumar, a 36-year-old constable in Bihar's Gopalganj, died after the boat he was travelling in to pursue liquor smugglers lost balance and capsized in Gandak river on Wednesday, officials said. Kumar was travelling with a team of four other police personnel, all of whom managed to swim ashore. Weapons of the police team were safely recovered from the river. ",
+    date: "26 Oct 2022,Wednesday",
+    id: "2621298de91a418687154d1aa7cafedf",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666797639185_369.jpg?",
+    readMoreUrl: "https://www.hindustantimes.com/cities/patna-news/bihar-cop-hunting-liquor-smugglers-dies-as-boat-carrying-police-party-capsizes-101666790693039-amp.html?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:42 pm",
+    title: "Policeman pursuing liquor smugglers in Bihar dies after his boat capsizes",
+    url: "https://www.inshorts.com/en/news/policeman-pursuing-liquor-smugglers-in-bihar-dies-after-his-boat-capsizes-1666800755349"
+  },
+  {
+    author: "Apoorva Shankar",
+    content: "Uttar Pradesh CM Yogi Adityanath on Wednesday directed officers to ensure speedy and satisfactory resolution of land disputes and asked them to act against land mafia. \"No encroachment should be there on government's or poor people's properties,\" CM Yogi said. Speaking in Gorakhpur, he said, \"If a poor person is found residing on government land, arrangements should be made for...rehabilitation.\"",
+    date: "26 Oct 2022,Wednesday",
+    id: "1fff5153dd1e4d3db12233709b1c6276",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666796262168_515.jpg?",
+    readMoreUrl: "https://aninews.in/news/national/general-news/ensure-promptly-resolution-of-land-disputes-up-cm-tells-officials20221026175047/?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:59 pm",
+    title: "Ensure speedy, satisfactory resolution of land disputes: UP CM to officials",
+    url: "https://www.inshorts.com/en/news/ensure-speedy-satisfactory-resolution-of-land-disputes-up-cm-to-officials-1666801778292"
+  },
+  {
+    author: "Disha Jana",
+    content: "A 13-year-old boy was killed by his kidnappers after his father, a vegetable seller, refused to pay them ₹5,500 in protection money in Bihar's Araria village, police said. The body of the victim, Rohit Kumar, was found near a river in the area on Monday. One of the three suspects has been arrested.",
+    date: "26 Oct 2022,Wednesday",
+    id: "11f70e162126458e91223a7501b21986",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666800371359_82.jpg?",
+    readMoreUrl: "https://www.hindustantimes.com/cities/patna-news/bihar-man-refused-to-pay-protection-money-in-sitamarhi-they-kill-his-son-police-101666781475649-amp.html?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:00 pm",
+    title: "Boy killed after father refuses to pay ₹5,500 protection money in Bihar",
+    url: "https://www.inshorts.com/en/news/boy-killed-after-father-refuses-to-pay-₹5500-protection-money-in-bihar-1666801847252"
+  },
+  {
+    author: "Nidhi Sinha",
+    content: "Uttar Pradesh CM Yogi Adityanath on Wednesday gave a cheque of ₹2 lakh to a paralysis patient from the CM's Discretionary Fund. Dilip Shah, a resident of Gorakhpur, received the cheque at the Gorakhnath temple. Thanking the CM, Shah said the assistance has freed him from a big worry. Adityanath stated that if required, Shah will be given more money.",
+    date: "26 Oct 2022,Wednesday",
+    id: "c7e15a145a0446c4a67ab011fd609d52",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666797674376_862.jpg?",
+    readMoreUrl: "https://aninews.in/news/national/general-news/cm-yogi-gives-rs-2-lakh-to-paralysis-patient-from-cms-discretionary-fund20221026175942/?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:03 pm",
+    title: "UP CM Yogi gives ₹2 lakh to Gorakhpur man suffering from paralysis",
+    url: "https://www.inshorts.com/en/news/up-cm-yogi-gives-₹2-lakh-to-gorakhpur-man-suffering-from-paralysis-1666802037811"
+  },
+  {
+    author: "Indraneel Sen",
+    content: "The Assam Rifles recovered a huge cache of war-like stores in Siaha district of Mizoram on Wednesday. The tactical equipment included a satellite phone, weapon spare parts, bullets, bulletproof jackets and foreign currency. The paramilitary force had information beforehand on the movement of war-like stores. The security personnel also apprehended four persons during the bust.",
+    date: "26 Oct 2022,Wednesday",
+    id: "fbaf94812dc54a2c935140dfdf87be39",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666795298979_964.jpg?",
+    readMoreUrl: "https://www.timesnownews.com/india/bulletproof-jackets-wireless-transmitters-and-other-war-like-tactical-gear-recovered-in-mizoram-four-arrested-article-95101474/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:16 pm",
+    title: "Huge cache of war-like stores recovered in Mizoram; 4 arrested",
+    url: "https://www.inshorts.com/en/news/huge-cache-of-warlike-stores-recovered-in-mizoram-4-arrested-1666802815516"
+  },
+  {
+    author: "Indraneel Sen",
+    content: "German Health Minister Karl Lauterbach on Wednesday unveiled a plan to decriminalise possession of up to 30 grams of cannabis. The plan, which will require the European Union's Executive Commission's approval before implementation, further allows the sale of marijuana to adults in a controlled market. Lauterbach said the aim is to combat the black market of selling cannabis.",
+    date: "26 Oct 2022,Wednesday",
+    id: "81a2457f76c14468a8a9786453d651f6",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666797117518_995.jpg?",
+    readMoreUrl: "https://apnews.com/article/health-europe-germany-european-union-olaf-scholz-1b68adc1e90e03cc3064e8e976e985ba?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:18 pm",
+    title: "Germany unveils plan to decriminalise possession of cannabis",
+    url: "https://www.inshorts.com/en/news/germany-unveils-plan-to-decriminalise-possession-of-cannabis-1666802909687"
+  },
+  {
+    author: "Indraneel Sen",
+    content: "The bilateral trade between India and China crossed the $100 billion mark in the first nine months of 2022, according to the Chinese customs. Bilateral trade in 2022 stood at $103.63 billion, which is 14.6% higher than the same period last year. Total Chinese exports to India in the first nine months of 2022 was worth $89.66 billion.",
+    date: "26 Oct 2022,Wednesday",
+    id: "67d05dde34c445b1ba63f3008520c332",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666798561816_61.jpg?",
+    readMoreUrl: "https://www.outlookindia.com/business/india-china-trade-crosses-100-billion-during-january-to-september-trade-deficit-climbs-to-over-75-billion-news-232711?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:16 pm",
+    title: "India-China trade crossed $100 bn-mark in first 9 months of 2022",
+    url: "https://www.inshorts.com/en/news/indiachina-trade-crossed-$100-bnmark-in-first-9-months-of-2022-1666802808593"
+  },
+  {
+    author: "Ambarish Awale",
+    content: "SEBI has barred Momentum Tips and its proprietor Ajay Kumar Mukhiya from the securities markets for three years for providing unauthorised investment services. SEBI found that Momentum Tips and Mukhiya (noticees) indulged in providing investment advisory services without obtaining registration from SEBI. The noticees collected ₹33.19 lakh during February-July 2019, SEBI said in an order.",
+    date: "26 Oct 2022,Wednesday",
+    id: "bdf4f0eb228b4e138e456c2688105992",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666797368848_547.jpg?",
+    readMoreUrl: "https://www.moneycontrol.com/news/business/sebi-bars-momentum-tips-its-proprietor-from-securities-markets-for-3-years-9395221.html/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "09:56 pm",
+    title: "SEBI bars Momentum Tips, its proprieter from securities markets for 3 years",
+    url: "https://www.inshorts.com/en/news/sebi-bars-momentum-tips-its-proprieter-from-securities-markets-for-3-years-1666801591577"
+  },
+  {
+    author: "Anisha Joneja",
+    content: "Boeing has reported a loss of $3.3 billion in the third quarter as it was driven by problems in its fixed-cost defence programmes and its commercial-airplane business. Boeing CEO David Calhoun said the company has more work ahead of it to drive stability as it currently remains in a \"challenging environment\". Boeing's defence and space business tumbled by 20%. ",
+    date: "26 Oct 2022,Wednesday",
+    id: "dab8b7c5f8324acfb304459eab3bd0de",
+    image: "https://static.inshorts.com/inshorts/images/v1/variants/jpg/m/2022/10_oct/26_wed/img_1666800134255_534.jpg?",
+    readMoreUrl: "https://www.cnbctv18.com/earnings/boeing-posts-33-billion-loss-as-defence-commercial-businesses-slip-15024391.htm/amp?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts ",
+    time: "10:09 pm",
+    title: "Boeing reports $3.3 bn in loss in Q3 as commercial, defence divisions slip",
+    url: "https://www.inshorts.com/en/news/boeing-reports-$33-bn-in-loss-in-q3-as-commercial-defence-divisions-slip-1666802398386"
+  }
+]
+
+export default blogs;
