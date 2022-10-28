@@ -14,15 +14,17 @@ const Slider = ({images}) => {
 
   useEffect(() => {
     let timer;
-    const listener = window.addEventListener('resize', () => {
+    const resizeHandler = () => {
       clearTimeout(timer);
       setResizing(true);
       timer = setTimeout(() => {
         setResizing(false);
       }, 500);
-    })
+    }
+    window.addEventListener('resize', resizeHandler)
     return () => {
-      window.removeEventListener('resize', listener);
+      clearTimeout(timer);
+      window.removeEventListener('resize', resizeHandler);
     }
   }, [])
 

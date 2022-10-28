@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import ImageCard from '../../cards/imagecard';
 import "./style.css"
 
@@ -7,21 +7,18 @@ const Grid = ({blogs}) => {
   const [num_of_columns, set_num_of_columns] = useState(3);
   let grid = [];
 
-  const resizeHandler = () => {
-    if(window.innerWidth < 750) set_num_of_columns(1);
-    else if(window.innerWidth < 1050) set_num_of_columns(2);
-    else set_num_of_columns(3);
-  }
-
-  useLayoutEffect(resizeHandler, []);
-
-  useEffect(() => {
-    const listener = window.addEventListener('resize', resizeHandler);
-    return () => {
-      window.removeEventListener('resize', listener)
-      set_num_of_columns(3);
+  useLayoutEffect(() => {
+    const resizeHandler = () => {
+      if(window.innerWidth < 750) set_num_of_columns(1);
+      else if(window.innerWidth < 1050) set_num_of_columns(2);
+      else set_num_of_columns(3);
     }
-  },[])
+    resizeHandler();
+    window.addEventListener('resize', resizeHandler);
+    return () => {
+      window.removeEventListener('resize', resizeHandler)
+    }
+  }, []);
 
   for(let i = 0; i < num_of_columns; i++) grid.push([]);
 

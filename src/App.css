@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +9,7 @@
   --white-primary: #F4F7FF;
   --white-primary-alpha: #F4F7FF31;
   --white-background: #E9F1F0;
-  --white-accent: #FFFFFF69;
+  --white-accent: #9A9A9AA8;;
   --dark-background: #191919;
   --black-primary: #000000;
   --green-accent: #21746A;
