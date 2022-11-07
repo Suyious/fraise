@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Blog from "./pages/blogs/[blog]";
 import NotFound from "./components/errors/notfound";
 import WebFont from 'webfontloader'
+import BlogCreate from "./pages/blogs/create";
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
             </li>
           </Link>
           {false ?
-              <Link to="/blog/create">
+              <Link to="/blogs/create">
               <li className="nav_link primary bigger">
                 Start Writing
               </li>
@@ -65,6 +66,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/blogs" exact component={Blogs} />
+          <Route path="/blogs/create" exact component={BlogCreate} />
           <Route path="/blogs/:blog" exact component={Blog} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />

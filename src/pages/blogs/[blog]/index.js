@@ -1,7 +1,7 @@
 import React from "react";
 import ComingSoon from "../../../components/errors/comingsoon";
 
-const Blog = (props) => {
+const Blog = () => {
   return (
     <div className="blog">
       <ComingSoon/>

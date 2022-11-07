@@ -7,7 +7,7 @@ const temp = {
   createdAt: Date("10-10-2021"),
   title: "Is Switzerland the only place worth travelling right now?",
   tags: ["Travel", "World"],
-  excerpt: "I flew from Tampa to Zurich via Dulles International Airport (IAD) on United Airlines at the end of January and — as has been the ...",
+  excerpt: "I flew from Tampa to Zurich via Dulles International Airport (IAD) on United Airlines at the end of January and as has been the",
   image:
   "https://images.unsplash.com/photo-1602008672365-f4c4244c8034?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80",
   body: [  ]

@@ -27,7 +27,7 @@ const Grid = ({blogs}) => {
   });
 
   return (
-    <div className="grid boxwidth">
+    <div className="grid">
       {grid.map((col, i) => (
           <div className="grid_col" style={{"width": `${ 100 / num_of_columns }%`}} key={i}>{
             col.map((blog, j) => (<div className="grid_image"key={j}>

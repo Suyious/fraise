@@ -1,0 +1,14 @@
+.tabs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.8em;
+}
+
+.tabs_tab_box {
+	border: 1px solid var(--green-accent-border);
+	text-align: center;
+	padding: 0.5em 1em;
+	width: 8em;
+	cursor: pointer;
+}

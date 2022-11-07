@@ -1,9 +1,13 @@
 import React from 'react'
 import "./styles.css"
 
-const Tabs = () => {
+const Tabs = ({ children }) => {
   return (
-    <div>Tabs</div>
+    <div className="tabs">
+      { children.map((child, index) => (
+          <div className="tabs_tab_box" key={index}>{child}</div>
+      )) }
+    </div>
   )
 }
 
