@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { QueryClientProvider, QueryClient } from "react-query"
+import { ReactQueryDevtools } from "react-query/devtools"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={new QueryClient()}>
+      <App />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -2,17 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles.css";
 
-const Login = () => {
+const Login = ({ onSubmit , email, password, loading }) => {
   return (
-    <form className="auth form">
+    <form onSubmit={onSubmit} className="auth form">
       <div className="auth_input">
-        <input type="email" placeholder="email" />
+        <input ref={email} type="email" placeholder="email" />
       </div>
       <div className="auth_input">
-        <input type="password" placeholder="password" />
+        <input ref={password} type="password" placeholder="password" />
       </div>
       <div className="auth_button">
-        <button>Login</button>
+        <button disabled={loading}>Login</button>
       </div>
       <div className="auth_bottom">
         <span>Don't have an account </span>

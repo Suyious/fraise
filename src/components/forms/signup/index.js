@@ -2,23 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles.css";
 
-const SignUp = () => {
+const SignUp = ({ username, name, email, password, confirmPassword, onSubmit=() => {}, loading }) => {
   return (
-    <form className="auth form">
+    <form onSubmit={onSubmit} className="auth form">
       <div className="auth_input">
-        <input type="text" placeholder="username" />
+        <input ref={username} type="text" placeholder="username" />
       </div>
       <div className="auth_input">
-        <input type="email" placeholder="email" />
+        <input ref={name} type="text" placeholder="name" />
       </div>
       <div className="auth_input">
-        <input type="password" placeholder="password" />
+        <input ref={email} type="email" placeholder="email" />
       </div>
       <div className="auth_input">
-        <input type="password" placeholder="Confirm Password" />
+        <input ref={password} type="password" placeholder="password" />
+      </div>
+      <div className="auth_input">
+        <input ref={confirmPassword} type="password" placeholder="Confirm Password" />
       </div>
       <div className="auth_button">
-        <button>Sign Up</button>
+        <button disabled={loading}>Sign Up</button>
       </div>
       <div className="auth_bottom">
         <span>Already have an account? </span>

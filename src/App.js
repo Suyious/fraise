@@ -11,6 +11,8 @@ import Blog from "./pages/blogs/[blog]";
 import NotFound from "./components/errors/notfound";
 import WebFont from 'webfontloader'
 import BlogCreate from "./pages/blogs/create";
+import {useQuery} from "react-query";
+import axios from "./utils/axios"
 
 function App() {
 
@@ -36,6 +38,35 @@ function App() {
     })
   }, []);
 
+  // const { isLoading, data, isError, error } = useQuery('me', () => {
+  const { isLoading, data } = useQuery('me', () => {
+    return axios.get('/me');
+  })
+
+  const Loggedinlinks = () => {
+    return (
+    <Link to="/blogs/create">
+      <li className="nav_link primary bigger">
+        Start Writing
+      </li>
+    </Link>
+  )}
+
+  const Loggedoutlinks = () => {
+    return (
+    <>
+      <Link to="/login">
+        <li className="nav_link">
+          login
+        </li>
+      </Link>
+      <Link to="/signup">
+        <li className="nav_link primary">
+          signup
+        </li>
+      </Link></>
+  )}
+
   return (
     <Router basename="">
       <div className="App">
@@ -45,23 +76,9 @@ function App() {
               blogs
             </li>
           </Link>
-          {false ?
-              <Link to="/blogs/create">
-              <li className="nav_link primary bigger">
-                Start Writing
-              </li>
-            </Link>
-            : <>
-              <Link to="/login">
-                <li className="nav_link">
-                  login
-                </li>
-              </Link>
-              <Link to="/signup">
-                <li className="nav_link primary">
-                  signup
-                </li>
-              </Link></>}
+          { !isLoading ? 
+              data.data.user === null ? <Loggedoutlinks/> : <Loggedinlinks/>
+            : <Loggedoutlinks/> }
         </Nav>
         <Switch>
           <Route path="/" exact component={Home} />

@@ -28,6 +28,10 @@
 	cursor: pointer;
 }
 
+.auth_button button:disabled {
+	color: var(--green-accent-alpha);
+}
+
 .auth_bottom{
     text-align: center;
     color: var(--black-primary);
