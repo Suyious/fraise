@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from "react";
-import axios from "../utils/axios";
+import React from "react";
 import Loader from "../components/loader";
 import Search from "../components/search";
 import Slider from "../components/slider";
 import "./styles.css";
+import {useQuery} from "react-query";
+import axios from '../utils/axios'
 
 const Home = () => {
 
-  const [images, setImages] = useState([]);
-  
-  useEffect(() => {
-    axios.get("/background/sync").then((response) => {
-      setImages(response.data);
-    });
-  }, []);
+  const { isLoading, data, isError, error } = useQuery('blogs',() => {
+    return axios.get('/blogs');
+  });
 
   return (
     <div className="home main">
       <div className="home_loader">
-        {!images[0] && <Loader/>}
+        {isLoading && <Loader/>}
       </div>
       <div className="home_searchbox">
         <Search placeholder="What's on your mind?"/>
       </div>
       <div className="home_background">
-        <Slider images={images}/>
+        {!isLoading && !isError && <Slider images={data.data.blogs}/> }
       </div>
     </div>
   );

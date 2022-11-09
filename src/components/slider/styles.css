@@ -13,6 +13,8 @@
 
 .slider_slide_container {
 	position: relative;
+	height: 100vh;
+	height: calc(var(--vh,1vh) * 100);
 }
 
 .slider_image_container::after {
@@ -36,13 +38,18 @@
 
 .slider_slide_info_card {
 	position: absolute;
-	top: 65%;
+	bottom: 10%;
 	left: 10vw;
 	z-index: 2;
 	width: 30em;
 	max-width: 80vw;
 	color: var(--white-primary);
 	font-size: 0.9em;
+}
+
+.slider_no_blogs {
+	font-size: 1.5em;
+	font-family: Lato, sans-serif;
 }
 
 .slider_control {

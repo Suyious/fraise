@@ -89,26 +89,21 @@ const Slider = ({images}) => {
           onTouchMove={touchhandler}
           onWheel={scrollhandler}
           className="slider_image_body">
-          <div
-            className={`slider_slide_array${resizing ? "" : " transition"}`}
-            style={{
-              "transform": `translateX(calc(var(--vw, 1vw) * -1 * 100 * ${background}))`,
-            }}
-          >
-            {images.map((image) => (
+          <div className={`slider_slide_array${resizing ? "" : " transition"}`} style={{ "transform": `translateX(calc(var(--vw, 1vw) * -1 * 100 * ${background}))`, }} >
+            {images.length > 0 ? images.map((image) => (
               <div key={image?.background} className="slider_slide_container">
                 <div className="slider_slide_info_card">
                   <Infocard />
                 </div>
                 <div className="slider_image_container">
-                  <img 
-                    className={"slider_image"}
-                    src={image?.background}
-                    alt="background"
-                  />
+                  <img className={"slider_image"} src={image?.background} alt="background" />
                 </div>
-              </div>
-            ))}
+              </div>)) : 
+              <div className="slider_slide_container">
+                <div className="slider_slide_info_card">
+                  <div className="slider_no_blogs">No Blogs to show</div>
+                </div>
+              </div>}
           </div>
         </div>
         <div className="slider_control">
@@ -117,14 +112,7 @@ const Slider = ({images}) => {
           </div>
           <div className="slider_position">
             {images.map((image, i) => (
-              <div
-                key={i}
-                onClick={() => setBackground(i)}
-                className={`slider_position_circle ${image.background === images[background]?.background
-                    ? "active"
-                    : "inactive"
-                  }`}
-              >
+              <div key={i} onClick={() => setBackground(i)} className={`slider_position_circle ${image.background === images[background]?.background ? "active" : "inactive" }`} >
                 <Circle />
               </div>
             ))}
