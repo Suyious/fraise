@@ -1,0 +1,32 @@
+.blog {
+	min-height: 100vh;
+}
+
+.blog_width {
+	max-width: 70vw;
+	margin: 0 auto;
+}
+
+.blog_banner {
+	height: 30em;
+}
+
+.blog_banner_wrapper {
+	position: relative;
+	color: #fff;
+	height: 100%;
+}
+
+.blog_banner_image_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.blog_banner_data_card {
+	position: absolute;
+	bottom: 10%;
+	left: 0;
+}

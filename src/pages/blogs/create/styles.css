@@ -1,0 +1,9 @@
+.blog_banner.blog_create_variant {
+	background: #304B47;
+}
+
+.blog_create_banner_edit_container {
+	position: absolute;
+	bottom: 10%;
+	right: 0;
+}

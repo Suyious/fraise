@@ -1,11 +1,17 @@
 import React from 'react'
 import "./styles.css"
 import Grid from '../../components/layout/grid'
-import blogs from '../../assets/blogs'
+// import blogs from '../../assets/blogs'
 import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg"
 import Tabs from '../../components/tabs'
+import {useQuery} from 'react-query'
+import axios from "../../utils/axios"
 
 const Blogs = () => {
+
+  const { isLoading, data, isError } = useQuery('blogs', () => {
+    return axios.get('/blogs')
+  })
 
   const tabs = [ "Science", "Tech", "Coding", "Politics", "Wellness", "Art", "Music", "Book", "Myths", "Religion" ]
 
@@ -19,7 +25,7 @@ const Blogs = () => {
         <Tabs>{tabs}</Tabs>
       </div>
       {/* Categories */}
-      <Grid blogs={blogs}/>
+      {!isLoading && !isError && <Grid blogs={data.data.blogs}/> }
     </div>
   )
 }

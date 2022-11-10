@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Home from "./pages";
-import Blogs from "./pages/blogs";
-import SignUp from "./pages/signup";
-import Login from "./pages/login";
+// import Home from "./pages";
+// import Blogs from "./pages/blogs";
+// import SignUp from "./pages/signup";
+// import Login from "./pages/login";
+// import Blog from "./pages/blogs/[blog]";
+// import BlogCreate from "./pages/blogs/create";
 import Nav from "./components/navigation";
 import { Link } from "react-router-dom";
-import Blog from "./pages/blogs/[blog]";
 import NotFound from "./components/errors/notfound";
 import WebFont from 'webfontloader'
-import BlogCreate from "./pages/blogs/create";
 import {useQuery} from "react-query";
 import axios from "./utils/axios"
+import ComingSoon from "./components/errors/comingsoon";
 
 function App() {
 
@@ -67,6 +68,8 @@ function App() {
       </Link></>
   )}
 
+  const Maintenance = () => <ComingSoon message="We are porting fraise from heroku to render. This might take 24 hours."/>
+
   return (
     <Router basename="">
       <div className="App">
@@ -81,12 +84,12 @@ function App() {
             : <Loggedoutlinks/> }
         </Nav>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/blogs" exact component={Blogs} />
-          <Route path="/blogs/create" exact component={BlogCreate} />
-          <Route path="/blogs/:blog" exact component={Blog} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
+          <Route path="/" exact component={Maintenance} />
+          <Route path="/blogs" exact component={Maintenance} />
+          <Route path="/blogs/create" exact component={Maintenance} />
+          <Route path="/blogs/:blog" exact component={Maintenance} />
+          <Route path="/signup" component={Maintenance} />
+          <Route path="/login" component={Maintenance} />
           <Route path="/404" component={NotFound} />
           <Redirect from="*" to="/404"/>
         </Switch>

@@ -8,7 +8,7 @@ import axios from '../utils/axios'
 
 const Home = () => {
 
-  const { isLoading, data, isError, error } = useQuery('blogs',() => {
+  const { isLoading, data, isError } = useQuery('blogs',() => {
     return axios.get('/blogs');
   });
 
