@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import Loginform from "../../components/forms/login"
-import { useQuery } from "react-query"
+import { useMutation, useQueryClient } from "react-query"
 import axios from "../../utils/axios"
 
 const Login = () => {
@@ -9,19 +9,23 @@ const Login = () => {
   const password = useRef(null);
   const onSubmit = (e) => {
     e.preventDefault();
-    refetch();
+    mutate({
+      email: email.current.value,
+      password: password.current.value
+    });
   }
 
-  // const { isLoading, data, isError, error, refetch } = useQuery('login', () => {
-  const { isLoading, refetch } = useQuery('login', () => {
+  const queryClient = useQueryClient();
+  const { isLoading, mutate } = useMutation(( body ) => {
     const config = {
       headers: { "Content-Type": "application/json", withCredentials: true },
     };
-    return axios.post('/signin', {
-      email: email.current.value,
-      password: password.current.value
-    }, config)
-  }, { enabled: false })
+    return axios.post('/signin', body, config)
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("me")
+    }
+  })
 
   return (
     <div className='login main boxwidth'>

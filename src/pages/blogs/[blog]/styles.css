@@ -9,12 +9,9 @@
 
 .blog_banner {
 	height: 30em;
-}
-
-.blog_banner_wrapper {
+	font-family: Lato, sans-serif;
 	position: relative;
-	color: #fff;
-	height: 100%;
+	background: #304B47;
 }
 
 .blog_banner_image_container {
@@ -25,8 +22,45 @@
 	height: 100%;
 }
 
+.blog_banner_image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.blog_banner_image_container:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--secondary-dark-overlay);
+}
+
+.blog_banner_wrapper {
+	position: relative;
+	color: #fff;
+	height: 100%;
+}
+
 .blog_banner_data_card {
 	position: absolute;
 	bottom: 10%;
 	left: 0;
+}
+
+.blog_banner_tags {
+	display: flex;
+	gap: 0.5em;
+}
+
+.blog_banner_tag {
+	background: #FFFFFF33;
+	color: #fff;
+	min-width: 6em;
+	padding: 0.5em 1.5em;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 0.9em;
 }

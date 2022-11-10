@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {useQuery} from 'react-query';
+import {useMutation} from 'react-query';
 import SignUpForm from "../../components/forms/signup"
 import axios from "../../utils/axios"
 
@@ -13,30 +13,23 @@ const SignUp = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if(password.current.value && password.current.value === confirmPassword.current.value ) {
-      console.log("ok", {
-      username: username.current.value,
-      name: name.current.value,
-      email: email.current.value,
-      password: password.current.value
-    });
-      refetch();
+      mutate({
+        username: username.current.value,
+        name: name.current.value,
+        email: email.current.value,
+        password: password.current.value
+      });
     } else {
       console.log("mismatch");
     }
   }
 
-  const { isLoading, refetch, isError, error } = useQuery('signup', () => {
-
+  const { isLoading, mutate, isError, error } = useMutation(( body ) => {
     const config = {
       headers: { "Content-Type": "application/json", withCredentials: true },
     };
-    return axios.post('/signup', {
-      username: username.current.value,
-      name: name.current.value,
-      email: email.current.value,
-      password: password.current.value
-    }, config)
-  }, { enabled: false })
+    return axios.post('/signup', body , config)
+  })
 
   return (
     <div className='signup main boxwidth'>
