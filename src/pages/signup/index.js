@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {useMutation} from 'react-query';
+import {useMutation, useQueryClient} from 'react-query';
 import SignUpForm from "../../components/forms/signup"
 import axios from "../../utils/axios"
 
@@ -24,11 +24,16 @@ const SignUp = () => {
     }
   }
 
+  const queryClient = useQueryClient();
   const { isLoading, mutate, isError, error } = useMutation(( body ) => {
     const config = {
       headers: { "Content-Type": "application/json", withCredentials: true },
     };
     return axios.post('/signup', body , config)
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("me")
+    }
   })
 
   return (

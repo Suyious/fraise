@@ -25,6 +25,10 @@ const BlogCreate = () => {
     setBanner(URL.createObjectURL(e.target.files[0]));
   }
 
+  const removeBanner = () => {
+    setBanner(null);
+  }
+
   return(
     <div className="blog blog_create_variant">
 
@@ -43,10 +47,10 @@ const BlogCreate = () => {
                     <div onClick={() => removeTag(i)} className="blog_banner_create_tag_delete"><TrashIcon/></div>
                   </div>
               ))}
-                <div className="blog_create_tags_input">
+                <form onSubmit={addTag} className="blog_create_tags_input">
                   <input value={tagInput} onChange={(e) => setTagInput(e.target.value)} placeholder="Add Tags"/>
                   <div onClick={addTag} className="blog_create_tags_svg"><PlusIcon/></div>
-                </div>
+                </form>
             </div>
             <div className="blog_banner_title">
               <input type="text" placeholder="Add your Blog Title"/>
@@ -58,7 +62,9 @@ const BlogCreate = () => {
           </div>
           <div className="blog_create_banner_edit_container">
             <label className="blog_create_banner_edit_label" htmlFor="input-background">Edit Background
-            <div className="blog_create_edit_svg"><EditIcon/></div></label>
+              <div className="blog_create_edit_svg"><EditIcon/></div>
+            </label>
+            {banner && <div onClick={removeBanner} className="blog_create_edit_delete_svg"><TrashIcon/></div> }
             <input onChange={addBanner} className="blog_create_background_input_file" id="input-background" type="file" accept=".jpg, .jpeg, .png"/>
           </div>
         </div>
