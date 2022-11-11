@@ -6,6 +6,6 @@ This project is written in plain React <img height="15" src="https://cdn.jsdeliv
 ### Components
 
 - **Carousel:**
-![Carousel Screenshot](./Fraise_screenshot.png)
+![Carousel Screenshot](./screenshot.png)
 
 The component that required quite an effort is the landing page that contains a carousel. The carousel is implemented from scratch with javascript. It can be controlled using button clicks, shift + scrolling (horizontal scroll) or swiping on touch-screen devices.

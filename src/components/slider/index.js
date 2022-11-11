@@ -5,7 +5,7 @@ import {ReactComponent as Next}     from "../../assets/icons/next.svg";
 import {ReactComponent as Circle}   from "../../assets/icons/circle.svg";
 import Infocard from "../cards/infocard/";
 
-const Slider = ({images}) => {
+const Slider = ({elements}) => {
 
   const [background, setBackground] = useState(0);
   const [touchX, setTouchX] = useState(0);
@@ -35,7 +35,7 @@ const Slider = ({images}) => {
   };
 
   const nextSlide = () => {
-    if (background < images.length - 1) {
+    if (background < elements.length - 1) {
       setBackground(background + 1);
     }
   };
@@ -56,7 +56,7 @@ const Slider = ({images}) => {
 
   const scrollhandler = (e) => {
     let nbackground = background + 0.00076 * e.deltaX;
-    if(nbackground > 0 && nbackground < images.length - 1){
+    if(nbackground > 0 && nbackground < elements.length - 1){
       setBackground(nbackground);
     }
   }
@@ -66,7 +66,7 @@ const Slider = ({images}) => {
     let touchdeltaX = e.touches[0].pageX - touchX;
     setTouchX(e.touches[0].pageX)
     let nbackground = background - 0.005 * touchdeltaX;
-    if(nbackground >= 0 && nbackground <= images.length - 1){
+    if(nbackground >= 0 && nbackground <= elements.length - 1){
       setBackground(nbackground);    
     }
   }
@@ -90,13 +90,13 @@ const Slider = ({images}) => {
           onWheel={scrollhandler}
           className="slider_image_body">
           <div className={`slider_slide_array${resizing ? "" : " transition"}`} style={{ "transform": `translateX(calc(var(--vw, 1vw) * -1 * 100 * ${background}))`, }} >
-            {images.length > 0 ? images.map((image) => (
-              <div key={image?.background} className="slider_slide_container">
+            {elements.length > 0 ? elements.map((element, i) => (
+              <div key={i} className="slider_slide_container">
                 <div className="slider_slide_info_card">
-                  <Infocard />
+                  <Infocard blog={element}/>
                 </div>
                 <div className="slider_image_container">
-                  <img className={"slider_image"} src={image?.background} alt="background" />
+                  <img className={"slider_image"} src={element?.image} alt="background" />
                 </div>
               </div>)) : 
               <div className="slider_slide_container">
@@ -111,13 +111,13 @@ const Slider = ({images}) => {
             <Previous />
           </div>
           <div className="slider_position">
-            {images.map((image, i) => (
-              <div key={i} onClick={() => setBackground(i)} className={`slider_position_circle ${image.background === images[background]?.background ? "active" : "inactive" }`} >
+            {elements.map((element, i) => (
+              <div key={i} onClick={() => setBackground(i)} className={`slider_position_circle ${element === elements[background] ? "active" : "inactive" }`} >
                 <Circle />
               </div>
             ))}
           </div>
-          <div className={`slider_button right ${background!==images.length - 1 ? "opaque": ""}`} onClick={nextSlide}>
+          <div className={`slider_button right ${background!==elements.length - 1 ? "opaque": ""}`} onClick={nextSlide}>
             <Next />
           </div>
         </div>
