@@ -20,7 +20,7 @@ const SignUp = ({ username, name, email, password, confirmPassword, onSubmit=() 
         <InputBox input_ref={password} type="password" placeholder="Password" label="password" variant="password"/>
       </div>
       <div className="auth_input">
-        <InputBox ref={confirmPassword} type="password" placeholder="Confirm Password" label="confirm password" variant="password"/>
+        <InputBox input_ref={confirmPassword} type="password" placeholder="Confirm Password" label="confirm password" variant="password"/>
       </div>
       <div className="auth_button">
         <ConfirmButton disabled={loading}>{loading ? "Signing you up" : "Sign Up" }</ConfirmButton>

@@ -15,7 +15,7 @@
   --green-accent: #21746A;
   --green-accent-alpha: #21746A31;
   --green-accent-border: #21746A69;
-  --dark-overlay: #00000079;
+  --dark-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)),linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));;
   --secondary-dark-overlay: #000000a3;
 }
 
