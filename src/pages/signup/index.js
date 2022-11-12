@@ -1,10 +1,12 @@
 import React, {useRef} from 'react'
 import {useMutation, useQueryClient} from 'react-query';
+import {useHistory} from 'react-router';
 import SignUpForm from "../../components/forms/signup"
 import axios from "../../utils/axios"
 
 const SignUp = () => {
 
+  const history = useHistory();
   const username = useRef(null);
   const name = useRef(null);
   const email = useRef(null);
@@ -18,6 +20,10 @@ const SignUp = () => {
         name: name.current.value,
         email: email.current.value,
         password: password.current.value
+      }, {
+        onSuccess: () => {
+          history.push('/');
+        }
       });
     } else {
       console.log("mismatch");
@@ -25,7 +31,7 @@ const SignUp = () => {
   }
 
   const queryClient = useQueryClient();
-  const { isLoading, mutate, isError, error } = useMutation(( body ) => {
+  const { isLoading, mutate } = useMutation(( body ) => {
     const config = {
       headers: { "Content-Type": "application/json", withCredentials: true },
     };
@@ -41,7 +47,6 @@ const SignUp = () => {
       <SignUpForm username={username} name={name} email={email}
         password={password} confirmPassword={confirmPassword}
         onSubmit={onSubmit} loading={isLoading}/>
-      {isError && <div>{ error.message }</div>}
     </div>
   )
 }

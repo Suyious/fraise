@@ -1,0 +1,52 @@
+.inputbox input{
+    background: none;
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.inputbox_label {
+	color: var(--green-accent);
+	font-weight: 300;
+}
+
+.inputbox_input {
+	position: relative;
+    margin: 0.5em 0;
+}
+
+.inputbox_input input{
+	background: var(--green-accent-alpha);
+    padding: 0.8em 2em 0.8em 3.5em;
+	border: 2px solid rgba(33, 116, 106, 0.34);
+	border-radius: 5px;
+	font-size: 1em;
+    color: var(--black_primary);
+}
+
+.inputbox_input input:focus-visible {
+	border: 2px solid rgba(33, 116, 106, 0.78);
+}
+
+.inputbox_icon {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 4em;
+	height: 100%;
+}
+
+.inputbox_icon.left {
+	top: 0;
+	left: 0;
+}
+
+.inputbox_icon.right {
+	top: 0;
+	right: 0;
+}
+
+.inputbox_icon svg {
+	width: 20px;
+	height: auto;
+}

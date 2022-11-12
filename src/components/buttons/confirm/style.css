@@ -1,0 +1,17 @@
+.button_main {
+	background: none;
+	outline: none;
+	border: none;
+	width: 100%;
+	padding: 0.9em 2em;
+	margin: 0.5em 0;
+	background: var(--green-accent);
+	color: var(--white-primary);
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button_main:hover {
+	scale: 1.01;
+}

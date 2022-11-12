@@ -10,9 +10,10 @@ import BlogCreate from "./pages/blogs/create";
 import Nav from "./components/navigation";
 import NotFound from "./components/errors/notfound";
 import WebFont from 'webfontloader'
-import {useQuery} from "react-query";
+import {useMutation, useQuery, useQueryClient} from "react-query";
 import axios from "./utils/axios"
-// import ComingSoon from "./components/errors/comingsoon";
+import EditProfile from "./pages/user/edit";
+import ComingSoon from "./components/errors/comingsoon";
 
 function App() {
 
@@ -38,18 +39,32 @@ function App() {
     })
   }, []);
 
-  // const { isLoading, data, isError, error } = useQuery('me', () => {
   const { isLoading, data } = useQuery('me', () => {
     return axios.get('/me');
   })
 
+  const queryClient = useQueryClient();
+  const {isLoading: isLoggingOut, mutate} = useMutation(() => {
+    return axios.post('logout');
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('me');
+    }
+  })
+
   const Loggedinlinks = () => {
+
     return (
-    <Link to="/blogs/create">
-      <li className="nav_link primary bigger">
-        Start Writing
-      </li>
-    </Link>
+      <>
+        <li onClick={mutate} className="nav_link">
+          {isLoggingOut? "Logging Out" : "logout" }
+        </li>
+        <Link to="/blogs/create">
+          <li className="nav_link primary bigger">
+            Start Writing
+          </li>
+        </Link>
+      </>
   )}
 
   const Loggedoutlinks = () => {
@@ -87,6 +102,8 @@ function App() {
           <Route path="/blogs" exact component={Blogs} />
           <Route path="/blogs/create" exact component={BlogCreate} />
           <Route path="/blogs/:blog" exact component={Blog} />
+          <Route path="/user/edit" exact component={EditProfile} />
+          <Route path="/user/:user" exact component={ComingSoon} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/404" component={NotFound} />
@@ -98,4 +115,3 @@ function App() {
 }
 
 export default App;
-
