@@ -38,7 +38,7 @@ const BlogCreate = () => {
             <img className="blog_banner_image" src={banner} alt="banner for the blog" />
           </div>}
 
-        <div className="blog_banner_wrapper blog_width">
+        <div className="blog_banner_wrapper boxwidth">
           <div className="blog_banner_data_card">
             <div className="blog_banner_tags blog_create_variant">
               { tags.map((tag, i) => (

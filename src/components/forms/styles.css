@@ -1,6 +1,7 @@
 .auth_bottom{
     text-align: center;
     color: var(--black-primary);
+	font-family: Lato, sans-serif;
 }
 
 .auth_bottom a {

@@ -17,6 +17,10 @@
 	height: calc(var(--vh,1vh) * 100);
 }
 
+.slider_image_container {
+    width: 100vw;
+}
+
 .slider_image_container::after {
 	content: "";
 	position: absolute;

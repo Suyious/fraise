@@ -30,7 +30,7 @@ const EyeIcon = ({open}) => {
   }
 }
 
-const InputBox = ({input_ref=null, name="", type="", placeholder="", label="", variant, onChange=() => {}}) => {
+const InputBox = ({input_ref=null, value,  name="", type="", placeholder="", label="", variant, onChange=() => {}, error=""}) => {
 
   const [passwordShow, setPasswordShow] = useState(false);
   const togglePassword = () => {
@@ -46,12 +46,13 @@ const InputBox = ({input_ref=null, name="", type="", placeholder="", label="", v
 
   return (
     <div className="inputbox">
+      {error && <div className="inputbox_error">{error}</div>}
       <label className="inputbox_label">{label}
-        <div className="inputbox_input">
+        <div className={ `inputbox_input ${error ? "error": ""}` }>
           <div className="inputbox_icon left">
             <InputIcon variant={variant}/>
           </div>
-          <input ref={input_ref} name={name} type={getType(type)} placeholder={placeholder} onChange={onChange} />
+          <input ref={input_ref} value={value} name={name} type={getType(type)} placeholder={placeholder} onChange={onChange} />
           {variant==="password" && 
             <div onClick={togglePassword} className="inputbox_icon right">
               <EyeIcon open={passwordShow}/>

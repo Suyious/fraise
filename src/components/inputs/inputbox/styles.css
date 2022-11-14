@@ -1,8 +1,20 @@
+.inputbox {
+	position: relative;
+}
+
 .inputbox input{
     background: none;
     outline: none;
     border: none;
     width: 100%;
+}
+
+.inputbox_error {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 0.2em;
+	color: var(--error-primary);
 }
 
 .inputbox_label {
@@ -22,6 +34,10 @@
 	border-radius: 5px;
 	font-size: 1em;
     color: var(--black_primary);
+}
+
+.inputbox_input.error input {
+	border: 2px solid var(--error-accent);
 }
 
 .inputbox_input input:focus-visible {

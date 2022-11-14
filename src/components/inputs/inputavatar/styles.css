@@ -1,0 +1,63 @@
+.input_avatar {
+	height: 10em;
+	background: var(--green-accent-alpha);
+	border: 2px solid rgba(33, 116, 106, 0.34);
+	position: relative;
+	margin: 0.5em 0;
+	border-radius: 4px;
+}
+
+.input_avatar:hover .input_avatar_absolute {
+	opacity: 1;
+}
+
+.input_avatar_input_file {
+	display: none;
+}
+
+.input_avatar_absolute {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	opacity: 0;
+	transition: opacity 200ms ease;
+}
+
+.input_avatar_label,
+.input_avatar_remove{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2em;
+	height: 2em;
+	background: #fff;
+	border-radius: 2px;
+	margin: 0.5em;
+	cursor: pointer;
+}
+
+.input_avatar_placeholder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
+.input_avatar_placeholder svg{
+	width: 7em;
+	height: auto;
+}
+
+.input_avatar_image_container {
+	width: 100%;
+	height: 100%;
+}
+
+.input_avatar_image_container img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

@@ -73,6 +73,7 @@
 
 .blog_banner_title input{
 	font-size: 3em;
+	width: 100%;
 }
 
 .blog_banner_subtitle input {
