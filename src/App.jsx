@@ -1,19 +1,10 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { HashRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import Home from "./pages";
-import Blogs from "./pages/blogs";
-import SignUp from "./pages/signup";
-import Login from "./pages/login";
-import Blog from "./pages/blogs/[blog]";
-import BlogCreate from "./pages/blogs/create";
+import { Link, Outlet } from "react-router-dom";
 import Nav from "./components/navigation";
-import NotFound from "./components/errors/notfound";
 import WebFont from 'webfontloader'
 import {useMutation, useQuery, useQueryClient} from "react-query";
 import axios from "./utils/axios"
-import EditProfile from "./pages/user/edit";
-import ComingSoon from "./components/errors/comingsoon";
 
 function App() {
 
@@ -82,35 +73,20 @@ function App() {
       </Link></>
   )}
 
-  // const Maintenance = () => <ComingSoon message="We are porting fraise from heroku to render. This might take 24 hours."/>
-
   return (
-    <Router basename="">
-      <div className="App">
-        <Nav>
-          <Link to="/blogs">
-            <li className="nav_link">
-              blogs
-            </li>
-          </Link>
-          { !isLoading ? 
-              data.data.user === null ? <Loggedoutlinks/> : <Loggedinlinks/>
+    <div className="App">
+      <Nav>
+        <Link to="/blogs">
+          <li className="nav_link">
+            blogs
+          </li>
+        </Link>
+        { !isLoading ? 
+            data.data.user === null ? <Loggedoutlinks/> : <Loggedinlinks/>
             : <Loggedoutlinks/> }
-        </Nav>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/blogs" exact component={Blogs} />
-          <Route path="/blogs/create" exact component={BlogCreate} />
-          <Route path="/blogs/:blog" exact component={Blog} />
-          <Route path="/user/edit" exact component={EditProfile} />
-          <Route path="/user/:user" exact component={ComingSoon} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
-          <Route path="/404" component={NotFound} />
-          <Redirect from="*" to="/404"/>
-        </Switch>
-      </div>
-    </Router>
+      </Nav>
+      <Outlet/>
+    </div>
   );
 }
 

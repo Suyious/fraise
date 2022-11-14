@@ -2,11 +2,11 @@ import React, {useRef} from 'react'
 import Loginform from "../../components/forms/login"
 import { useMutation, useQueryClient } from "react-query"
 import axios from "../../utils/axios"
-import {useHistory} from 'react-router'
+import {useNavigate} from 'react-router'
 
 const Login = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const email = useRef(null);
   const password = useRef(null);
@@ -17,7 +17,7 @@ const Login = () => {
       password: password.current.value
     }, {
       onSuccess: () => {
-        history.push('/');
+        navigate('/');
       }
     });
   }
