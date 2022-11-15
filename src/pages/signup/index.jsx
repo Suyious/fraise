@@ -1,12 +1,12 @@
 import React, {useRef} from 'react'
 import {useMutation, useQueryClient} from 'react-query';
-import {useHistory} from 'react-router';
+import {useNavigate} from 'react-router';
 import SignUpForm from "../../components/forms/signup"
 import axios from "../../utils/axios"
 
 const SignUp = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const username = useRef(null);
   const name = useRef(null);
   const email = useRef(null);
@@ -22,7 +22,7 @@ const SignUp = () => {
         password: password.current.value
       }, {
         onSuccess: () => {
-          history.push('/');
+          navigate('/');
         }
       });
     } else {

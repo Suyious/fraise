@@ -18,7 +18,7 @@ const EditProfile = () => {
     return axios.get('/me');
   }, {
     onSuccess: (data) => {
-      if(data.data.user){
+      if(data.data.user.name) {
         name.current.value = data.data.user.name;
         username.current.value = data.data.user.username;
         email.current.value = data.data.user.email;

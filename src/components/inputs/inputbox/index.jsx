@@ -30,7 +30,7 @@ const EyeIcon = ({open}) => {
   }
 }
 
-const InputBox = ({input_ref=null, value,  name="", type="", placeholder="", label="", variant, onChange=() => {}, error=""}) => {
+const InputBox = ({input_ref=null, name="", type="", placeholder="", label="", variant, onChange=() => {}, error=""}) => {
 
   const [passwordShow, setPasswordShow] = useState(false);
   const togglePassword = () => {
@@ -52,7 +52,7 @@ const InputBox = ({input_ref=null, value,  name="", type="", placeholder="", lab
           <div className="inputbox_icon left">
             <InputIcon variant={variant}/>
           </div>
-          <input ref={input_ref} value={value} name={name} type={getType(type)} placeholder={placeholder} onChange={onChange} />
+          <input ref={input_ref} name={name} type={getType(type)} placeholder={placeholder} onChange={onChange} />
           {variant==="password" && 
             <div onClick={togglePassword} className="inputbox_icon right">
               <EyeIcon open={passwordShow}/>
