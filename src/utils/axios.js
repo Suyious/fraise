@@ -9,6 +9,4 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-console.log(process.env.NODE_ENV);
-
 export default instance;
