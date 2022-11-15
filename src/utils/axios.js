@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const baseURL = process.env.NODE_ENV === 'production' ? 
+  "https://fraise.onrender.com":
+  "http://localhost:8080"
+
 const instance = axios.create({
-  baseURL: "https://fraise.onrender.com",
-  // baseURL: "http://localhost:8080",
+  baseURL: baseURL,
   withCredentials: true,
 });
 
