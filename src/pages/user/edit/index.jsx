@@ -18,11 +18,12 @@ const EditProfile = () => {
     return axios.get('/me');
   }, {
     onSuccess: (data) => {
-      if(data.data.user.name) {
+      if(data.data.user) {
         name.current.value = data.data.user.name;
         username.current.value = data.data.user.username;
         email.current.value = data.data.user.email;
-        if(data.data.user.avatar.url) setAvatar(data.data.user.avatar.url);
+        if(data.data.user.avatar && data.data.user.avatar.url)
+          setAvatar(data.data.user.avatar.url);
       }
     },
     refetchOnWindowFocus: false
