@@ -4,10 +4,14 @@ import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
 import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import {ReactComponent as UserIcon} from "../../../assets/icons/user.svg"
 
-const AvatarInput = ({avatar, setAvatar}) => {
+const AvatarInput = ({name, avatar, setAvatar}) => {
 
   const addAvatar = (e) => {
-    setAvatar(e.target.files[0]);
+    const reader = new FileReader();
+    reader.onload = () => {
+      setAvatar(reader.result);
+    }
+    reader.readAsDataURL(e.target.files[0])
   }
   const removeAvatar = () => {
     setAvatar(null);
@@ -33,7 +37,7 @@ const AvatarInput = ({avatar, setAvatar}) => {
       <div className="input_avatar_absolute">
         <label className="input_avatar_label">
           <EditIcon/>
-          <input className="input_avatar_input_file" type="file" accept=".jpg, .jpeg, .png" onChange={addAvatar} />
+          <input className="input_avatar_input_file" name={name} type="file" accept=".jpg, .jpeg, .png" onChange={addAvatar} />
         </label>
         {avatar && <div className="input_avatar_remove" onClick={removeAvatar}>
           <TrashIcon/>

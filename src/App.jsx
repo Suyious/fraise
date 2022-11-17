@@ -4,7 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 import Nav from "./components/navigation";
 import WebFont from 'webfontloader'
 import {useMutation, useQuery, useQueryClient} from "react-query";
-import axios from "./utils/axios"
+import axios from "./utils/axios";
+import {ReactComponent as NavDown} from "./assets/icons/navdownopen.svg"
+import {ReactComponent as Hamburger} from "./assets/icons/hamburger.svg"
+import Dropdown from "./components/dropdown";
 
 function App() {
 
@@ -47,9 +50,25 @@ function App() {
 
     return (
       <>
-        <li onClick={mutate} className="nav_link">
-          {isLoggingOut? "Logging Out" : "logout" }
-        </li>
+        <div className="mobile">
+          <Dropdown visible={
+            <li className="nav_link"><Hamburger/></li>
+          }>
+            <li className="nav_link"><Link to="user/dashboard">dashboard</Link></li>
+            <li className="nav_link"><Link to="/user/edit">profile</Link></li>
+            <li className="nav_link" onClick={mutate}>{isLoggingOut ? <span>loading</span> : <span>logout</span> }</li>
+          </Dropdown>
+        </div>
+        <div className="desktop">
+          <Dropdown visible={
+            <li className="nav_link">
+              account <NavDown/>
+              </li> }>
+            <li className="nav_link"><Link to="user/dashboard">dashboard</Link></li>
+            <li className="nav_link"><Link to="/user/edit">profile</Link></li>
+            <li className="nav_link" onClick={mutate}>{isLoggingOut ? <span>loading</span> : <span>logout</span> }</li>
+          </Dropdown>
+        </div>
         <Link to="/blogs/create">
           <li className="nav_link primary bigger">
             Start Writing

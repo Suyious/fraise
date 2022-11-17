@@ -1,0 +1,18 @@
+.dropdown_main {
+	position: relative;
+}
+
+.dropdown_children {
+	position: absolute;
+	top: 3em;
+	right: 0;
+	background: var(--white-background-alpha);
+	border: 1px solid var(--white-primary-alpha);
+	border-radius: 5px;
+}
+
+.dropdown_children li {
+	list-style: none;
+	width: 100%;
+    padding: 0.5em 1.5em;
+}

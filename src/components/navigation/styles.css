@@ -32,7 +32,14 @@
     font-size: 1em;
     padding: 0.5em 1.5em;
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
     cursor: pointer;
+}
+
+.nav_link svg path {
+	fill: var(--white-primary);
 }
 
 .nav_link.primary {
@@ -60,6 +67,14 @@
 	font-weight: 400;
 }
 
+.nav.secondary .nav_link svg rect {
+	fill: var(--green-accent);
+}
+
+.nav.secondary .nav_link svg path {
+	fill: var(--green-accent);
+}
+
 .nav.secondary .nav_link:hover{
     background: var(--green-accent-alpha);
 	color: var(--green-accent);
@@ -80,7 +95,8 @@
 }
 
 .nav.primary .nav_link.bigger {
-    background: var(--white-primary-alpha);
+    background: var(--white-background-alpha);
+	border: 1px solid var(--white-primary-alpha);
 	color: var(--white-primary);
 	transition: all 100ms ease-in;
 }

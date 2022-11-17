@@ -10,7 +10,8 @@ const BlogCreate = () => {
   const [tagInput, setTagInput] = useState("");
   const [banner, setBanner] = useState(null);
 
-  const addTag = () => {
+  const addTag = (e) => {
+    e.preventDefault();
     if(tagInput !== ""){
       setTags((prev) => [...prev, tagInput]);
       setTagInput("");

@@ -1,65 +1,79 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
-  font-family: "Roboto", sans-serif;
-  --white-primary: #F4F7FF;
-  --white-primary-alpha: #F4F7FF31;
-  --white-background: #E9F1F0;
-  --white-accent: #9A9A9AA8;;
-  --dark-background: #191919;
-  --black-primary: #000000;
-  --green-accent: #21746A;
-  --green-accent-alpha: #21746A31;
-  --green-accent-border: #21746A69;
-  --dark-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)),linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-  --secondary-dark-overlay: #000000a3;
-  --error-primary: #742121;
-  --error-accent: #74212170;
+	font-family: "Roboto", sans-serif;
+	--white-primary: #F4F7FF;
+	--white-primary-alpha: #F4F7FF31;
+	--white-background-alpha: #FEFEFE1A;
+	--white-background: #E9F1F0;
+	--white-accent: #9A9A9AA8;;
+	--dark-background: #191919;
+	--black-primary: #000000;
+	--green-accent: #21746A;
+	--green-accent-alpha: #21746A31;
+	--green-accent-border: #21746A69;
+	--dark-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)),linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+	--secondary-dark-overlay: #000000a3;
+	--error-primary: #742121;
+	--error-background: #74212136;
+	--error-accent: #74212170;
 }
 
 body {
-  background: rgb(19, 19, 19);
-  background: var(--white-background);
-  min-height: 100vh;
-  min-height: calc(var(--vh,1vh) * 100);
+	background: rgb(19, 19, 19);
+	background: var(--white-background);
+	min-height: 100vh;
+	min-height: calc(var(--vh,1vh) * 100);
 }
 
 .boxwidth {
-  max-width: 85vw;
-  margin: auto;
+	max-width: 85vw;
+	margin: auto;
 }
 
 .main{
-  padding-top: 5em;
+	padding-top: 5em;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 *::-webkit-scrollbar {
-  display: none;
+	display: none;
+}
+
+.mobile {
+	display: none;
 }
 
 @media only screen and (max-width: 530px) {
-  .background__card__blog {
-    bottom: 5em;
-  }
+	.mobile {
+		display: block;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.background__card__blog {
+		bottom: 5em;
+	}
 }
 
 @media only screen and (max-width: 480px) {
-  :root {
-    font-size: 13px;
-  }
+	:root {
+		font-size: 13px;
+	}
 }
 
 @media only screen and (max-width: 321px) {
-  :root {
-    font-size: 11px;
-  }
+	:root {
+		font-size: 11px;
+	}
 }

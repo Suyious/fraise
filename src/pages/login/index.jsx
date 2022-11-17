@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import Loginform from "../../components/forms/login"
 import { useMutation, useQueryClient } from "react-query"
 import axios from "../../utils/axios"
@@ -10,6 +10,8 @@ const Login = () => {
 
   const email = useRef(null);
   const password = useRef(null);
+  const [errors, setErrors] = useState({});
+
   const onSubmit = (e) => {
     e.preventDefault();
     mutate({
@@ -31,12 +33,23 @@ const Login = () => {
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries("me")
+    },
+    onError: (err) => {
+      let parsed = JSON.parse(err.request.response).message
+        .split(/[:,] /).slice(1);
+      // console.log(parsed);
+      let temp = {};
+      for(let i = 0; i < parsed.length; i += 2) {
+        temp[parsed[i]] = parsed[i + 1];
+      }
+      // console.log(temp);
+      setErrors(temp)
     }
   })
 
   return (
     <div className='login main boxwidth'>
-      <Loginform email={email} password={password} onSubmit={onSubmit} loading={isLoading}/>   
+      <Loginform email={email} password={password} onSubmit={onSubmit} loading={isLoading} errors={errors}/>   
     </div>
   )
 }

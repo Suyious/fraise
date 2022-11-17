@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import {useMutation, useQueryClient} from 'react-query';
 import {useNavigate} from 'react-router';
 import SignUpForm from "../../components/forms/signup"
@@ -12,21 +12,28 @@ const SignUp = () => {
   const email = useRef(null);
   const password = useRef(null);
   const confirmPassword = useRef(null);
+  const [errors, setErrors] = useState({});
+
   const onSubmit = (e) => {
     e.preventDefault();
+    const body = {
+      username: username.current.value,
+      name: name.current.value,
+      email: email.current.value,
+      password: password.current.value
+    }
+
     if(password.current.value && password.current.value === confirmPassword.current.value ) {
-      mutate({
-        username: username.current.value,
-        name: name.current.value,
-        email: email.current.value,
-        password: password.current.value
-      }, {
+      mutate(body, {
         onSuccess: () => {
           navigate('/');
         }
       });
     } else {
-      console.log("mismatch");
+      setErrors({
+        ...errors,
+        confirmPassword: "the passwords do not match"
+      })
     }
   }
 
@@ -39,6 +46,17 @@ const SignUp = () => {
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries("me")
+    },
+    onError: (err) => {
+      let parsed = JSON.parse(err.request.response).message
+        .split(/[:,] /).slice(1);
+      // console.log(parsed);
+      let temp = {};
+      for(let i = 0; i < parsed.length; i += 2) {
+        temp[parsed[i]] = parsed[i + 1];
+      }
+      // console.log(temp);
+      setErrors(temp)
     }
   })
 
@@ -46,7 +64,7 @@ const SignUp = () => {
     <div className='signup main boxwidth'>
       <SignUpForm username={username} name={name} email={email}
         password={password} confirmPassword={confirmPassword}
-        onSubmit={onSubmit} loading={isLoading}/>
+        onSubmit={onSubmit} loading={isLoading} errors={errors}/>
     </div>
   )
 }
