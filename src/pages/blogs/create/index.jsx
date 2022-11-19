@@ -3,24 +3,27 @@ import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
 import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
 import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import "./styles.css"
+import BlogContentEdit from "../../../components/section/blogcontentedit"
+import Editable from "../../../components/inputs/editableElements"
 
 const BlogCreate = () => {
 
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
-  const [banner, setBanner] = useState(null);
 
   const addTag = (e) => {
     e.preventDefault();
     if(tagInput !== ""){
-      setTags((prev) => [...prev, tagInput]);
+      setTags((p) => [...p, tagInput]);
       setTagInput("");
     }
   };
 
   const removeTag = (key) => {
-    setTags((prev) => prev.filter((_, i) => i !== key));
+    setTags((p) => p.filter((_, i) => i !== key));
   }
+
+  const [banner, setBanner] = useState(null);
 
   const addBanner = (e) => {
     setBanner(URL.createObjectURL(e.target.files[0]));
@@ -28,6 +31,29 @@ const BlogCreate = () => {
 
   const removeBanner = () => {
     setBanner(null);
+  }
+
+  const [body, setBody] = useState([{
+    type: "para",
+    value: "",
+  }]);
+
+  const addToBody = () => {
+    setBody((p) => [...p, {
+      type: "para",
+      value: "",
+    }])
+  }
+
+  const editBody = (key, edit) => {
+    setBody((p) => p.map((section, i) => {
+      if( i === key ) return edit;
+      return section;
+    }))
+  }
+
+  const removeFromBody = ( key ) => {
+    setBody((p) => p.filter((_, i) => i !== key));
   }
 
   return(
@@ -39,7 +65,7 @@ const BlogCreate = () => {
             <img className="blog_banner_image" src={banner} alt="banner for the blog" />
           </div>}
 
-        <div className="blog_banner_wrapper boxwidth">
+        <div className="blog_banner_wrapper blog_width">
           <div className="blog_banner_data_card">
             <div className="blog_banner_tags blog_create_variant">
               { tags.map((tag, i) => (
@@ -53,13 +79,13 @@ const BlogCreate = () => {
                   <div onClick={addTag} className="blog_create_tags_svg"><PlusIcon/></div>
                 </form>
             </div>
-            <div className="blog_banner_title">
-              <input type="text" placeholder="Add your Blog Title"/>
+            <div className="blog_banner_title blog_create_variant">
+              <Editable placeholder="Add your Blog Title"/>
             </div>
-            <div className="blog_banner_subtitle">
-              <input type="text" placeholder="Add your Blog Description"/>
+            <div className="blog_banner_subtitle blog_create_variant">
+              <Editable type="text" placeholder="Add your Blog Description"/>
             </div>
-            <div className="blog_banner_author"></div>
+            <div className="blog_banner_author blog_create_variant"></div>
           </div>
           <div className="blog_create_banner_edit_container">
             <label className="blog_create_banner_edit_label" htmlFor="input-background">Edit Background
@@ -72,8 +98,10 @@ const BlogCreate = () => {
 
       </div>
 
-      <div className="blog_body blog_create_variant">
-
+      <div className="blog_body blog_width blog_create_variant">
+        {body.map((section, index) => (
+            <BlogContentEdit type={section.type} value={section.value} key={index} setContent={(b) => editBody(index, b)} addContent={addToBody} removeContent={() => removeFromBody(index)}/>
+        ))}
       </div>
 
     </div>

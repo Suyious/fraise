@@ -1,0 +1,27 @@
+.editable_wrapper {
+	position: relative;
+}
+
+.editable_placeholder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	filter: opacity(0.6);
+	pointer-events: none;
+}
+
+blockquote.editable_placeholder {
+	left: 20%;
+	transform: translateX(-50%);
+}
+
+.editable_main {
+	top: 0;
+	left: 0;
+	width: 100%;
+	cursor: text;
+}
+
+.editable_main:focus-visible {
+	outline: none;
+}

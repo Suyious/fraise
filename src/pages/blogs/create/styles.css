@@ -32,8 +32,8 @@
 }
 
 .blog_create_tags_input input,
-.blog_banner_title input,
-.blog_banner_subtitle input {
+.blog_banner_title.blog_create_variant input,
+.blog_banner_subtitle.blog_create_variant input {
 	font-family: Lato, sans-serif;
 	outline: none;
 	border: none;
@@ -71,13 +71,13 @@
 	height: auto;
 }
 
-.blog_banner_title input{
-	font-size: 3em;
+.blog_banner_title.blog_create_variant input{
+	font-size: inherit;
 	width: 100%;
 }
 
-.blog_banner_subtitle input {
-	font-size: 1.5em;
+.blog_banner_subtitle.blog_create_variant input {
+	font-size: inherit;
 }
 
 .blog_create_banner_edit_container {

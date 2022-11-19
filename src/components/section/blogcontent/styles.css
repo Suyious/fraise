@@ -1,0 +1,34 @@
+.blog_content_main {
+	line-height: 24px;
+	color: var(--black-primary);
+}
+
+.blog_content_main h1 {
+	font-size: 1.7em;
+	font-weight: 700;
+	color: inherit;
+}
+
+.blog_content_main p {
+	font-size: 1.3em;
+}
+
+.blog_content_main blockquote {
+	font-style: italic;
+	font-size: 1.3em;
+	max-width: 80%;
+	margin: 0 auto;
+	opacity: 0.9;
+}
+
+.blog_content_main img {
+	height: 35em;
+	margin: 0 auto;
+	width: 100%;
+	object-fit: contain;
+}
+
+.blog_content_main code {
+	display: block;
+	white-space: pre;
+}

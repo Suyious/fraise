@@ -1,0 +1,38 @@
+.blog_content_main.blog_content_edit input {
+	background: rgba(0, 0, 0, 0);
+	outline: none;
+	border: none;
+}
+
+.blog_content_edit_bottom_wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.blog_content_edit_bottom {
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	gap: 1em;
+}
+
+.blog_content_edit_bottom button {
+	background: rgba(0, 0, 0, 0);
+	color: var(--green-primary);
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.blog_content_set_button {
+	width: 2em;
+	height: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 2px;
+}
+
+.blog_content_set_button:disabled {
+	background: var(--green-accent-alpha);
+}
