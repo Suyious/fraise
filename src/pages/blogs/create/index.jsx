@@ -10,7 +10,6 @@ const BlogCreate = () => {
 
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
-
   const addTag = (e) => {
     e.preventDefault();
     if(tagInput !== ""){
@@ -18,31 +17,38 @@ const BlogCreate = () => {
       setTagInput("");
     }
   };
-
   const removeTag = (key) => {
     setTags((p) => p.filter((_, i) => i !== key));
   }
 
   const [banner, setBanner] = useState(null);
-
   const addBanner = (e) => {
     setBanner(URL.createObjectURL(e.target.files[0]));
   }
-
   const removeBanner = () => {
     setBanner(null);
   }
 
   const [body, setBody] = useState([{
+    id: Date.now(),
     type: "para",
     value: "",
   }]);
 
-  const addToBody = () => {
-    setBody((p) => [...p, {
-      type: "para",
-      value: "",
-    }])
+  const addToBody = (index) => {
+    if(index === body.length - 1) {
+      setBody((p) => [...p, {
+        id: Date.now(),
+        type: "para",
+        value: "",
+      }])
+    } else {
+      setBody((p) => [
+        ...p.slice(0, index + 1),
+        { id: Date.now(), type: "para", value: "" },
+        ...p.slice(index + 1)
+    ])
+    }
   }
 
   const editBody = (key, edit) => {
@@ -53,6 +59,7 @@ const BlogCreate = () => {
   }
 
   const removeFromBody = ( key ) => {
+    if(body.length === 1) return;
     setBody((p) => p.filter((_, i) => i !== key));
   }
 
@@ -100,7 +107,7 @@ const BlogCreate = () => {
 
       <div className="blog_body blog_width blog_create_variant">
         {body.map((section, index) => (
-            <BlogContentEdit type={section.type} value={section.value} key={index} setContent={(b) => editBody(index, b)} addContent={addToBody} removeContent={() => removeFromBody(index)}/>
+            <BlogContentEdit type={section.type} value={section.value} key={section.id} id={section.id} setContent={(b) => editBody(index, b)} addContent={() => addToBody(index)} removeContent={() => removeFromBody(index)}/>
         ))}
       </div>
 

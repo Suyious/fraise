@@ -81,6 +81,7 @@
 	font-size: 3em;
 	width: 15em;
 	line-height: 45px;
+	max-width: 90vw;
 }
 
 .blog_banner_title h1{

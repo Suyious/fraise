@@ -6,16 +6,17 @@ import {ReactComponent as CodeIcon} from "../../../assets/icons/code.svg"
 import {useEffect, useRef} from "react"
 import Editable from "../../inputs/editableElements"
 
-const BlogContentEdit = ({ value="", type="text", setContent, addContent }) => {
+const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, removeContent }) => {
 
   const content = useRef(null);
 
   useEffect(() => {
     if(value) content.current.innerText = value;
-  }, [type])
+  }, [type, id])
 
   const contentUpdate = (e) => {
     setContent({
+      id: id,
       type: type,
       value: e.target.innerText 
     });
@@ -23,6 +24,7 @@ const BlogContentEdit = ({ value="", type="text", setContent, addContent }) => {
 
   const setType = (newtype) => {
     setContent({
+      id: id,
       type: newtype,
       value: value,
     })
@@ -47,6 +49,7 @@ const BlogContentEdit = ({ value="", type="text", setContent, addContent }) => {
           <button className="blog_content_set_button" disabled={type==="code"} onClick={() => setType("code")}>
             <CodeIcon/>
           </button>
+          <button onClick={removeContent}>Remove section</button>
         </div>
       </div>
     </div>
