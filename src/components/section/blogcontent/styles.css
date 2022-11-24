@@ -21,6 +21,11 @@
 	opacity: 0.9;
 }
 
+.blog_content_main figcaption {
+	text-align: center;
+	opacity: 0.9;
+}
+
 .blog_content_main img {
 	height: 35em;
 	margin: 0 auto;

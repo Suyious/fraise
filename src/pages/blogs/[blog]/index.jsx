@@ -1,5 +1,6 @@
 import BlogContent from "../../../components/section/blogcontent";
 import "./styles.css"
+import {ReactComponent as SaveIcon} from "../../../assets/icons/save.svg"
 
 const Blog = () => {
 
@@ -80,7 +81,19 @@ But nothing the copy said could convince her and so it didn’t take long until 
             <div className="blog_banner_subtitle">
               <h3>{blog.description}</h3>
             </div>
-            <div className="blog_banner_author"></div>
+            <div className="blog_banner_author">
+              <div className="blog_banner_author_wrapper">
+                <div className="blog_banner_author_avatar"> </div>
+                <div className="blog_banner_author_text">
+                  <div className="blog_banner_author_name">Paul Gustavo</div>
+                  <div className="blog_banner_publish_date">5h ago</div>
+                </div>
+              </div>
+              <div className={ `blog_banner_blog_save ${false && saved}` }>
+                Save
+                <SaveIcon/>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -15,6 +15,11 @@ blockquote.editable_placeholder {
 	transform: translateX(-50%);
 }
 
+figcaption .editable_placeholder {
+	text-align: center;
+	width: 100%;
+}
+
 .editable_main {
 	top: 0;
 	left: 0;
@@ -24,4 +29,19 @@ blockquote.editable_placeholder {
 
 .editable_main:focus-visible {
 	outline: none;
+}
+
+.editable_file_input_container {
+	display: block;
+	min-height: 10em;
+	position: relative;
+	cursor: copy;
+}
+
+.editable_file_input_label {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	font-size: 0.9em;
+	color: var(--green-primary);
 }

@@ -95,6 +95,18 @@
 	cursor: pointer;
 }
 
+.blog_banner_author_text {
+	width: 10em;
+}
+
+.blog_banner_author_name.blog_create_variant {
+	font-size: 1em;
+}
+
+.blog_banner_author_pseudonym {
+	font-size: 0.9em;
+}
+
 .blog_create_edit_svg {
 	display: flex;
 	justify-content: center;

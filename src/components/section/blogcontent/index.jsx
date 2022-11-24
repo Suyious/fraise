@@ -28,7 +28,10 @@ const BlogContent = ({type, value}) => {
       case "quote":
         return <blockquote>{children}</blockquote>;
       case "image":
-        return <img src={children}/>;
+        return <figure>
+          <img src={children}/>
+          <figcaption>Here goes the caption</figcaption>
+        </figure>;
       case "code":
         return <code>{children}</code>;
       default:

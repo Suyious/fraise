@@ -97,3 +97,42 @@
 	font-size: inherit;
 	font-weight: inherit;
 }
+
+.blog_banner_author {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 45em;
+	max-width: 85vw;
+}
+
+.blog_banner_author_wrapper {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.blog_banner_author_avatar {
+	background: #fff;
+	width: 4em;
+	height: 4em;
+	border-radius: 50px;
+}
+
+.blog_banner_author_name {
+	font-size: 0.9em;
+}
+
+.blog_banner_publish_date {
+	font-size: 1.2em;
+}
+
+.blog_banner_blog_save {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.blog_banner_blog_save.saved svg path{
+	fill: #fff;
+}

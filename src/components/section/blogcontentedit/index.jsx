@@ -3,12 +3,13 @@ import {ReactComponent as HeadingIcon} from "../../../assets/icons/heading.svg"
 import {ReactComponent as PictureIcon} from "../../../assets/icons/image.svg"
 import {ReactComponent as QuoteIcon} from "../../../assets/icons/quote.svg"
 import {ReactComponent as CodeIcon} from "../../../assets/icons/code.svg"
-import {useEffect, useRef} from "react"
+import {useEffect, useRef, useState} from "react"
 import Editable from "../../inputs/editableElements"
 
 const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, removeContent }) => {
 
   const content = useRef(null);
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     if(value) content.current.innerText = value;
@@ -32,7 +33,7 @@ const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, re
 
   return(
     <div className="blog_content_main blog_content_edit">
-      <Editable role={type} input_ref={content} className="articlesection_input" placeholder="Start writing your content" onChange={contentUpdate}/>
+      <Editable role={type} input_ref={content} className="articlesection_input" placeholder="Start writing your content" onChange={contentUpdate} image={image} setImage={setImage}/>
       <div className="blog_content_edit_bottom_wrapper">
         <div className="blog_content_edit_bottom">
           <button onClick={addContent}>Add a section +</button>

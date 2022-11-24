@@ -92,7 +92,17 @@ const BlogCreate = () => {
             <div className="blog_banner_subtitle blog_create_variant">
               <Editable type="text" placeholder="Add your Blog Description"/>
             </div>
-            <div className="blog_banner_author blog_create_variant"></div>
+            <div className="blog_banner_author blog_create_variant">
+              <div className="blog_banner_author_wrapper">
+                <div className="blog_banner_author_avatar"> </div>
+                <div className="blog_banner_author_text">
+                  <div className="blog_banner_author_name blog_create_variant">Paul Gustavo</div>
+                  <div className="blog_banner_author_pseudonym">
+                    <Editable type="text" placeholder="Insert Pseudonym"/>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="blog_create_banner_edit_container">
             <label className="blog_create_banner_edit_label" htmlFor="input-background">Edit Background

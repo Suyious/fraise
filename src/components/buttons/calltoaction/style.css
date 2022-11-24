@@ -1,0 +1,9 @@
+.call_to_action_main {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.4em 1em;
+	background: var(--white-background);
+	border-radius: 5px;
+	cursor: pointer;
+}

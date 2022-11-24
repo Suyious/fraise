@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import "./styles.css";
+import { ReactComponent as ImageIcon } from "../../../assets/icons/image.svg"
+import CallToActionButton from "../../buttons/calltoaction";
 
 const Editable = (
-  { className, placeholder="", role="text", name="", input_ref, onChange }
+  { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage }
 ) => {
 
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -16,8 +18,27 @@ const Editable = (
     setPlaceholder(e)
   }
 
+  // image editable
+
+  // const [image, setImage] = useState(null);
+  const addImage = (file) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImage(reader.result);
+    }
+    reader.readAsDataURL(file)
+  }
+  const onDragOver = (e) => {
+    e.preventDefault();
+  }
+  const onDrop = (e) => {
+    e.preventDefault();
+    addImage(e.dataTransfer.files[0]);
+  }
+
   // moving the switch case to another component will lead to re-renders
   // you are adviced to expect things to not work if that is done
+  // edit: re-render was probably caused due to duplicate keys and may have been solved
   switch(role) {
     case "text":
       return(
@@ -53,6 +74,22 @@ const Editable = (
           {showPlaceholder && <code className="editable_placeholder">{placeholder}</code> }
           <code className={`editable_main ${className}`} contentEditable="true" ref={input_ref} name={name} onInput={onInput} />
         </div>
+      )
+    case "image":
+      return(
+        <figure className="editable_wrapper_with_image">
+          <div onDragOver={onDragOver} onDrop={onDrop} className="editable_file_input_container">
+            {image && <img src={image} alt="section"/> }
+            <label className="editable_file_input_label">
+              <CallToActionButton> <ImageIcon/> Drop an image + </CallToActionButton>
+              <input onChange={(e) => addImage(e.target.files[0])} id="editable_input_file" type="file" hidden accept=".jpg, .jpeg, .png"/>
+            </label>
+          </div>
+          {image && <figcaption className="editable_wrapper">
+              {showPlaceholder && <div className="editable_placeholder">{placeholder}</div> }
+              <div className={`editable_main ${className}`} contentEditable="true" ref={input_ref} name={name} onInput={onInput} />
+          </figcaption> }
+        </figure>
       )
     default:
       return(
