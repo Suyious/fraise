@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Nav from "./components/navigation";
 import WebFont from 'webfontloader'
 import {useMutation, useQuery, useQueryClient} from "react-query";
@@ -103,24 +103,13 @@ function App() {
         </Link></>
   )}
 
-  const BlogCreateLinks = () => {
-    return <>
-        <li className="nav_link secondary bigger">
-          Save as Draft
-        </li>
-        <li className="nav_link primary bigger">
-          Publish
-        </li>
-      </>
-  }
-
   const NavLinks = () => {
-    const location = useLocation();
-    if(location.pathname.search(/\/blogs\/create\/?$/) === 0) {
-      return (
-        <BlogCreateLinks/>
-      )
-    }
+    // const location = useLocation();
+    // if(location.pathname.search(/\/blogs\/create\/?$/) === 0) {
+    //   return (
+    //     <BlogCreateLinks/>
+    //   )
+    // }
     return <>
       <Link to="/blogs">
         <li className="nav_link">

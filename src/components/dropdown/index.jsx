@@ -12,7 +12,7 @@ const Dropdown = ({visible, children}) => {
       {open && <ClickToExit onClick={toggleOpen} className="click_to_exit"/> }
       <div className="dropdown_main">
         <div onClick={toggleOpen}>{visible}</div>
-        {open && <ul className="dropdown_children">
+        {open && <ul onClick={toggleOpen} className="dropdown_children">
           {/* Any <li> is styled */}
           {children}
         </ul> }

@@ -1,16 +1,29 @@
-import React, {useState} from "react"
+import React, {useRef, useState} from "react"
 import "./styles.css"
 import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
 import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
 import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import BlogContentEdit from "../../../components/section/blogcontentedit"
 import Editable from "../../../components/inputs/editableElements"
-import {useQuery} from "react-query"
+import {useMutation, useQuery} from "react-query"
 import axios from "../../../utils/axios"
+import Navigation from "../../../components/navigation"
+import parseError from "../../../utils/parseError"
+import {useNavigate} from "react-router"
 
 const BlogCreate = () => {
-
+  
+  const navigate = useNavigate();
+  const title = useRef(null);
+  const description = useRef(null);
   const [tags, setTags] = useState([]);
+  const [banner, setBanner] = useState(null);
+  const [body, setBody] = useState([{
+    id: Date.now(),
+    type: "para",
+    value: "",
+  }]);
+
   const [tagInput, setTagInput] = useState("");
   const addTag = (e) => {
     e.preventDefault();
@@ -23,19 +36,12 @@ const BlogCreate = () => {
     setTags((p) => p.filter((_, i) => i !== key));
   }
 
-  const [banner, setBanner] = useState(null);
   const addBanner = (e) => {
     setBanner(URL.createObjectURL(e.target.files[0]));
   }
   const removeBanner = () => {
     setBanner(null);
   }
-
-  const [body, setBody] = useState([{
-    id: Date.now(),
-    type: "para",
-    value: "",
-  }]);
 
   const addToBody = (index) => {
     if(index === body.length - 1) {
@@ -69,8 +75,74 @@ const BlogCreate = () => {
     return axios.get('/me');
   })
 
+  const { isLoading: isPublishing, mutate: mutatePublish } = useMutation((body) => {
+    const config = {
+      headers: { "Content-Type": "application/json", withCredentials: true },
+    };
+    return axios.post('/blogs/create', body, config)
+  }, {
+    onError: (err) => {
+      console.log(parseError(err));
+    }
+  })
+
+  // TODO:
+  // [ ] image has a local URI
+  // [ ] error display
+  // [ ] implement draft
+  // [ ] save to local storage
+  // [ ] implement update draft
+  // [ ] implement publish drafted
+  // [ ] create blog/create/:blogid to edit drafts
+
+  const publish = (to_draft = false) => {
+
+    if(title.current.innerText.trim().length === 0) {
+      console.log("title empty");
+      return;
+    }
+
+    if(body.length === 1 && body[0].value.trim().length === 0) {
+      console.log("blog has no content");
+      return;
+    }
+
+    const blog_body = {
+      title: title.current.innerText.trim(),
+      tags: tags,
+      image: banner,
+      body: body.map(({type, value}) => ( { type, value: value.trim() } ))
+    };
+
+    if(to_draft){
+      blog_body.draft = true;
+    }
+
+    mutatePublish( blog_body, {
+      onSuccess: (data) => {
+        console.log(data.data.blog);
+        navigate(`/blogs/${data.data.blog._id}`);
+      }
+    })
+  }
+
+  const BlogCreateLinks = () => {
+    return <>
+        <li onClick={() => publish(true)} className="nav_link secondary bigger">
+          {isPublishing ? "loading": "Save as Draft"}
+        </li>
+        <li onClick={publish} className="nav_link primary bigger">
+          {isPublishing ? "Loading" : "Publish" }
+        </li>
+      </>
+  }
+
   return(
     <div className="blog blog_create_variant">
+
+      <Navigation>
+        <BlogCreateLinks/>
+      </Navigation>
 
       <div className="blog_banner blog_create_variant">
         {banner && 
@@ -93,10 +165,10 @@ const BlogCreate = () => {
                 </form>
             </div>
             <div className="blog_banner_title blog_create_variant">
-              <Editable placeholder="Add your Blog Title"/>
+              <Editable input_ref={title} placeholder="Add your Blog Title"/>
             </div>
             <div className="blog_banner_subtitle blog_create_variant">
-              <Editable type="text" placeholder="Add your Blog Description"/>
+              <Editable input_ref={description} type="text" placeholder="Add your Blog Description"/>
             </div>
             <div className="blog_banner_author blog_create_variant">
               <div className="blog_banner_author_wrapper">

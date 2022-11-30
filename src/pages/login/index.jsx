@@ -1,8 +1,9 @@
 import React, {useRef, useState} from 'react'
 import Loginform from "../../components/forms/login"
 import { useMutation, useQueryClient } from "react-query"
-import axios from "../../utils/axios"
 import {useNavigate} from 'react-router'
+import axios from "../../utils/axios"
+import parseError from '../../utils/parseError'
 
 const Login = () => {
 
@@ -35,15 +36,7 @@ const Login = () => {
       queryClient.invalidateQueries("me")
     },
     onError: (err) => {
-      let parsed = JSON.parse(err.request.response).message
-        .split(/[:,] /).slice(1);
-      // console.log(parsed);
-      let temp = {};
-      for(let i = 0; i < parsed.length; i += 2) {
-        temp[parsed[i]] = parsed[i + 1];
-      }
-      // console.log(temp);
-      setErrors(temp)
+      setErrors(parseError(err))
     }
   })
 

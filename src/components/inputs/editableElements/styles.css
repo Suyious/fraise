@@ -57,10 +57,12 @@ figcaption .editable_placeholder {
 	border-radius: 5px;
 }
 
-.editable_file_input_label {
+.editable_absolute {
 	position: absolute;
 	bottom: 1em;
 	right: 1em;
 	font-size: 0.9em;
+	display: flex;
+	gap: 1em;
 	color: var(--green-primary);
 }

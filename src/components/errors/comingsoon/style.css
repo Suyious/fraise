@@ -13,6 +13,7 @@
 	color: var(--white-primary);
 	font-size: 10em;
 	font-weight: 200;
+	text-align: center;
 }
 
 .error-message {

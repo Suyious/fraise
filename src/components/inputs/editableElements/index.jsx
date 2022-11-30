@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "./styles.css";
 import { ReactComponent as ImageIcon } from "../../../assets/icons/image.svg"
+import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import CallToActionButton from "../../buttons/calltoaction";
 
 const Editable = (
@@ -27,6 +28,10 @@ const Editable = (
       setImage(reader.result);
     }
     reader.readAsDataURL(file)
+  }
+
+  const removeImage = () => {
+    setImage(null);
   }
   const onDragOver = (e) => {
     e.preventDefault();
@@ -80,11 +85,14 @@ const Editable = (
         <figure className="editable_wrapper_with_image">
           <div onDragOver={onDragOver} onDrop={onDrop} className="editable_file_input_container">
             {image && <img src={image} alt="section"/> }
-            <div className="editable_file_input_image_placeholder"><ImageIcon/> Drop an image +</div>
+            {!image && <div className="editable_file_input_image_placeholder"><ImageIcon/> Drop an image +</div> }
+          <div className="editable_absolute">
             <label className="editable_file_input_label">
               <CallToActionButton> <ImageIcon/> Browse Files + </CallToActionButton>
               <input onChange={(e) => addImage(e.target.files[0])} id="editable_input_file" type="file" hidden accept=".jpg, .jpeg, .png"/>
             </label>
+            {image && <CallToActionButton onClick={removeImage}> <TrashIcon/> </CallToActionButton> }
+          </div>
           </div>
           <figcaption className="editable_wrapper">
               {showPlaceholder && <div className="editable_placeholder">{placeholder}</div> }
