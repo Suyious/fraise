@@ -27,6 +27,10 @@ figcaption .editable_placeholder {
 	cursor: text;
 }
 
+.editable_main::selection {
+	background: var(--white-selection-alpha);
+}
+
 .editable_main:focus-visible {
 	outline: none;
 }
@@ -36,6 +40,21 @@ figcaption .editable_placeholder {
 	min-height: 10em;
 	position: relative;
 	cursor: copy;
+}
+
+.editable_file_input_image_placeholder {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	font-size: 0.9em;
+	color: var(--green-primary);
+	padding: 0.3em 1em;
+	border: 1px dashed var(--green-accent);
+	border-radius: 5px;
 }
 
 .editable_file_input_label {

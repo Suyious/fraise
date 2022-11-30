@@ -6,4 +6,10 @@
 	background: var(--white-background);
 	border-radius: 5px;
 	cursor: pointer;
+	border: 1px solid var(--green-accent-alpha);
+}
+
+.call_to_action_main:hover {
+	scale: 1.01;
+	filter: brightness(1.03);
 }

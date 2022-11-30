@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Nav from "./components/navigation";
 import WebFont from 'webfontloader'
 import {useMutation, useQuery, useQueryClient} from "react-query";
@@ -48,8 +48,19 @@ function App() {
 
   const Loggedinlinks = () => {
 
+    const navigate = useNavigate();
+
+    const logout = () => {
+      mutate(undefined, {
+        onSuccess: () => {
+          navigate("/");
+        }
+      });
+    }
+
     return (
       <>
+        {/* <!---MEANT FOR MOBILE RESPONSIVENESS---> */}
         <div className="mobile">
           <Dropdown visible={
             <li className="nav_link"><Hamburger/></li>
@@ -66,7 +77,7 @@ function App() {
               </li> }>
             <li className="nav_link"><Link to="user/dashboard">dashboard</Link></li>
             <li className="nav_link"><Link to="/user/edit">profile</Link></li>
-            <li className="nav_link" onClick={mutate}>{isLoggingOut ? <span>loading</span> : <span>logout</span> }</li>
+            <li className="nav_link" onClick={logout}>{isLoggingOut ? <span>loading</span> : <span>logout</span> }</li>
           </Dropdown>
         </div>
         <Link to="/blogs/create">
@@ -79,30 +90,53 @@ function App() {
 
   const Loggedoutlinks = () => {
     return (
-    <>
-      <Link to="/login">
+      <>
+        <Link to="/login">
+          <li className="nav_link">
+            login
+          </li>
+        </Link>
+        <Link to="/signup">
+          <li className="nav_link primary">
+            signup
+          </li>
+        </Link></>
+  )}
+
+  const BlogCreateLinks = () => {
+    return <>
+        <li className="nav_link secondary bigger">
+          Save as Draft
+        </li>
+        <li className="nav_link primary bigger">
+          Publish
+        </li>
+      </>
+  }
+
+  const NavLinks = () => {
+    const location = useLocation();
+    if(location.pathname.search(/\/blogs\/create\/?$/) === 0) {
+      return (
+        <BlogCreateLinks/>
+      )
+    }
+    return <>
+      <Link to="/blogs">
         <li className="nav_link">
-          login
+          blogs
         </li>
       </Link>
-      <Link to="/signup">
-        <li className="nav_link primary">
-          signup
-        </li>
-      </Link></>
-  )}
+      { !isLoading ? 
+          data.data.user === null ? <Loggedoutlinks/> : <Loggedinlinks/>
+          : <Loggedoutlinks/> }
+      </>
+  }
 
   return (
     <div className="App">
       <Nav>
-        <Link to="/blogs">
-          <li className="nav_link">
-            blogs
-          </li>
-        </Link>
-        { !isLoading ? 
-            data.data.user === null ? <Loggedoutlinks/> : <Loggedinlinks/>
-            : <Loggedoutlinks/> }
+        <NavLinks/>
       </Nav>
       <Outlet/>
     </div>

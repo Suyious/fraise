@@ -6,13 +6,14 @@ import { useLocation } from "react-router-dom";
 function Navigation({children}) {
 
   const location = useLocation();
+  const primarypaths = [/\/$/, /\/blogs\/?.+$/, /\/404\/?$/];
+  const secondarypaths = [/\/blogs\/?$/];
 
   const variant = (path) => {
-    // true: primary, false: secondary
+    // NOTE: true: primary, false: secondary
     if(path.search(/\/$/) === 0) return true;
-    if(path.search(/\/blogs\/?$/) === 0) return false;
-    if(path.search(/\/blogs\/?.*$/) === 0) return true;
-    if(path.search(/\/404\/?$/) === 0) return true;
+    if(primarypaths.some((pathregex) => path.search(pathregex) === 0)) return true;
+    if(secondarypaths.some((pathregex) => path.search(pathregex) === 0)) return false;
     return false;
   }
 

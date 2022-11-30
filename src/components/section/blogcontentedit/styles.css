@@ -14,6 +14,12 @@
 	align-items: center;
 	padding: 1em;
 	gap: 1em;
+	filter: opacity(0);
+}
+
+.blog_content_main.blog_content_edit:hover .blog_content_edit_bottom,
+.blog_content_main.blog_content_edit:focus-within .blog_content_edit_bottom{
+	filter: opacity(1);
 }
 
 .blog_content_edit_bottom button {
@@ -35,4 +41,9 @@
 
 .blog_content_set_button:disabled {
 	background: var(--green-accent-alpha);
+}
+
+.blog_content_set_button svg {
+	width: 1.3em;
+	height: auto;
 }

@@ -37,17 +37,17 @@ const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, re
       <div className="blog_content_edit_bottom_wrapper">
         <div className="blog_content_edit_bottom">
           <button onClick={addContent}>Add a section +</button>
-          <button className="blog_content_set_button" disabled={type==="para"} onClick={() => setType("para")}> A </button>
-          <button className="blog_content_set_button" disabled={type==="image"} onClick={() => setType("image")}>
+          <button title="Paragraph" className="blog_content_set_button" disabled={type==="para"} onClick={() => setType("para")}> A </button>
+          <button title="Image" className="blog_content_set_button" disabled={type==="image"} onClick={() => setType("image")}>
             <PictureIcon/>
           </button>
-          <button className="blog_content_set_button" disabled={type==="head"} onClick={() => setType("head")}>
+          <button title="Heading" className="blog_content_set_button" disabled={type==="head"} onClick={() => setType("head")}>
             <HeadingIcon/>
           </button>
-          <button className="blog_content_set_button" disabled={type==="quote"} onClick={() => setType("quote")}>
+          <button title="Quote" className="blog_content_set_button" disabled={type==="quote"} onClick={() => setType("quote")}>
             <QuoteIcon/>
           </button>
-          <button className="blog_content_set_button" disabled={type==="code"} onClick={() => setType("code")}>
+          <button title="Code" className="blog_content_set_button" disabled={type==="code"} onClick={() => setType("code")}>
             <CodeIcon/>
           </button>
           <button onClick={removeContent}>Remove section</button>

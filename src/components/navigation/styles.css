@@ -60,6 +60,35 @@
     background: var(--white-primary);
 	scale: 1.02;
 }
+ 
+.nav .nav_link.bigger {
+	padding: 0.8em 2.5em;
+	font-weight: 700;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+.nav.primary .nav_link.primary.bigger {
+	background: var(--white-background-alpha);
+	border: 1px solid var(--white-primary-alpha);
+	color: var(--white-primary);
+	transition: all 100ms ease-in;
+}
+
+.nav.primary .nav_link.secondary.bigger {
+	border: 1px solid var(--white-secondary-alpha);
+	color: var(--white-background);
+	transition: all 100ms ease-in;
+}
+
+.nav.secondary .nav_link.secondary.bigger {
+	border: 1px solid var(--green-accent-alpha);
+}
+
+.nav.primary .nav_link.bigger:hover {
+	background: var(--white-primary);
+	color: #000;
+}
 
 .nav.secondary .nav_link.primary{
     background: var(--green-accent);
@@ -90,23 +119,4 @@
 .nav.secondary .dropdown_children {
 	background: var(--white-background);
 	border: 1px solid var(--green-accent-alpha);
-}
- 
-.nav .nav_link.bigger {
-	padding: 0.8em 2.5em;
-	font-weight: 700;
-	border-radius: 3px;
-	font-size: 0.9em;
-}
-
-.nav.primary .nav_link.bigger {
-    background: var(--white-background-alpha);
-	border: 1px solid var(--white-primary-alpha);
-	color: var(--white-primary);
-	transition: all 100ms ease-in;
-}
-
-.nav.primary .nav_link.bigger:hover {
-	background: var(--white-primary);
-	color: #000;
 }

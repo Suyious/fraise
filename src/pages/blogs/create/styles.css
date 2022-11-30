@@ -1,3 +1,7 @@
+.blog_body.blog_create_variant {
+	gap: 0;
+}
+
 .blog_banner_tag.blog_create_variant {
 	position: relative;
 	overflow: hidden;
@@ -129,7 +133,7 @@
 }
 
 .blog_create_edit_svg svg {
-	width: 20px;
+	width: 1em;
 	height: auto;
 }
 

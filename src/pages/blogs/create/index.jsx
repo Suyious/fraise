@@ -1,10 +1,12 @@
 import React, {useState} from "react"
+import "./styles.css"
 import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
 import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
 import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
-import "./styles.css"
 import BlogContentEdit from "../../../components/section/blogcontentedit"
 import Editable from "../../../components/inputs/editableElements"
+import {useQuery} from "react-query"
+import axios from "../../../utils/axios"
 
 const BlogCreate = () => {
 
@@ -63,6 +65,10 @@ const BlogCreate = () => {
     setBody((p) => p.filter((_, i) => i !== key));
   }
 
+  const { isLoading, data } = useQuery('me', () => {
+    return axios.get('/me');
+  })
+
   return(
     <div className="blog blog_create_variant">
 
@@ -94,9 +100,13 @@ const BlogCreate = () => {
             </div>
             <div className="blog_banner_author blog_create_variant">
               <div className="blog_banner_author_wrapper">
-                <div className="blog_banner_author_avatar"> </div>
+                <div className="blog_banner_author_avatar">
+                  {!isLoading && <img className="blog_banner_author_avatar_image" src={data.data.user.avatar.url} alt="" /> }
+                </div>
                 <div className="blog_banner_author_text">
-                  <div className="blog_banner_author_name blog_create_variant">Paul Gustavo</div>
+                  <div className="blog_banner_author_name blog_create_variant">
+                    {isLoading ? "loading": data.data.user.name }
+                  </div>
                   <div className="blog_banner_author_pseudonym">
                     <Editable type="text" placeholder="Insert Pseudonym"/>
                   </div>

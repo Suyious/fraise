@@ -80,15 +80,16 @@ const Editable = (
         <figure className="editable_wrapper_with_image">
           <div onDragOver={onDragOver} onDrop={onDrop} className="editable_file_input_container">
             {image && <img src={image} alt="section"/> }
+            <div className="editable_file_input_image_placeholder"><ImageIcon/> Drop an image +</div>
             <label className="editable_file_input_label">
-              <CallToActionButton> <ImageIcon/> Drop an image + </CallToActionButton>
+              <CallToActionButton> <ImageIcon/> Browse Files + </CallToActionButton>
               <input onChange={(e) => addImage(e.target.files[0])} id="editable_input_file" type="file" hidden accept=".jpg, .jpeg, .png"/>
             </label>
           </div>
-          {image && <figcaption className="editable_wrapper">
+          <figcaption className="editable_wrapper">
               {showPlaceholder && <div className="editable_placeholder">{placeholder}</div> }
               <div className={`editable_main ${className}`} contentEditable="true" ref={input_ref} name={name} onInput={onInput} />
-          </figcaption> }
+          </figcaption>
         </figure>
       )
     default:
