@@ -14,6 +14,7 @@
 	align-items: center;
 	padding: 1em;
 	gap: 1em;
+	transition: filter 100ms ease-in;
 	filter: opacity(0);
 }
 

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import "./styles.css"
 import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
 import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
@@ -111,7 +111,7 @@ const BlogCreate = () => {
       title: title.current.innerText.trim(),
       tags: tags,
       image: banner,
-      body: body.map(({type, value}) => ( { type, value: value.trim() } ))
+      body: body.map(({type, value}) => ({ type, value: value.trim()} ))
     };
 
     if(to_draft){
@@ -131,16 +131,33 @@ const BlogCreate = () => {
         <li onClick={() => publish(true)} className="nav_link secondary bigger">
           {isPublishing ? "loading": "Save as Draft"}
         </li>
-        <li onClick={publish} className="nav_link primary bigger">
+        <li onClick={() => publish()} className="nav_link primary bigger">
           {isPublishing ? "Loading" : "Publish" }
         </li>
       </>
   }
 
+  const bodyRef = useRef(null);
+  const [navPrefer, setNavPrefer] = useState("primary");
+
+  const scrollListener = (e) => {
+    console.log(e);
+    if(window.scrollY >= bodyRef.current.offsetTop){
+      setNavPrefer("secondary");
+    } else {
+      setNavPrefer("primary");
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollListener);
+    return () => window.removeEventListener('scroll', scrollListener);
+  }, [])
+
   return(
     <div className="blog blog_create_variant">
 
-      <Navigation>
+      <Navigation preference={navPrefer}>
         <BlogCreateLinks/>
       </Navigation>
 
@@ -197,7 +214,7 @@ const BlogCreate = () => {
 
       </div>
 
-      <div className="blog_body blog_width blog_create_variant">
+      <div ref={bodyRef} className="blog_body blog_width blog_create_variant">
         {body.map((section, index) => (
             <BlogContentEdit type={section.type} value={section.value} key={section.id} id={section.id} setContent={(b) => editBody(index, b)} addContent={() => addToBody(index)} removeContent={() => removeFromBody(index)}/>
         ))}

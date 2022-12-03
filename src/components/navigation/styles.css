@@ -93,7 +93,7 @@
 .nav.secondary .nav_link.primary{
     background: var(--green-accent);
 	color: var(--white-primary);
-	font-weight: 400;
+	font-weight: 700;
 }
 
 .nav.secondary .nav_link svg rect {
@@ -107,13 +107,13 @@
 .nav.secondary .nav_link:hover{
     background: var(--green-accent-alpha);
 	color: var(--green-accent);
-	font-weight: 400;
+	font-weight: 700;
 }
 
 .nav.secondary .nav_link.primary:hover{
     background: var(--green-accent);
 	color: var(--white-primary);
-	font-weight: 400;
+	font-weight: 700;
 }
 
 .nav.secondary .dropdown_children {

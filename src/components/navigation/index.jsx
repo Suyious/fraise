@@ -3,13 +3,15 @@ import "./styles.css"
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function Navigation({children}) {
+function Navigation({children, preference}) {
 
   const location = useLocation();
   const primarypaths = [/\/$/, /\/blogs\/?.+$/, /\/404\/?$/];
   const secondarypaths = [/\/blogs\/?$/];
 
   const variant = (path) => {
+    if(preference === "primary") return true;
+    if(preference === "secondary") return false;
     // NOTE: true: primary, false: secondary
     if(path.search(/\/$/) === 0) return true;
     if(primarypaths.some((pathregex) => path.search(pathregex) === 0)) return true;

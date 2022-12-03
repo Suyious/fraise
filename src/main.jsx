@@ -33,6 +33,7 @@ const router = createBrowserRouter([
     ]
   }, {
     path: "/blogs/create",
+    errorElement: <NotFound/>,
     element: <BlogCreate/>
   }
 ])
