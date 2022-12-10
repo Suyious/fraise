@@ -29,8 +29,8 @@ const BlogContent = ({type, value}) => {
         return <blockquote>{children}</blockquote>;
       case "image":
         return <figure>
-          <img src={children}/>
-          <figcaption>Here goes the caption</figcaption>
+          <img src={children.url} alt="blog content"/>
+          <figcaption>{children.caption}</figcaption>
         </figure>;
       case "code":
         return <code>{children}</code>;

@@ -13,9 +13,10 @@ import BlogCreate from "./pages/blogs/create";
 import Blog from "./pages/blogs/[blog]";
 import EditProfile from "./pages/user/edit";
 import NotFound from "./components/errors/notfound";
-import ComingSoon from "./components/errors/comingsoon";
+import UserDashboard from './pages/user/[user]'
+import ComingSoon from './components/errors/comingsoon'
 
-// const Maintenance = () => <ComingSoon message="We are porting fraise from heroku to render. This might take 24 hours."/>
+const Maintenance = () => <ComingSoon message=""/>
 
 const router = createBrowserRouter([
 	{
@@ -27,14 +28,21 @@ const router = createBrowserRouter([
       { path: "/signup", element: <SignUp/> },
       { path: "/login", element: <Login/> },
       { path: "/blogs", element: <Blogs/>},
-      { path: "/blogs/:blog", element: <Blog/>},
+      { path: "/user/:user", element: <UserDashboard/>},
       { path: "/user/edit", element: <EditProfile/>},
-      { path: "/user/:user", element: <ComingSoon/>},
     ]
+  }, {
+    path: "/blogs/:blog",
+    errorElement: <NotFound/>,
+    element: <Blog/>
   }, {
     path: "/blogs/create",
     errorElement: <NotFound/>,
     element: <BlogCreate/>
+  }, {
+    path: "/503",
+    errorElement: <NotFound/>,
+    element: <Maintenance/>
   }
 ])
 

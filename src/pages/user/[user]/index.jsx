@@ -2,10 +2,10 @@ import {useEffect} from "react"
 import {useNavigate} from "react-router"
 
 const UserDashboard = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const navigate = useNavigate();
-    navigate("/")
+    navigate("/503")
   })
 
   return(

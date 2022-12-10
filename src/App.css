@@ -19,7 +19,7 @@
 	--green-accent: #21746A;
 	--green-accent-alpha: #21746A31;
 	--green-accent-border: #21746A69;
-	--dark-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+	--dark-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .7));
 	--secondary-dark-overlay: #000000a3;
 	--error-primary: #742121;
 	--error-background: #74212136;

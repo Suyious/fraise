@@ -1,17 +1,25 @@
-import React from "react";
+import React, {useRef} from "react";
 import Loader from "../components/loader";
 import Search from "../components/search";
 import Slider from "../components/slider";
 import "./styles.css";
-import {useQuery} from "react-query";
-import axios from '../utils/axios'
 import data from "../assets/blogs/index"
+import {useNavigate} from "react-router";
+import useGetBlogs from "../hooks/query/useGetBlogs";
 
 const Home = () => {
 
-  const { isLoading, isError } = useQuery('blogs',() => {
-    return axios.get('/blogs');
-  });
+  const { isLoading, isError } = useGetBlogs();
+  const searchref = useRef(null);
+  const navigate = useNavigate();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const keyword = searchref.current.value; 
+    if(keyword.length > 0) {
+      navigate(`/blogs?keyword=${keyword}`)
+    }
+  }
 
   return (
     <div className="home main">
@@ -19,10 +27,10 @@ const Home = () => {
         {isLoading && <Loader/>}
       </div>
       <div className="home_searchbox">
-        <Search placeholder="What's on your mind?"/>
+        <Search onSubmit={onSubmit} input_ref={searchref} placeholder="What's on your mind?"/>
       </div>
       <div className="home_background">
-        {!isLoading && !isError && <Slider elements={data}/> }
+        {!isLoading && !isError && <Slider elements={data.data.blogs}/> }
       </div>
     </div>
   );

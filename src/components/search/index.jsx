@@ -2,19 +2,20 @@ import React from "react";
 import "./styles.css"
 import {ReactComponent as Glass} from "../../assets/icons/search.svg";
 
-function Search({type="text", placeholder="Type Something.."}) {
+function Search({input_ref, type="text", placeholder="Type Something..", onSubmit}) {
   return (
     <div className="search">
-      <div className="search_searchbox">
+      <form onSubmit={onSubmit} className="search_searchbox">
         <input
+          ref={input_ref}
           className="search_input"
           type={type}
           placeholder={placeholder}
         />
-        <div className="search_icon">
+        <button className="search_icon">
           <Glass/>
-        </div>
-      </div>
+        </button>
+      </form>
     </div>
   );
 }

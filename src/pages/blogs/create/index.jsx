@@ -1,19 +1,22 @@
-import React, {useEffect, useRef, useState} from "react"
-import "./styles.css"
-import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
-import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
-import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
-import BlogContentEdit from "../../../components/section/blogcontentedit"
-import Editable from "../../../components/inputs/editableElements"
-import {useMutation, useQuery} from "react-query"
-import axios from "../../../utils/axios"
-import Navigation from "../../../components/navigation"
-import parseError from "../../../utils/parseError"
+import {useEffect, useRef, useState} from "react"
 import {useNavigate} from "react-router"
+import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
+import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
+import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
+import Editable from "../../../components/inputs/editableElements"
+import ModalFloating from "../../../components/modals/floating"
+import Navigation from "../../../components/navigation"
+import BlogContentEdit from "../../../components/section/blogcontentedit"
+import useBlogCreate from "../../../hooks/mutation/useBlogCreate"
+import useImageUpload from "../../../hooks/mutation/useImageUpload"
+import useGetUser from "../../../hooks/query/useGetUser"
+import "./styles.css"
 
 const BlogCreate = () => {
   
   const navigate = useNavigate();
+
+  // blog content states and refs
   const title = useRef(null);
   const description = useRef(null);
   const [tags, setTags] = useState([]);
@@ -36,8 +39,26 @@ const BlogCreate = () => {
     setTags((p) => p.filter((_, i) => i !== key));
   }
 
+  const { isLoading: isUploading, mutate: mutateUpload } = useImageUpload();
+
   const addBanner = (e) => {
-    setBanner(URL.createObjectURL(e.target.files[0]));
+    const reader = new FileReader();
+    reader.onload = () => {
+      setBanner(reader.result);
+      mutateUpload({ image: reader.result }, {
+        onSuccess: (data) => {
+          if(data){
+            setBanner(data.data?.body.image.url);
+          } else {
+            console.log("Image Upload Failed: file may be too large");
+            setBanner(null);
+          }
+        }, onError: () => {
+          setBanner(null);
+        }
+      })
+    }
+    reader.readAsDataURL(e.target.files[0])
   }
   const removeBanner = () => {
     setBanner(null);
@@ -71,23 +92,14 @@ const BlogCreate = () => {
     setBody((p) => p.filter((_, i) => i !== key));
   }
 
-  const { isLoading, data } = useQuery('me', () => {
-    return axios.get('/me');
-  })
+  // query user data
+  const { isLoading, data } = useGetUser()
 
-  const { isLoading: isPublishing, mutate: mutatePublish } = useMutation((body) => {
-    const config = {
-      headers: { "Content-Type": "application/json", withCredentials: true },
-    };
-    return axios.post('/blogs/create', body, config)
-  }, {
-    onError: (err) => {
-      console.log(parseError(err));
-    }
-  })
+  // mutation for publish
+  const { isLoading: isPublishing, mutate: mutatePublish } = useBlogCreate();
 
   // TODO:
-  // [ ] image has a local URI
+  // [X] image has a local URI
   // [ ] error display
   // [ ] implement draft
   // [ ] save to local storage
@@ -102,16 +114,17 @@ const BlogCreate = () => {
       return;
     }
 
-    if(body.length === 1 && body[0].value.trim().length === 0) {
+    if(body.length === 1 && body[0].value) {
       console.log("blog has no content");
       return;
     }
 
     const blog_body = {
       title: title.current.innerText.trim(),
+      description: description.current.innerText.trim(),
       tags: tags,
       image: banner,
-      body: body.map(({type, value}) => ({ type, value: value.trim()} ))
+      body: body.map(({type, value}) => ({ type, value: value} ))
     };
 
     if(to_draft){
@@ -140,8 +153,7 @@ const BlogCreate = () => {
   const bodyRef = useRef(null);
   const [navPrefer, setNavPrefer] = useState("primary");
 
-  const scrollListener = (e) => {
-    console.log(e);
+  const scrollListener = () => {
     if(window.scrollY >= bodyRef.current.offsetTop){
       setNavPrefer("secondary");
     } else {
@@ -160,6 +172,8 @@ const BlogCreate = () => {
       <Navigation preference={navPrefer}>
         <BlogCreateLinks/>
       </Navigation>
+
+      { isUploading && <ModalFloating element={{title: "Uploading image...", description: "Please keep writing"}}/> }
 
       <div className="blog_banner blog_create_variant">
         {banner && 

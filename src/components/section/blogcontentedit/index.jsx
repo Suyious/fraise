@@ -12,14 +12,38 @@ const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, re
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    if(value) content.current.innerText = value;
-  }, [type, id])
+    if(typeof value === "string"){
+      if(value) content.current.innerText = value;
+      setContent({
+        id: id,
+        type: type,
+        value: setContentValue(value) 
+      });
+    } else {
+      if(value.caption) content.current.innerText = value.caption;
+      setContent({
+        id: id,
+        type: type,
+        value: setContentValue(value.caption)
+      });
+    }
+  }, [type, id, image])
+
+  const setContentValue = (val) => {
+    if(type === "image"){
+      return {
+        caption: val.trim(),
+        url: image
+      }
+    }
+    return val;
+  }
 
   const contentUpdate = (e) => {
     setContent({
       id: id,
       type: type,
-      value: e.target.innerText 
+      value: setContentValue(e.target.innerText) 
     });
   }
 

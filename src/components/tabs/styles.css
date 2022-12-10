@@ -1,8 +1,9 @@
 .tabs {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	gap: 0.8em;
+	width: 100%;
+	overflow: scroll;
 }
 
 .tabs_tab_box {
@@ -11,4 +12,8 @@
 	padding: 0.5em 1em;
 	width: 8em;
 	cursor: pointer;
+}
+
+.tabs_tab_box.select {
+	border: 1px solid var(--green-accent);
 }

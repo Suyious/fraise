@@ -12,7 +12,7 @@
 	height: 30em;
 	font-family: Lato, sans-serif;
 	position: relative;
-	background: #304B47;
+	background: var(--green-primary);
 }
 
 .blog_banner_image_container {

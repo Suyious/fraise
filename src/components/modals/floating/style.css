@@ -1,0 +1,6 @@
+.modal_floating_wrapper {
+	max-width: 100vh;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}

@@ -6,8 +6,10 @@ import "./style.css"
 const ImageCard = ({blog}) => {
   return (
     <div className="image_card">
-      <Link to="/blogs/123">
-        <div className="image_card_container"><img alt="blog main background" className="image_card_image" src={blog.image} /></div>
+      <Link to={ `/blogs/${blog._id}` }>
+        <div className={ `image_card_container ${blog.image && "overlay"}` }>
+          { blog.image && <img alt="blog main background" className="image_card_image" src={blog.image} /> }
+        </div>
       </Link>
       <Link to="/blogs/123">
         <div className="image_card_title">

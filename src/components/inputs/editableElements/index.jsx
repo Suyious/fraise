@@ -3,6 +3,8 @@ import "./styles.css";
 import { ReactComponent as ImageIcon } from "../../../assets/icons/image.svg"
 import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import CallToActionButton from "../../buttons/calltoaction";
+import ModalFloating from "../../modals/floating";
+import useImageUpload from "../../../hooks/mutation/useImageUpload";
 
 const Editable = (
   { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage }
@@ -20,12 +22,20 @@ const Editable = (
   }
 
   // image editable
+  const { isLoading: isUploading, mutate: mutateUpload } = useImageUpload();
 
   // const [image, setImage] = useState(null);
   const addImage = (file) => {
     const reader = new FileReader();
     reader.onload = () => {
       setImage(reader.result);
+      mutateUpload({ image: reader.result }, {
+        onSuccess: (data) => {
+          setImage(data.data.body.image.url);
+        }, onError: () => {
+          setImage(null);
+        }
+      })
     }
     reader.readAsDataURL(file)
   }
@@ -91,6 +101,7 @@ const Editable = (
               <CallToActionButton> <ImageIcon/> Browse Files + </CallToActionButton>
               <input onChange={(e) => addImage(e.target.files[0])} id="editable_input_file" type="file" hidden accept=".jpg, .jpeg, .png"/>
             </label>
+            {isUploading && <ModalFloating element={ { title: "Uploading Image", description:"Go on. Keep Writing" }}/>}
             {image && <CallToActionButton onClick={removeImage}> <TrashIcon/> </CallToActionButton> }
           </div>
           </div>
