@@ -1,8 +1,7 @@
 import React, {useLayoutEffect, useState} from 'react';
-import ImageCard from '../../cards/imagecard';
 import "./style.css"
 
-const Grid = ({blogs}) => {
+const Grid = ({children}) => {
   
   const [num_of_columns, set_num_of_columns] = useState(3);
   let grid = [];
@@ -22,7 +21,7 @@ const Grid = ({blogs}) => {
 
   for(let i = 0; i < num_of_columns; i++) grid.push([]);
 
-  blogs.forEach(( blog, index ) => {
+  children.forEach(( blog, index ) => {
     grid[index % num_of_columns].push(blog);
   });
 
@@ -30,9 +29,7 @@ const Grid = ({blogs}) => {
     <div className="grid">
       {grid.map((col, i) => (
           <div className="grid_col" style={{"width": `${ 100 / num_of_columns }%`}} key={i}>{
-            col.map((blog, j) => (<div className="grid_image"key={j}>
-                  <ImageCard blog={blog} />
-              </div>))
+            col.map((blog, j) => <div key={j}>{ blog }</div>)
           }</div>
       ))}
     </div>
