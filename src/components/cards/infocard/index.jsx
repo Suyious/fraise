@@ -31,7 +31,7 @@ const Infocard = ({blog = temp}) => {
           <div className="infocard_bottom_image"></div>
           <span>{blog.author.name}</span>
         </div>
-        <Link to="/blogs/123"><div className="infocard_bottom_right">Read Blog</div></Link>
+        <Link to={`/blogs/${blog._id}`}><div className="infocard_bottom_right">Read Blog</div></Link>
       </div>
     </div>
   )

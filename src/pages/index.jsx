@@ -3,13 +3,13 @@ import Loader from "../components/loader";
 import Search from "../components/search";
 import Slider from "../components/slider";
 import "./styles.css";
-import data from "../assets/blogs/index"
+// import data from "../assets/blogs/index"
 import {useNavigate} from "react-router";
 import useGetBlogs from "../hooks/query/useGetBlogs";
 
 const Home = () => {
 
-  const { isLoading, isError } = useGetBlogs();
+  const { isLoading, isError, data } = useGetBlogs();
   const searchref = useRef(null);
   const navigate = useNavigate();
 

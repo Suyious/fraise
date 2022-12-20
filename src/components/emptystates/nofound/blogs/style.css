@@ -1,7 +1,8 @@
 .blog_card_no_blog {
-	max-width: 90vw;
-	width: 500px;
+	width: 25em;
+	max-width: 80vw;
 	margin: 0 auto;
+	margin-top: 5em;
 }
 
 .blog_card_no_blog_section {

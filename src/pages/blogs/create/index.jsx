@@ -4,9 +4,10 @@ import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
 import {ReactComponent as EditIcon} from "../../../assets/icons/edit.svg"
 import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg"
 import Editable from "../../../components/inputs/editableElements"
-import ModalFloating from "../../../components/modals/floating"
+import ModalFloatingStack from "../../../components/modals/stack"
 import Navigation from "../../../components/navigation"
 import BlogContentEdit from "../../../components/section/blogcontentedit"
+import useStackImageUploadStatus from "../../../hooks/effects/useStackStatus"
 import useBlogCreate from "../../../hooks/mutation/useBlogCreate"
 import useImageUpload from "../../../hooks/mutation/useImageUpload"
 import useGetUser from "../../../hooks/query/useGetUser"
@@ -15,6 +16,8 @@ import "./styles.css"
 const BlogCreate = () => {
   
   const navigate = useNavigate();
+
+  const [notificationStack, setNotificationStack] = useState([]);
 
   // blog content states and refs
   const title = useRef(null);
@@ -64,6 +67,8 @@ const BlogCreate = () => {
     setBanner(null);
   }
 
+  useStackImageUploadStatus(isUploading, setNotificationStack);
+
   const addToBody = (index) => {
     if(index === body.length - 1) {
       setBody((p) => [...p, {
@@ -100,31 +105,36 @@ const BlogCreate = () => {
 
   // TODO:
   // [X] image has a local URI
-  // [ ] error display
-  // [ ] implement draft
-  // [ ] save to local storage
+  // [X] error display stack
+  // [X] implement draft
   // [ ] implement update draft
   // [ ] implement publish drafted
   // [ ] create blog/create/:blogid to edit drafts
+  // [ ] save to local storage
 
   const publish = (to_draft = false) => {
 
-    if(title.current.innerText.trim().length === 0) {
-      console.log("title empty");
+    if(notificationStack.length > 0) {
       return;
     }
 
-    if(body.length === 1 && body[0].value) {
-      console.log("blog has no content");
+    if(title.current.innerText.trim().length === 0) {
+      let notif_id = Date.now();
+      setNotificationStack((prev) => [ ...prev, { title: "Title Empty!", description: "Please provide a title for the blog.", id: notif_id } ]);
+      setTimeout(() => {
+        setNotificationStack((prev) => prev.filter(n => n.id !== notif_id));
+      }, 2000)
       return;
     }
+
+    // implement check if blog content is empty
 
     const blog_body = {
       title: title.current.innerText.trim(),
       description: description.current.innerText.trim(),
       tags: tags,
       image: banner,
-      body: body.map(({type, value}) => ({ type, value: value} ))
+      body: body.map(({type, value}) => ({ type, value: value }))
     };
 
     if(to_draft){
@@ -133,7 +143,6 @@ const BlogCreate = () => {
 
     mutatePublish( blog_body, {
       onSuccess: (data) => {
-        console.log(data.data.blog);
         navigate(`/blogs/${data.data.blog._id}`);
       }
     })
@@ -173,7 +182,7 @@ const BlogCreate = () => {
         <BlogCreateLinks/>
       </Navigation>
 
-      { isUploading && <ModalFloating element={{title: "Uploading image...", description: "Please keep writing"}}/> }
+    { notificationStack.length > 0 && <ModalFloatingStack elements={notificationStack} setElement={setNotificationStack}/> }
 
       <div className="blog_banner blog_create_variant">
         {banner && 
@@ -229,10 +238,19 @@ const BlogCreate = () => {
       </div>
 
       <div ref={bodyRef} className="blog_body blog_width blog_create_variant">
-        {body.map((section, index) => (
-            <BlogContentEdit type={section.type} value={section.value} key={section.id} id={section.id} setContent={(b) => editBody(index, b)} addContent={() => addToBody(index)} removeContent={() => removeFromBody(index)}/>
-        ))}
-      </div>
+        { body.map((section, index) => (
+          <BlogContentEdit 
+            type={section.type}
+            value={section.value}
+            key={section.id}
+            id={section.id} 
+            setContent={(b) => editBody(index, b)} addContent={() => addToBody(index)}
+            removeContent={() => removeFromBody(index)} 
+            stack={notificationStack} 
+            setStack={setNotificationStack}
+          />
+        )) }
+    </div>
 
     </div>
   )

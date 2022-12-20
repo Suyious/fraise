@@ -1,13 +1,13 @@
-import React, {useState} from "react";
-import "./styles.css";
-import { ReactComponent as ImageIcon } from "../../../assets/icons/image.svg"
-import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg"
-import CallToActionButton from "../../buttons/calltoaction";
-import ModalFloating from "../../modals/floating";
+import {useState} from "react";
+import {ReactComponent as TrashIcon} from "../../../assets/icons/delete.svg";
+import {ReactComponent as ImageIcon} from "../../../assets/icons/image.svg";
+import useStackImageUploadStatus from "../../../hooks/effects/useStackStatus";
 import useImageUpload from "../../../hooks/mutation/useImageUpload";
+import CallToActionButton from "../../buttons/calltoaction";
+import "./styles.css";
 
 const Editable = (
-  { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage }
+  { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage, setStack}
 ) => {
 
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -50,6 +50,8 @@ const Editable = (
     e.preventDefault();
     addImage(e.dataTransfer.files[0]);
   }
+
+  useStackImageUploadStatus(isUploading, setStack);
 
   // moving the switch case to another component will lead to re-renders
   // you are adviced to expect things to not work if that is done
@@ -101,7 +103,6 @@ const Editable = (
               <CallToActionButton> <ImageIcon/> Browse Files + </CallToActionButton>
               <input onChange={(e) => addImage(e.target.files[0])} id="editable_input_file" type="file" hidden accept=".jpg, .jpeg, .png"/>
             </label>
-            {isUploading && <ModalFloating element={ { title: "Uploading Image", description:"Go on. Keep Writing" }}/>}
             {image && <CallToActionButton onClick={removeImage}> <TrashIcon/> </CallToActionButton> }
           </div>
           </div>

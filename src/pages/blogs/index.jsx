@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./styles.css"
 import Grid from '../../components/layout/grid'
 import { ReactComponent as FilterIcon } from "../../assets/icons/filter.svg"
 import Tabs from '../../components/tabs'
 import {useQuery} from 'react-query'
 import axios from "../../utils/axios"
-import {Link, useSearchParams} from 'react-router-dom'
+import {useSearchParams} from 'react-router-dom'
 import ImageCard from '../../components/cards/imagecard'
 import LoadingBlogCard from '../../components/emptystates/loading/blogcard'
 import NoFoundBlogs from '../../components/emptystates/nofound/blogs'

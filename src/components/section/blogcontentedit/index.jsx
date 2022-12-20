@@ -6,7 +6,7 @@ import {ReactComponent as CodeIcon} from "../../../assets/icons/code.svg"
 import {useEffect, useRef, useState} from "react"
 import Editable from "../../inputs/editableElements"
 
-const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, removeContent }) => {
+const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, removeContent, stack, setStack}) => {
 
   const content = useRef(null);
   const [image, setImage] = useState(null);
@@ -57,7 +57,7 @@ const BlogContentEdit = ({ value="", type="text", id, setContent, addContent, re
 
   return(
     <div className="blog_content_main blog_content_edit">
-      <Editable role={type} input_ref={content} className="articlesection_input" placeholder="Start writing your content" onChange={contentUpdate} image={image} setImage={setImage}/>
+      <Editable role={type} input_ref={content} className="articlesection_input" placeholder="Start writing your content" onChange={contentUpdate} image={image} setImage={setImage}stack={stack} setStack={setStack}/>
       <div className="blog_content_edit_bottom_wrapper">
         <div className="blog_content_edit_bottom">
           <button onClick={addContent}>Add a section +</button>

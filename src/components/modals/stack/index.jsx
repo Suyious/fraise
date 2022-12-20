@@ -6,10 +6,10 @@ const ModalFloatingStack = ({ elements, setElement }) => {
   const removeElement = (index) => {
     setElement(elems => elems.filter((_, i) => i !== index));
   }
-
-  return(
+  
+  return (
     <div className="modal_floating_stack_wrapper">
-      { elements.map(({title, description}, i) => <ModalBox key={i} title={title} description={description} setClose={() => removeElement(i)}/>) }
+      { elements.map(({title, description, id}, i) => <ModalBox key={id} title={title} description={description} setClose={() => removeElement(i)}/>) }
     </div>
   )
 }
