@@ -11,13 +11,14 @@ import useStackImageUploadStatus from "../../../hooks/effects/useStackStatus"
 import useBlogCreate from "../../../hooks/mutation/useBlogCreate"
 import useImageUpload from "../../../hooks/mutation/useImageUpload"
 import useGetUser from "../../../hooks/query/useGetUser"
+import useNotificationStack from "../../../hooks/state/useNotificationStack"
 import "./styles.css"
 
 const BlogCreate = () => {
   
   const navigate = useNavigate();
 
-  const [notificationStack, setNotificationStack] = useState([]);
+  const [notificationStack, pushNotificationStack, popNotificationStack, editNotificationStack, hideNotificationStack] = useNotificationStack();
 
   // blog content states and refs
   const title = useRef(null);
@@ -67,7 +68,7 @@ const BlogCreate = () => {
     setBanner(null);
   }
 
-  useStackImageUploadStatus(isUploading, setNotificationStack);
+  useStackImageUploadStatus(isUploading, pushNotificationStack, popNotificationStack, editNotificationStack);
 
   const addToBody = (index) => {
     if(index === body.length - 1) {
@@ -119,10 +120,9 @@ const BlogCreate = () => {
     }
 
     if(title.current.innerText.trim().length === 0) {
-      let notif_id = Date.now();
-      setNotificationStack((prev) => [ ...prev, { title: "Title Empty!", description: "Please provide a title for the blog.", id: notif_id } ]);
+      let notif_id = pushNotificationStack("Title Empty!", "Please provide a title for the blog.");
       setTimeout(() => {
-        setNotificationStack((prev) => prev.filter(n => n.id !== notif_id));
+        popNotificationStack(notif_id);
       }, 2000)
       return;
     }
@@ -182,7 +182,7 @@ const BlogCreate = () => {
         <BlogCreateLinks/>
       </Navigation>
 
-    { notificationStack.length > 0 && <ModalFloatingStack elements={notificationStack} setElement={setNotificationStack}/> }
+    { notificationStack.length > 0 && <ModalFloatingStack elements={notificationStack} hideElement={hideNotificationStack}/> }
 
       <div className="blog_banner blog_create_variant">
         {banner && 
@@ -247,7 +247,9 @@ const BlogCreate = () => {
             setContent={(b) => editBody(index, b)} addContent={() => addToBody(index)}
             removeContent={() => removeFromBody(index)} 
             stack={notificationStack} 
-            setStack={setNotificationStack}
+            pushStack={pushNotificationStack}
+            popStack={popNotificationStack}
+            editStack={editNotificationStack}
           />
         )) }
     </div>

@@ -7,7 +7,7 @@ import CallToActionButton from "../../buttons/calltoaction";
 import "./styles.css";
 
 const Editable = (
-  { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage, setStack}
+  { className, placeholder="", role="text", name="", input_ref, onChange, image, setImage, pushStack, popStack, editStack}
 ) => {
 
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -51,7 +51,7 @@ const Editable = (
     addImage(e.dataTransfer.files[0]);
   }
 
-  useStackImageUploadStatus(isUploading, setStack);
+  useStackImageUploadStatus(isUploading, pushStack, popStack, editStack);
 
   // moving the switch case to another component will lead to re-renders
   // you are adviced to expect things to not work if that is done

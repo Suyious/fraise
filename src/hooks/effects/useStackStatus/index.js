@@ -1,30 +1,18 @@
 import {useEffect, useState} from "react";
 
-const useStackImageUploadStatus = (isLoading, setStack) => {
+const useStackImageUploadStatus = (isLoading, pushStack, popStack, editStack) => {
 
   const [image_notif_id, setImage_notif_id] = useState(undefined);
 
   useEffect(() => {
     if(isLoading) {
-      let notif_id = Date.now();
+      let notif_id = pushStack("Uploading Image!", "Please continue writing while the upload proceeds.")
       setImage_notif_id(notif_id);
-      setStack((prev) => [ ...prev, {
-        title: "Uploading Image!",
-        description: "Please continue writing while the upload proceeds.",
-        id: notif_id
-      } ]);
     } else {
       if(image_notif_id) {
-        setStack((prev) => prev.map((elem) => {
-          if(elem.id === image_notif_id) return {
-            title: "Upload Complete",
-            description: "Image is now uploaded.",
-            id: image_notif_id
-          }
-          return elem;
-        }))
+        editStack("Upload Complete", "Image is now uploaded.", image_notif_id);
         setTimeout(() => {
-          setStack((prev) => prev.filter(elem => elem.id !== image_notif_id))
+          popStack(image_notif_id);
         }, 2000)
       }
     }
