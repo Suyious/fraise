@@ -107,7 +107,6 @@
 .nav.secondary .nav_link:hover{
     background: var(--green-accent-alpha);
 	color: var(--green-accent);
-	font-weight: 700;
 }
 
 .nav.secondary .nav_link.primary:hover{
