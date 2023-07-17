@@ -6,14 +6,15 @@ const Loader = () => {
   const [progress, setProgress] = useState(0);
   const [delayed, setDelayed] = useState(false);
   const requestRef = useRef();
-  const prevtimeRef = useRef();
+  // const prevtimeRef = useRef();
 
   const animate = useCallback(time => {
-    if(prevtimeRef.current !== undefined){
-      const deltaTime = time - prevtimeRef.current;
-      setProgress(prevCount => (prevCount + deltaTime * 0.01) % 100);
-    }
-    prevtimeRef.current = time;
+    // if(prevtimeRef.current !== undefined){
+    //   const deltaTime = time - prevtimeRef.current;
+    //   setProgress(prevCount => (prevCount + deltaTime * 0.01) % 100);
+    // }
+    setProgress(() => 100 * (1- Math.exp(-0.0001 * time)));
+    // prevtimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
   }, [])
 
