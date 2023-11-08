@@ -4,6 +4,12 @@
 	gap: 0.8em;
 	width: 100%;
 	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+	display: none;
 }
 
 .tabs_tab_box {
