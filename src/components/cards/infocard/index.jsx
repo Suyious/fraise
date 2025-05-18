@@ -1,6 +1,6 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import "./styles.css"
+import { timeAgo } from "../../../utils/dateFormat";
 
 const temp = {
   author: { name: "Terry Ward" },
@@ -25,11 +25,17 @@ const Infocard = ({blog = temp}) => {
         <h2 className="infocard_title">{blog.title}</h2>
       </Link>
       <p className="infocard_description">{blog.description ? blog.description.length > 150?  blog.description.slice(0, 150) + "...": blog.description : "No Description provided"}</p>
-      <span className="infocard_timestamp">5h ago</span>
+      <span className="infocard_timestamp">{ timeAgo(blog.createdAt) }</span>
       <div className="infocard_bottom">
         <div className="infocard_bottom_left">
-          <div className="infocard_bottom_image"></div>
-          <span>{blog.author.name}</span>
+          <Link to={ `/user/${blog.author._id}` }>
+            <div className="infocard_bottom_avatar">
+              <img className="infocard_bottom_avatar_image" src={blog.author.avatar.url} alt="" />
+            </div>
+          </Link>
+          <Link to={ `/user/${blog.author._id}` }>
+            <span>{blog.author.name}</span>
+          </Link>
         </div>
         <Link to={`/blogs/${blog._id}`}><div className="infocard_bottom_right">Read Blog</div></Link>
       </div>

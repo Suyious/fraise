@@ -81,7 +81,7 @@
 }
 
 .blog_body {
-	padding-top: 3em;
+	padding-block: 3em;
 	display: flex;
 	flex-direction: column;
 	gap: 1.5em;

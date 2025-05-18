@@ -10,7 +10,7 @@
 }
 
 .blog_content_main p {
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 .blog_content_main blockquote {
@@ -24,6 +24,7 @@
 .blog_content_main figcaption {
 	text-align: center;
 	opacity: 0.9;
+	font-size: 0.9em;
 }
 
 .blog_content_main img {

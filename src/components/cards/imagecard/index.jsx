@@ -1,6 +1,6 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import Infocard from "../infocard";
+import { timeAgo } from "../../../utils/dateFormat";
 import "./style.css"
 
 const ImageCard = ({blog}) => {
@@ -14,7 +14,7 @@ const ImageCard = ({blog}) => {
       <Link to="/blogs/123">
         <div className="image_card_title">
           <h2>{blog.title}</h2>
-          <span className="infocard_timestamp">5h ago</span>
+          <span className="infocard_timestamp">{timeAgo(blog.createdAt)}</span>
         </div>
       </Link>
       <div className="image_card_description"><Infocard blog={blog}/></div>

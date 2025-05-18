@@ -6,6 +6,8 @@ import {useParams} from "react-router";
 import Navigation from "../../../components/navigation";
 import NavLinks from "../../../components/section/navlinks";
 import useGetBlog from "../../../hooks/query/useGetBlog";
+import { timeAgo } from "../../../utils/dateFormat";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
 
@@ -55,10 +57,14 @@ const Blog = () => {
             </div>
             <div className="blog_banner_author">
               <div className="blog_banner_author_wrapper">
-                <div className="blog_banner_author_avatar"> </div>
+                {!isLoading && <Link to={ `/user/${blog.author._id}` }>
+                  <div className="blog_banner_author_avatar">
+                    <img className="blog_banner_author_avatar_image" src={blog.author.avatar.url} alt="" />
+                  </div>
+                </Link>}
                 <div className="blog_banner_author_text">
-                  <div className="blog_banner_author_name">{ !isLoading && blog.author.name }</div>
-                  <div className="blog_banner_publish_date">5h ago</div>
+                  <div className="blog_banner_author_name">{ !isLoading && <Link to={ `/user/${blog.author._id}` }>{blog.author.name}</Link>  }</div>
+                  <div className="blog_banner_publish_date">{ !isLoading && timeAgo(blog.createdAt) }</div>
                 </div>
               </div>
               <div className={ `blog_banner_blog_save ${false && saved}` }>
